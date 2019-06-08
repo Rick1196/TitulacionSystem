@@ -1,6 +1,7 @@
 
 * Sistema de titulacion, Facultad de Ingenieria UAEMex
-** Herramientas de desarrollo
+
+ ** Herramientas de desarrollo
  - Laravel 5.7
  - PHP 7.2
  - MySql 5.6
