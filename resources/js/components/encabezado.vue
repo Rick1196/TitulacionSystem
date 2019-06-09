@@ -5,7 +5,7 @@
         </h1>
         <div class="jumbotron">
             <h3>
-            <p class="text-justified">
+            <p class="text-justified" v-if="alumno">
                 Quien suscribe, {{' '+alumno.nombre.toUpperCase() + ' ' + alumno.paterno.toUpperCase() + ' ' + alumno.materno.toUpperCase()+' '}}, con número de cuenta: {{alumno.cuenta}} , pasante de: 
                 {{alumno.descripcion.toUpperCase()}}
             </p>
@@ -29,7 +29,7 @@ export default {
     props:['usr', 'tipo', 'value'],
     data(){
         return{
-            alumno:{},
+            alumno:null,
             tema:'',
             errores:[],
         }

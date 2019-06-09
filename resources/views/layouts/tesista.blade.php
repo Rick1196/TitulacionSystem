@@ -27,10 +27,11 @@
                         Seguimiento
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="">Listar misprotocolos</a>
+                        <a class="dropdown-item" href="{{route('protocolos.listar',Auth::user()->id)}}">Listar misprotocolos</a>
                         <div class="dropdown-divider"></div>
                     </div>
                 </li>
+                @if(!Auth::user()->hasRegisters(Auth::user()->id))
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Registrar un protocolo
@@ -54,6 +55,7 @@
                         <div class="dropdown-divider"></div>
                     </div>
                 </li>
+                @endif
             </ul>
             <ul class="navbar-nav">
             @guest

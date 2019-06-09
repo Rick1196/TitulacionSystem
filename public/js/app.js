@@ -4261,15 +4261,15 @@ __webpack_require__.r(__webpack_exports__);
     guardar: function guardar() {
       var _this3 = this;
 
-      var url = "/postArticulo";
+      var url = "/postAppCon";
       axios.post(url, {
         titulo: this.protocolo.titulo,
         area: this.protocolo.area,
         asesor: this.protocolo.asesor.id,
-        plant: this.protocolo.coasesor.id,
-        just: this.protocolo.revista,
-        obj: this.protocolo.indice,
-        metodologia: this.protocolo.desc,
+        plant: this.protocolo.plant,
+        just: this.protocolo.just,
+        obj: this.protocolo.obj,
+        metodologia: this.protocolo.metodologia,
         crono: this.protocolo.crono,
         refs: this.protocolo.refs,
         usr: this.usr,
@@ -4651,7 +4651,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['usr', 'tipo', 'value'],
   data: function data() {
     return {
-      alumno: {},
+      alumno: null,
       tema: '',
       errores: []
     };
@@ -4806,71 +4806,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -4891,19 +4826,14 @@ __webpack_require__.r(__webpack_exports__);
       asignacion: 0,
       //0 -> asesor, 1->coasesor
       protocolo: {
-        titulo: '',
         area: '',
         asesor: {
           id: '',
           nombre: ''
         },
-        coasesor: {
-          id: '',
-          nombre: ''
-        },
-        revista: '',
-        indice: '',
         desc: '',
+        just: '',
+        crono: '',
         refs: '',
         tema: '',
         sus: []
@@ -4945,15 +4875,13 @@ __webpack_require__.r(__webpack_exports__);
     guardar: function guardar() {
       var _this3 = this;
 
-      var url = "/postArticulo";
+      var url = "/postEnsayo";
       axios.post(url, {
-        titulo: this.protocolo.titulo,
         area: this.protocolo.area,
         asesor: this.protocolo.asesor.id,
-        coasesor: this.protocolo.coasesor.id,
-        revista: this.protocolo.revista,
-        indice: this.protocolo.indice,
         desc: this.protocolo.desc,
+        just: this.protocolo.just,
+        crono: this.protocolo.crono,
         refs: this.protocolo.refs,
         usr: this.usr,
         tema: this.protocolo.tema,
@@ -5184,30 +5112,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -5234,13 +5138,12 @@ __webpack_require__.r(__webpack_exports__);
           id: '',
           nombre: ''
         },
-        coasesor: {
-          id: '',
-          nombre: ''
-        },
-        revista: '',
-        indice: '',
+        inicio: '',
+        fin: '',
         desc: '',
+        just: '',
+        obj: '',
+        crono: '',
         refs: '',
         tema: '',
         sus: []
@@ -5282,15 +5185,17 @@ __webpack_require__.r(__webpack_exports__);
     guardar: function guardar() {
       var _this3 = this;
 
-      var url = "/postArticulo";
+      var url = "/postExpLab";
       axios.post(url, {
         titulo: this.protocolo.titulo,
         area: this.protocolo.area,
         asesor: this.protocolo.asesor.id,
-        coasesor: this.protocolo.coasesor.id,
-        revista: this.protocolo.revista,
-        indice: this.protocolo.indice,
-        desc: this.protocolo.desc,
+        inicio: this.protocolo.inicio,
+        fin: this.protocolo.fin,
+        desc_exp: this.protocolo.desc,
+        just: this.protocolo.just,
+        obj: this.protocolo.obj,
+        crono: this.protocolo.crono,
         refs: this.protocolo.refs,
         usr: this.usr,
         tema: this.protocolo.tema,
@@ -5522,36 +5427,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -5578,13 +5453,12 @@ __webpack_require__.r(__webpack_exports__);
           id: '',
           nombre: ''
         },
-        coasesor: {
-          id: '',
-          nombre: ''
-        },
-        revista: '',
-        indice: '',
-        desc: '',
+        inicio: '',
+        fin: '',
+        plant: '',
+        just: '',
+        obj: '',
+        crono: '',
         refs: '',
         tema: '',
         sus: []
@@ -5626,15 +5500,18 @@ __webpack_require__.r(__webpack_exports__);
     guardar: function guardar() {
       var _this3 = this;
 
-      var url = "/postArticulo";
+      var url = "/postRepAut";
       axios.post(url, {
         titulo: this.protocolo.titulo,
         area: this.protocolo.area,
         asesor: this.protocolo.asesor.id,
-        coasesor: this.protocolo.coasesor.id,
-        revista: this.protocolo.revista,
-        indice: this.protocolo.indice,
+        inicio: this.protocolo.inicio,
+        fin: this.protocolo.fin,
         desc: this.protocolo.desc,
+        obj: this.protocolo.obj,
+        just: this.protocolo.just,
+        plant: this.protocolo.plant,
+        crono: this.protocolo.crono,
         refs: this.protocolo.refs,
         usr: this.usr,
         tema: this.protocolo.tema,
@@ -5882,13 +5759,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -5909,7 +5779,9 @@ __webpack_require__.r(__webpack_exports__);
       asignacion: 0,
       //0 -> asesor, 1->coasesor
       protocolo: {
-        titulo: '',
+        inicio: '',
+        fin: '',
+        titulo_proyecto: '',
         area: '',
         asesor: {
           id: '',
@@ -5919,10 +5791,11 @@ __webpack_require__.r(__webpack_exports__);
           id: '',
           nombre: ''
         },
-        revista: '',
-        indice: '',
+        responsable: '',
         desc: '',
-        refs: '',
+        titulo_reporte: '',
+        obj: '',
+        crono: '',
         tema: '',
         sus: []
       },
@@ -5963,19 +5836,23 @@ __webpack_require__.r(__webpack_exports__);
     guardar: function guardar() {
       var _this3 = this;
 
-      var url = "/postArticulo";
+      var url = "/postResInv";
       axios.post(url, {
-        titulo: this.protocolo.titulo,
+        inicio: this.protocolo.inicio,
+        fin: this.protocolo.fin,
+        titulo_proyecto: this.protocolo.titulo_proyecto,
         area: this.protocolo.area,
         asesor: this.protocolo.asesor.id,
         coasesor: this.protocolo.coasesor.id,
-        revista: this.protocolo.revista,
-        indice: this.protocolo.indice,
+        responsable: this.protocolo.responsable,
         desc: this.protocolo.desc,
-        refs: this.protocolo.refs,
-        usr: this.usr,
+        titulo_reporte: this.protocolo.titulo_reporte,
+        obj: this.protocolo.obj,
+        crono: this.protocolo.crono,
         tema: this.protocolo.tema,
-        sus: this.protocolo.sus
+        sus: this.protocolo.sus,
+        clave: this.protocolo.clave,
+        usr: this.usr
       }).then(function (response) {
         _this3.errores = [];
         /*
@@ -6421,46 +6298,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -6487,13 +6324,11 @@ __webpack_require__.r(__webpack_exports__);
           id: '',
           nombre: ''
         },
-        coasesor: {
-          id: '',
-          nombre: ''
-        },
-        revista: '',
-        indice: '',
-        desc: '',
+        plant: '',
+        just: '',
+        obj: '',
+        metodologia: '',
+        crono: '',
         refs: '',
         tema: '',
         sus: []
@@ -6535,15 +6370,16 @@ __webpack_require__.r(__webpack_exports__);
     guardar: function guardar() {
       var _this3 = this;
 
-      var url = "/postArticulo";
+      var url = "/postTesina";
       axios.post(url, {
         titulo: this.protocolo.titulo,
         area: this.protocolo.area,
         asesor: this.protocolo.asesor.id,
-        coasesor: this.protocolo.coasesor.id,
-        revista: this.protocolo.revista,
-        indice: this.protocolo.indice,
-        desc: this.protocolo.desc,
+        plant: this.protocolo.plant,
+        just: this.protocolo.just,
+        obj: this.protocolo.obj,
+        metodologia: this.protocolo.metodologia,
+        crono: this.protocolo.crono,
         refs: this.protocolo.refs,
         usr: this.usr,
         tema: this.protocolo.tema,
@@ -6788,29 +6624,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -6841,9 +6654,12 @@ __webpack_require__.r(__webpack_exports__);
           id: '',
           nombre: ''
         },
-        revista: '',
-        indice: '',
-        desc: '',
+        plant: '',
+        just: '',
+        hipotesis: '',
+        obj: '',
+        metodologia: '',
+        crono: '',
         refs: '',
         tema: '',
         sus: []
@@ -6885,15 +6701,18 @@ __webpack_require__.r(__webpack_exports__);
     guardar: function guardar() {
       var _this3 = this;
 
-      var url = "/postArticulo";
+      var url = "/postTesis";
       axios.post(url, {
         titulo: this.protocolo.titulo,
         area: this.protocolo.area,
         asesor: this.protocolo.asesor.id,
         coasesor: this.protocolo.coasesor.id,
-        revista: this.protocolo.revista,
-        indice: this.protocolo.indice,
-        desc: this.protocolo.desc,
+        planteamiento: this.protocolo.plant,
+        just: this.protocolo.just,
+        hipotesis: this.protocolo.hipotesis,
+        obj: this.protocolo.obj,
+        metodologia: this.protocolo.metodologia,
+        crono: this.protocolo.crono,
         refs: this.protocolo.refs,
         usr: this.usr,
         tema: this.protocolo.tema,
@@ -63682,7 +63501,10 @@ var render = function() {
       { staticClass: "container" },
       [
         _c("cabeza", {
-          attrs: { usr: _vm.usr, tipo: "Ensayo" },
+          attrs: {
+            usr: _vm.usr,
+            tipo: "Reporte de aplicacion de conocimientos"
+          },
           model: {
             value: _vm.protocolo.tema,
             callback: function($$v) {
@@ -63921,11 +63743,11 @@ var render = function() {
             init: { plugins: "table help" }
           },
           model: {
-            value: _vm.protocolo.refs,
+            value: _vm.protocolo.plant,
             callback: function($$v) {
-              _vm.$set(_vm.protocolo, "refs", $$v)
+              _vm.$set(_vm.protocolo, "plant", $$v)
             },
-            expression: "protocolo.refs"
+            expression: "protocolo.plant"
           }
         }),
         _vm._v(" "),
@@ -65191,25 +65013,27 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "jumbotron" }, [
       _c("h3", [
-        _c("p", { staticClass: "text-justified" }, [
-          _vm._v(
-            "\n            Quien suscribe, " +
-              _vm._s(
-                " " +
-                  _vm.alumno.nombre.toUpperCase() +
-                  " " +
-                  _vm.alumno.paterno.toUpperCase() +
-                  " " +
-                  _vm.alumno.materno.toUpperCase() +
-                  " "
-              ) +
-              ", con número de cuenta: " +
-              _vm._s(_vm.alumno.cuenta) +
-              " , pasante de: \n            " +
-              _vm._s(_vm.alumno.descripcion.toUpperCase()) +
-              "\n        "
-          )
-        ])
+        _vm.alumno
+          ? _c("p", { staticClass: "text-justified" }, [
+              _vm._v(
+                "\n            Quien suscribe, " +
+                  _vm._s(
+                    " " +
+                      _vm.alumno.nombre.toUpperCase() +
+                      " " +
+                      _vm.alumno.paterno.toUpperCase() +
+                      " " +
+                      _vm.alumno.materno.toUpperCase() +
+                      " "
+                  ) +
+                  ", con número de cuenta: " +
+                  _vm._s(_vm.alumno.cuenta) +
+                  " , pasante de: \n            " +
+                  _vm._s(_vm.alumno.descripcion.toUpperCase()) +
+                  "\n        "
+              )
+            ])
+          : _vm._e()
       ]),
       _vm._v(" "),
       _c("h3", [
@@ -65292,10 +65116,7 @@ var render = function() {
       { staticClass: "container" },
       [
         _c("cabeza", {
-          attrs: {
-            usr: _vm.usr,
-            tipo: "Artículo especializado para publicar en revista indizada"
-          },
+          attrs: { usr: _vm.usr, tipo: "Ensayo" },
           model: {
             value: _vm.protocolo.tema,
             callback: function($$v) {
@@ -65307,66 +65128,6 @@ var render = function() {
       ],
       1
     ),
-    _vm._v(" "),
-    _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Título tentativo del artículo especializado")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.protocolo.titulo,
-            expression: "protocolo.titulo"
-          }
-        ],
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Especificar claramente el qué, es decir, el objeto de estudio."
-        },
-        domProps: { value: _vm.protocolo.titulo },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.protocolo, "titulo", $event.target.value)
-          }
-        }
-      }),
-      _vm._v(" "),
-      _vm.errores.titulo
-        ? _c(
-            "small",
-            {
-              staticClass: "form-text text-muted ",
-              attrs: { id: "passwordHelpBlock" }
-            },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "font-weight-bold text-uppercase",
-                  staticStyle: { color: "red" }
-                },
-                [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.errores.titulo[0]) +
-                      "\n                "
-                  )
-                ]
-              )
-            ]
-          )
-        : _vm._e()
-    ]),
     _vm._v(" "),
     _c("div", { staticClass: "form-group" }, [
       _c("label", { attrs: { for: "exampleInputEmail1" } }, [
@@ -65428,9 +65189,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
+                    "\n                " +
                       _vm._s(_vm.errores.area[0]) +
-                      "\n                "
+                      "\n            "
                   )
                 ]
               )
@@ -65509,220 +65270,23 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
+                    "\n                " +
                       _vm._s(_vm.errores.asesor[0]) +
-                      "\n                "
+                      "\n            "
                   )
                 ]
               )
             ]
           )
         : _vm._e()
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Coasesor")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "input-group mb-3" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.protocolo.coasesor.nombre,
-              expression: "protocolo.coasesor.nombre"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            disabled: "",
-            placeholder:
-              "Nombre del coasesor adscrito a la UAEM (propuesto por el sustentante).",
-            "aria-label": "Recipient's username",
-            "aria-describedby": "basic-addon2"
-          },
-          domProps: { value: _vm.protocolo.coasesor.nombre },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.protocolo.coasesor, "nombre", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group-append" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-outline-secondary",
-              attrs: {
-                type: "button",
-                "data-toggle": "modal",
-                "data-target": "#buscador"
-              },
-              on: {
-                click: function($event) {
-                  _vm.asignacion = 1
-                }
-              }
-            },
-            [_vm._v("Buscar "), _c("i", { staticClass: "fas fa-search" })]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _vm.errores.coasesor
-        ? _c(
-            "small",
-            {
-              staticClass: "form-text text-muted",
-              attrs: { id: "passwordHelpBlock" }
-            },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "font-weight-bold text-uppercase",
-                  staticStyle: { color: "red" }
-                },
-                [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.errores.coasesor[0]) +
-                      "\n                "
-                  )
-                ]
-              )
-            ]
-          )
-        : _vm._e()
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "form-row" }, [
-      _c("div", { staticClass: "col" }, [
-        _c("label", { attrs: { for: "inputEmail4" } }, [
-          _vm._v("Nombre de la revista indizada")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.protocolo.revista,
-              expression: "protocolo.revista"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { type: "text" },
-          domProps: { value: _vm.protocolo.revista },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.protocolo, "revista", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm.errores.revista
-          ? _c(
-              "small",
-              {
-                staticClass: "form-text text-muted",
-                attrs: { id: "passwordHelpBlock" }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "font-weight-bold text-uppercase",
-                    staticStyle: { color: "red" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.errores.revista[0]) +
-                        "\n                    "
-                    )
-                  ]
-                )
-              ]
-            )
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c("label", { attrs: { for: "inputEmail4" } }, [
-          _vm._v("Nombre del índice")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.protocolo.indice,
-              expression: "protocolo.indice"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            placeholder:
-              "Nombre y URL que avale la pertenencia de la revista  a algún índice"
-          },
-          domProps: { value: _vm.protocolo.indice },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.protocolo, "indice", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm.errores.indice
-          ? _c(
-              "small",
-              {
-                staticClass: "form-text text-muted",
-                attrs: { id: "passwordHelpBlock" }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "font-weight-bold text-uppercase",
-                    staticStyle: { color: "red" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.errores.indice[0]) +
-                        "\n                    "
-                    )
-                  ]
-                )
-              ]
-            )
-          : _vm._e()
-      ])
     ]),
     _vm._v(" "),
     _c(
       "div",
       { staticClass: "form-group" },
       [
-        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-          _vm._v("Descripción general (resumen) del artículo especializado")
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Descripción del tema")
         ]),
         _vm._v(" "),
         _c("editor", {
@@ -65730,7 +65294,7 @@ var render = function() {
             "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
             init: { plugins: "table help" },
             "initial-value":
-              "Mencionar el contexto o antecedentes, planteamiento del problema, objetivos y metodología."
+              "\n            Presentar una descripción general del tema que se pretende abordar.\n            Mostrar la actualidad y la relevancia del tema.\n            Establecer la vinculación con el área de estudio.\n        "
           },
           model: {
             value: _vm.protocolo.desc,
@@ -65757,9 +65321,9 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                    " +
+                      "\n                " +
                         _vm._s(_vm.errores.desc[0]) +
-                        "\n                "
+                        "\n            "
                     )
                   ]
                 )
@@ -65774,7 +65338,60 @@ var render = function() {
       "div",
       { staticClass: "form-group" },
       [
-        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Justificación")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n            Describir la necesidad de abordar el tema, a través de  una exposición clara y concisa sobre la importancia, el impacto y los beneficios del ensayo que se pretende realizar. Así mismo, mencionar los alcances y limitaciones del tema.\n        "
+          },
+          model: {
+            value: _vm.protocolo.just,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "just", $$v)
+            },
+            expression: "protocolo.just"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.just
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.just[0]) +
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
           _vm._v("Referencias y/o fuentes de información")
         ]),
         _vm._v(" "),
@@ -65808,9 +65425,62 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                    " +
+                      "\n                " +
                         _vm._s(_vm.errores.refs[0]) +
-                        "\n                "
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Planificación de actividades")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "Citar las fuentes académicas oficiales consultadas (revistas, artículos, libros y páginas  de empresas e instituciones reconocidas) y definir el sistema de referencias seleccionado (Harvard, Chicago, Vancouver, APA, Sistema Numerado).",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.crono,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "crono", $$v)
+            },
+            expression: "protocolo.crono"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.crono
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.crono[0]) +
+                        "\n            "
                     )
                   ]
                 )
@@ -65926,23 +65596,7 @@ var render = function() {
           ]
         )
       ]
-    ),
-    _vm._v(" "),
-    _vm._m(4),
-    _vm._v(" "),
-    _vm._m(5),
-    _vm._v(" "),
-    _vm._m(6),
-    _vm._v(" "),
-    _vm._m(7),
-    _vm._v(" "),
-    _vm._m(8),
-    _vm._v(" "),
-    _vm._m(9),
-    _vm._v(" "),
-    _vm._m(10),
-    _vm._v(" "),
-    _vm._m(11)
+    )
   ])
 }
 var staticRenderFns = [
@@ -66028,172 +65682,6 @@ var staticRenderFns = [
         [_vm._v("Terminar")]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Tema")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Especificar claramente el qué, es decir, el objeto de estudio."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Área académica")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder: "La que corresponda según la Coordinación de Docencia."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Asesor")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Nombre del asesor adscrito a la UAEM (propuesto por el sustentante)."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [
-        _vm._v("Descripción del tema")
-      ]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "            Presentar una descripción general del tema que se pretende abordar.\n            Mostrar la actualidad y la relevancia del tema.\n            Establecer la vinculación con el área de estudio.\n            "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [_vm._v("Justificación")]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "              Describir la necesidad de abordar el tema, a través de  una exposición clara y concisa sobre la importancia, el impacto y los beneficios del ensayo que se pretende realizar. Así mismo, mencionar los alcances y limitaciones del tema.\n            "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [
-        _vm._v("Referencias y/o fuentes de información")
-      ]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "              Citar las fuentes académicas oficiales consultadas (revistas, artículos, libros y páginas  de empresas e instituciones reconocidas) y definir el sistema de referencias seleccionado (Harvard, Chicago, Vancouver, APA, Sistema Numerado).\n            "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Planificación de actividades")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Incluir la secuencia en que realizará las actividades relativas al trabajo. "
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "alert alert-warning", attrs: { role: "alert" } },
-      [
-        _c("p", [
-          _vm._v(
-            "\n            El tema tendrá una vigencia de dos años, a partir de la fecha de aceptación (Ver Art. 86, Fracc. VII, del Reglamento de Evaluación Profesional).\n            "
-          )
-        ])
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -66223,10 +65711,7 @@ var render = function() {
       { staticClass: "container" },
       [
         _c("cabeza", {
-          attrs: {
-            usr: _vm.usr,
-            tipo: "Artículo especializado para publicar en revista indizada"
-          },
+          attrs: { usr: _vm.usr, tipo: "Memoria de experiencia laboral" },
           model: {
             value: _vm.protocolo.tema,
             callback: function($$v) {
@@ -66240,9 +65725,7 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Título tentativo del artículo especializado")
-      ]),
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Título")]),
       _vm._v(" "),
       _c("input", {
         directives: [
@@ -66288,9 +65771,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
+                    "\n                " +
                       _vm._s(_vm.errores.titulo[0]) +
-                      "\n                "
+                      "\n            "
                   )
                 ]
               )
@@ -66301,73 +65784,118 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "form-group" }, [
       _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Área académica")
+        _vm._v("Periodo de participación ")
       ]),
       _vm._v(" "),
-      _c(
-        "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.protocolo.area,
-              expression: "protocolo.area"
+      _c("div", { staticClass: "form-row" }, [
+        _c("div", { staticClass: "form-group col-md-6" }, [
+          _c("label", { attrs: { for: "inputEmail4" } }, [
+            _vm._v("Fecha de inicio")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.protocolo.inicio,
+                expression: "protocolo.inicio"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "date", id: "inputEmail4" },
+            domProps: { value: _vm.protocolo.inicio },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.protocolo, "inicio", $event.target.value)
+              }
             }
-          ],
-          staticClass: "form-control custom-select my-1 mr-sm-2",
-          attrs: { id: "exampleFormControlSelect1" },
-          on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.$set(
-                _vm.protocolo,
-                "area",
-                $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-              )
-            }
-          }
-        },
-        _vm._l(_vm.areas, function(area) {
-          return _c("option", { key: area.id, domProps: { value: area.id } }, [
-            _vm._v(_vm._s(area.nombre))
-          ])
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _vm.errores.area
-        ? _c(
-            "small",
-            {
-              staticClass: "form-text text-muted",
-              attrs: { id: "passwordHelpBlock" }
-            },
-            [
-              _c(
-                "div",
+          }),
+          _vm._v(" "),
+          _vm.errores.inicio
+            ? _c(
+                "small",
                 {
-                  staticClass: "font-weight-bold text-uppercase",
-                  staticStyle: { color: "red" }
+                  staticClass: "form-text text-muted ",
+                  attrs: { id: "passwordHelpBlock" }
                 },
                 [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.errores.area[0]) +
-                      "\n                "
+                  _c(
+                    "div",
+                    {
+                      staticClass: "font-weight-bold text-uppercase",
+                      staticStyle: { color: "red" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(_vm.errores.inicio[0]) +
+                          "\n                    "
+                      )
+                    ]
                   )
                 ]
               )
-            ]
-          )
-        : _vm._e()
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group col-md-6" }, [
+          _c("label", { attrs: { for: "inputPassword4" } }, [
+            _vm._v("Fecha de fin")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.protocolo.fin,
+                expression: "protocolo.fin"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "date", id: "inputPassword4" },
+            domProps: { value: _vm.protocolo.fin },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.protocolo, "fin", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.errores.fin
+            ? _c(
+                "small",
+                {
+                  staticClass: "form-text text-muted ",
+                  attrs: { id: "passwordHelpBlock" }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "font-weight-bold text-uppercase",
+                      staticStyle: { color: "red" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(_vm.errores.fin[0]) +
+                          "\n                    "
+                      )
+                    ]
+                  )
+                ]
+              )
+            : _vm._e()
+        ])
+      ])
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "form-group" }, [
@@ -66440,9 +65968,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
+                    "\n                " +
                       _vm._s(_vm.errores.asesor[0]) +
-                      "\n                "
+                      "\n            "
                   )
                 ]
               )
@@ -66453,61 +65981,49 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "form-group" }, [
       _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Coasesor")
+        _vm._v("Área académica")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "input-group mb-3" }, [
-        _c("input", {
+      _c(
+        "select",
+        {
           directives: [
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.protocolo.coasesor.nombre,
-              expression: "protocolo.coasesor.nombre"
+              value: _vm.protocolo.area,
+              expression: "protocolo.area"
             }
           ],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            disabled: "",
-            placeholder:
-              "Nombre del coasesor adscrito a la UAEM (propuesto por el sustentante).",
-            "aria-label": "Recipient's username",
-            "aria-describedby": "basic-addon2"
-          },
-          domProps: { value: _vm.protocolo.coasesor.nombre },
+          staticClass: "form-control custom-select my-1 mr-sm-2",
+          attrs: { id: "exampleFormControlSelect1" },
           on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.protocolo.coasesor, "nombre", $event.target.value)
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.$set(
+                _vm.protocolo,
+                "area",
+                $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+              )
             }
           }
+        },
+        _vm._l(_vm.areas, function(area) {
+          return _c("option", { key: area.id, domProps: { value: area.id } }, [
+            _vm._v(_vm._s(area.nombre))
+          ])
         }),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group-append" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-outline-secondary",
-              attrs: {
-                type: "button",
-                "data-toggle": "modal",
-                "data-target": "#buscador"
-              },
-              on: {
-                click: function($event) {
-                  _vm.asignacion = 1
-                }
-              }
-            },
-            [_vm._v("Buscar "), _c("i", { staticClass: "fas fa-search" })]
-          )
-        ])
-      ]),
+        0
+      ),
       _vm._v(" "),
-      _vm.errores.coasesor
+      _vm.errores.area
         ? _c(
             "small",
             {
@@ -66523,9 +66039,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.errores.coasesor[0]) +
-                      "\n                "
+                    "\n                " +
+                      _vm._s(_vm.errores.area[0]) +
+                      "\n            "
                   )
                 ]
               )
@@ -66534,126 +66050,12 @@ var render = function() {
         : _vm._e()
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "form-row" }, [
-      _c("div", { staticClass: "col" }, [
-        _c("label", { attrs: { for: "inputEmail4" } }, [
-          _vm._v("Nombre de la revista indizada")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.protocolo.revista,
-              expression: "protocolo.revista"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { type: "text" },
-          domProps: { value: _vm.protocolo.revista },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.protocolo, "revista", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm.errores.revista
-          ? _c(
-              "small",
-              {
-                staticClass: "form-text text-muted",
-                attrs: { id: "passwordHelpBlock" }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "font-weight-bold text-uppercase",
-                    staticStyle: { color: "red" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.errores.revista[0]) +
-                        "\n                    "
-                    )
-                  ]
-                )
-              ]
-            )
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c("label", { attrs: { for: "inputEmail4" } }, [
-          _vm._v("Nombre del índice")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.protocolo.indice,
-              expression: "protocolo.indice"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            placeholder:
-              "Nombre y URL que avale la pertenencia de la revista  a algún índice"
-          },
-          domProps: { value: _vm.protocolo.indice },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.protocolo, "indice", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm.errores.indice
-          ? _c(
-              "small",
-              {
-                staticClass: "form-text text-muted",
-                attrs: { id: "passwordHelpBlock" }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "font-weight-bold text-uppercase",
-                    staticStyle: { color: "red" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.errores.indice[0]) +
-                        "\n                    "
-                    )
-                  ]
-                )
-              ]
-            )
-          : _vm._e()
-      ])
-    ]),
-    _vm._v(" "),
     _c(
       "div",
       { staticClass: "form-group" },
       [
-        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-          _vm._v("Descripción general (resumen) del artículo especializado")
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Descripción de la experiencia laboral")
         ]),
         _vm._v(" "),
         _c("editor", {
@@ -66661,7 +66063,7 @@ var render = function() {
             "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
             init: { plugins: "table help" },
             "initial-value":
-              "Mencionar el contexto o antecedentes, planteamiento del problema, objetivos y metodología."
+              "\n        Descripción de las actividades laborales\n        Plantear el problema que se abordará en la memoria.\n        Describir cómo se involucró el pasante.\n        Establecer la vinculación con el área de estudio.\n        "
           },
           model: {
             value: _vm.protocolo.desc,
@@ -66672,7 +66074,7 @@ var render = function() {
           }
         }),
         _vm._v(" "),
-        _vm.errores.desc
+        _vm.errores.desc_exp
           ? _c(
               "small",
               {
@@ -66688,9 +66090,9 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.errores.desc[0]) +
-                        "\n                "
+                      "\n                " +
+                        _vm._s(_vm.errores.desc_exp[0]) +
+                        "\n            "
                     )
                   ]
                 )
@@ -66705,13 +66107,121 @@ var render = function() {
       "div",
       { staticClass: "form-group" },
       [
-        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Justificación")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n            Exponer de forma clara y concisa la importancia, el impacto, los beneficios y la aportación en la solución del problema, como resultado de la experiencia laboral. Así mismo, mencionar los alcances y limitaciones del problema descrito.\n        "
+          },
+          model: {
+            value: _vm.protocolo.just,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "just", $$v)
+            },
+            expression: "protocolo.just"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.just
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.just[0]) +
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Objetivo general")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n            Indicar qué experiencia se pretende documentar, resaltando el procedimiento de solución del problema. Incluir verbo en infinitivo que esté relacionado con el sentido de ‘describir o documentar’ entre otros.\n        "
+          },
+          model: {
+            value: _vm.protocolo.obj,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "obj", $$v)
+            },
+            expression: "protocolo.obj"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.obj
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.obj[0]) +
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
           _vm._v("Referencias y/o fuentes de información")
         ]),
         _vm._v(" "),
         _c("editor", {
           attrs: {
             "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "Citar las fuentes académicas oficiales consultadas (revistas, artículos, libros y páginas  de empresas e instituciones reconocidas) y definir el sistema de referencias seleccionado (Harvard, Chicago, Vancouver, APA, Sistema Numerado).",
             init: { plugins: "table help" }
           },
           model: {
@@ -66739,9 +66249,60 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                    " +
+                      "\n                " +
                         _vm._s(_vm.errores.refs[0]) +
-                        "\n                "
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Planificación de actividades")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.crono,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "crono", $$v)
+            },
+            expression: "protocolo.crono"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.crono
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.crono[0]) +
+                        "\n            "
                     )
                   ]
                 )
@@ -66841,9 +66402,9 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                        " +
+                          "\n                    " +
                             _vm._s(teacher.nombre) +
-                            "\n                    "
+                            "\n                "
                         )
                       ]
                     )
@@ -66857,25 +66418,7 @@ var render = function() {
           ]
         )
       ]
-    ),
-    _vm._v(" "),
-    _vm._m(4),
-    _vm._v(" "),
-    _vm._m(5),
-    _vm._v(" "),
-    _vm._m(6),
-    _vm._v(" "),
-    _vm._m(7),
-    _vm._v(" "),
-    _vm._m(8),
-    _vm._v(" "),
-    _vm._m(9),
-    _vm._v(" "),
-    _vm._m(10),
-    _vm._v(" "),
-    _vm._m(11),
-    _vm._v(" "),
-    _vm._m(12)
+    )
   ])
 }
 var staticRenderFns = [
@@ -66961,194 +66504,6 @@ var staticRenderFns = [
         [_vm._v("Terminar")]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Título")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Especificar claramente el qué, es decir, el objeto de estudio."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Periodo de participación ")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "date",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Asesor")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Nombre del asesor adscrito a la UAEM (propuesto por el sustentante)."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [
-        _vm._v("Descripción de la experiencia laboral")
-      ]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "              Descripción de las actividades laborales\n              Plantear el problema que se abordará en la memoria.\n              Describir cómo se involucró el pasante.\n              Establecer la vinculación con el área de estudio.\n            "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [_vm._v("Justificación")]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "            Exponer de forma clara y concisa la importancia, el impacto, los beneficios y la aportación en la solución del problema, como resultado de la experiencia laboral. Así mismo, mencionar los alcances y limitaciones del problema descrito.\n            "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [
-        _vm._v("Objetivo general")
-      ]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "            Indicar qué experiencia se pretende documentar, resaltando el procedimiento de solución del problema. Incluir verbo en infinitivo que esté relacionado con el sentido de ‘describir o documentar’ entre otros.\n            "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [
-        _vm._v("Referencias y/o fuentes de información")
-      ]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "              Citar las fuentes académicas oficiales consultadas (revistas, artículos, libros y páginas  de empresas e instituciones reconocidas) y definir el sistema de referencias seleccionado (Harvard, Chicago, Vancouver, APA, Sistema Numerado).\n            "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Planificación de actividades")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Incluir la secuencia en que realizará las actividades relativas al trabajo. "
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "alert alert-warning", attrs: { role: "alert" } },
-      [
-        _c("p", [
-          _vm._v(
-            "\n            El tema tendrá una vigencia de dos años, a partir de la fecha de aceptación (Ver Art. 86, Fracc. VII, del Reglamento de Evaluación Profesional).\n            "
-          )
-        ])
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -67178,10 +66533,7 @@ var render = function() {
       { staticClass: "container" },
       [
         _c("cabeza", {
-          attrs: {
-            usr: _vm.usr,
-            tipo: "Artículo especializado para publicar en revista indizada"
-          },
+          attrs: { usr: _vm.usr, tipo: "Reporte de autoempleo" },
           model: {
             value: _vm.protocolo.tema,
             callback: function($$v) {
@@ -67195,9 +66547,7 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Título tentativo del artículo especializado")
-      ]),
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Título")]),
       _vm._v(" "),
       _c("input", {
         directives: [
@@ -67243,15 +66593,131 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
+                    "\n                " +
                       _vm._s(_vm.errores.titulo[0]) +
-                      "\n                "
+                      "\n            "
                   )
                 ]
               )
             ]
           )
         : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Periodo de participación ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-row" }, [
+        _c("div", { staticClass: "form-group col-md-6" }, [
+          _c("label", { attrs: { for: "inputEmail4" } }, [
+            _vm._v("Fecha de inicio")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.protocolo.inicio,
+                expression: "protocolo.inicio"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "date", id: "inputEmail4" },
+            domProps: { value: _vm.protocolo.inicio },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.protocolo, "inicio", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.errores.inicio
+            ? _c(
+                "small",
+                {
+                  staticClass: "form-text text-muted ",
+                  attrs: { id: "passwordHelpBlock" }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "font-weight-bold text-uppercase",
+                      staticStyle: { color: "red" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(_vm.errores.inicio[0]) +
+                          "\n                    "
+                      )
+                    ]
+                  )
+                ]
+              )
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group col-md-6" }, [
+          _c("label", { attrs: { for: "inputPassword4" } }, [
+            _vm._v("Fecha de fin")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.protocolo.fin,
+                expression: "protocolo.fin"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "date", id: "inputPassword4" },
+            domProps: { value: _vm.protocolo.fin },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.protocolo, "fin", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.errores.fin
+            ? _c(
+                "small",
+                {
+                  staticClass: "form-text text-muted ",
+                  attrs: { id: "passwordHelpBlock" }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "font-weight-bold text-uppercase",
+                      staticStyle: { color: "red" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(_vm.errores.fin[0]) +
+                          "\n                    "
+                      )
+                    ]
+                  )
+                ]
+              )
+            : _vm._e()
+        ])
+      ])
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "form-group" }, [
@@ -67314,9 +66780,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
+                    "\n                " +
                       _vm._s(_vm.errores.area[0]) +
-                      "\n                "
+                      "\n            "
                   )
                 ]
               )
@@ -67395,239 +66861,42 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
+                    "\n                " +
                       _vm._s(_vm.errores.asesor[0]) +
-                      "\n                "
+                      "\n            "
                   )
                 ]
               )
             ]
           )
         : _vm._e()
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Coasesor")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "input-group mb-3" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.protocolo.coasesor.nombre,
-              expression: "protocolo.coasesor.nombre"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            disabled: "",
-            placeholder:
-              "Nombre del coasesor adscrito a la UAEM (propuesto por el sustentante).",
-            "aria-label": "Recipient's username",
-            "aria-describedby": "basic-addon2"
-          },
-          domProps: { value: _vm.protocolo.coasesor.nombre },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.protocolo.coasesor, "nombre", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group-append" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-outline-secondary",
-              attrs: {
-                type: "button",
-                "data-toggle": "modal",
-                "data-target": "#buscador"
-              },
-              on: {
-                click: function($event) {
-                  _vm.asignacion = 1
-                }
-              }
-            },
-            [_vm._v("Buscar "), _c("i", { staticClass: "fas fa-search" })]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _vm.errores.coasesor
-        ? _c(
-            "small",
-            {
-              staticClass: "form-text text-muted",
-              attrs: { id: "passwordHelpBlock" }
-            },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "font-weight-bold text-uppercase",
-                  staticStyle: { color: "red" }
-                },
-                [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.errores.coasesor[0]) +
-                      "\n                "
-                  )
-                ]
-              )
-            ]
-          )
-        : _vm._e()
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "form-row" }, [
-      _c("div", { staticClass: "col" }, [
-        _c("label", { attrs: { for: "inputEmail4" } }, [
-          _vm._v("Nombre de la revista indizada")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.protocolo.revista,
-              expression: "protocolo.revista"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { type: "text" },
-          domProps: { value: _vm.protocolo.revista },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.protocolo, "revista", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm.errores.revista
-          ? _c(
-              "small",
-              {
-                staticClass: "form-text text-muted",
-                attrs: { id: "passwordHelpBlock" }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "font-weight-bold text-uppercase",
-                    staticStyle: { color: "red" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.errores.revista[0]) +
-                        "\n                    "
-                    )
-                  ]
-                )
-              ]
-            )
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c("label", { attrs: { for: "inputEmail4" } }, [
-          _vm._v("Nombre del índice")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.protocolo.indice,
-              expression: "protocolo.indice"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            placeholder:
-              "Nombre y URL que avale la pertenencia de la revista  a algún índice"
-          },
-          domProps: { value: _vm.protocolo.indice },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.protocolo, "indice", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm.errores.indice
-          ? _c(
-              "small",
-              {
-                staticClass: "form-text text-muted",
-                attrs: { id: "passwordHelpBlock" }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "font-weight-bold text-uppercase",
-                    staticStyle: { color: "red" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.errores.indice[0]) +
-                        "\n                    "
-                    )
-                  ]
-                )
-              ]
-            )
-          : _vm._e()
-      ])
     ]),
     _vm._v(" "),
     _c(
       "div",
       { staticClass: "form-group" },
       [
-        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-          _vm._v("Descripción general (resumen) del artículo especializado")
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Planteamiento ")
         ]),
         _vm._v(" "),
         _c("editor", {
           attrs: {
             "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
-            init: { plugins: "table help" },
             "initial-value":
-              "Mencionar el contexto o antecedentes, planteamiento del problema, objetivos y metodología."
+              "\n             Objeto de la Unidad Económica. \n            Nombre o razón social.\n            Domicilio fiscal.\n            Giro de la Unidad Económica (empresa) o de las actividades de la persona física.\n            Número de accionistas.\n            Número de empleados.\n            Tipo de participación dentro de la unidad económica: propietario, emprendedor, empresario, empleador y empleado (con atribuciones en las decisiones para el desarrollo de la empresa).\n            Funciones que realizó y su relación con los conocimientos y habilidades adquiridos, resaltando la aplicación original y creativa de los mismos.\n         ",
+            init: { plugins: "table help" }
           },
           model: {
-            value: _vm.protocolo.desc,
+            value: _vm.protocolo.plant,
             callback: function($$v) {
-              _vm.$set(_vm.protocolo, "desc", $$v)
+              _vm.$set(_vm.protocolo, "plant", $$v)
             },
-            expression: "protocolo.desc"
+            expression: "protocolo.plant"
           }
         }),
         _vm._v(" "),
-        _vm.errores.desc
+        _vm.errores.plant
           ? _c(
               "small",
               {
@@ -67643,9 +66912,9 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.errores.desc[0]) +
-                        "\n                "
+                      "\n                " +
+                        _vm._s(_vm.errores.plant[0]) +
+                        "\n            "
                     )
                   ]
                 )
@@ -67660,13 +66929,121 @@ var render = function() {
       "div",
       { staticClass: "form-group" },
       [
-        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Justificación")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "\n            Exponer de forma clara y concisa la importancia, el impacto y los beneficios de la unidad económica. \n         ",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.just,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "just", $$v)
+            },
+            expression: "protocolo.just"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.just
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.just[0]) +
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Objetivo general")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "\n            Describir las actividades realizadas dentro de la unidad económica. Incluir verbo en infinitivo que esté relacionado con el sentido de ‘describir o documentar’, entre otros.\n         ",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.obj,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "obj", $$v)
+            },
+            expression: "protocolo.obj"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.obj
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.obj[0]) +
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
           _vm._v("Referencias y/o fuentes de información")
         ]),
         _vm._v(" "),
         _c("editor", {
           attrs: {
             "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "Citar las fuentes académicas oficiales consultadas (revistas, artículos, libros y páginas  de empresas e instituciones reconocidas) y definir el sistema de referencias seleccionado (Harvard, Chicago, Vancouver, APA, Sistema Numerado).",
             init: { plugins: "table help" }
           },
           model: {
@@ -67694,9 +67071,60 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                    " +
+                      "\n                " +
                         _vm._s(_vm.errores.refs[0]) +
-                        "\n                "
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Planificación de actividades")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.crono,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "crono", $$v)
+            },
+            expression: "protocolo.crono"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.crono
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.crono[0]) +
+                        "\n            "
                     )
                   ]
                 )
@@ -67812,27 +67240,7 @@ var render = function() {
           ]
         )
       ]
-    ),
-    _vm._v(" "),
-    _vm._m(4),
-    _vm._v(" "),
-    _vm._m(5),
-    _vm._v(" "),
-    _vm._m(6),
-    _vm._v(" "),
-    _vm._m(7),
-    _vm._v(" "),
-    _vm._m(8),
-    _vm._v(" "),
-    _vm._m(9),
-    _vm._v(" "),
-    _vm._m(10),
-    _vm._v(" "),
-    _vm._m(11),
-    _vm._v(" "),
-    _vm._m(12),
-    _vm._v(" "),
-    _vm._m(13)
+    )
   ])
 }
 var staticRenderFns = [
@@ -67846,7 +67254,7 @@ var staticRenderFns = [
       [
         _c("p", [
           _vm._v(
-            "\n            El tema tendrá una vigencia de dos años, a partir de la fecha de aceptación (Ver Art. 86, Fracc. VII, del Reglamento de Evaluación Profesional).\n            "
+            "\n        El tema tendrá una vigencia de dos años, a partir de la fecha de aceptación (Ver Art. 86, Fracc. VII, del Reglamento de Evaluación Profesional).\n        "
           )
         ])
       ]
@@ -67918,214 +67326,6 @@ var staticRenderFns = [
         [_vm._v("Terminar")]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Título")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder: "Especificar claramente el nombre de la Unidad Económica"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Periodo de participación ")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "date",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Asesor")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Nombre del asesor adscrito a la UAEM (propuesto por el sustentante)."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Área académica")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder: "La que corresponda según la Coordinación de Docencia."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [
-        _vm._v("Planteamiento ")
-      ]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "              Objeto de la Unidad Económica. \n              Nombre o razón social.\n              Domicilio fiscal.\n              Giro de la Unidad Económica (empresa) o de las actividades de la persona física.\n              Número de accionistas.\n              Número de empleados.\n              Tipo de participación dentro de la unidad económica: propietario, emprendedor, empresario, empleador y empleado (con atribuciones en las decisiones para el desarrollo de la empresa).\n              Funciones que realizó y su relación con los conocimientos y habilidades adquiridos, resaltando la aplicación original y creativa de los mismos.\n            "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [_vm._v("Justificación")]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "              Exponer de forma clara y concisa la importancia, el impacto y los beneficios de la unidad económica. \n            "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [
-        _vm._v("Objetivo general")
-      ]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "            Describir las actividades realizadas dentro de la unidad económica. Incluir verbo en infinitivo que esté relacionado con el sentido de ‘describir o documentar’, entre otros.\n            "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [
-        _vm._v("Referencias y/o fuentes de información")
-      ]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "              Citar las fuentes académicas oficiales consultadas (revistas, artículos, libros y páginas  de empresas e instituciones reconocidas) y definir el sistema de referencias seleccionado (Harvard, Chicago, Vancouver, APA, Sistema Numerado).\n            "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Planificación de actividades")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Incluir la secuencia en que realizará las actividades relativas al trabajo. "
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "alert alert-warning", attrs: { role: "alert" } },
-      [
-        _c("p", [
-          _vm._v(
-            "\n            El tema tendrá una vigencia de dos años, a partir de la fecha de aceptación (Ver Art. 86, Fracc. VII, del Reglamento de Evaluación Profesional).\n            "
-          )
-        ])
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -68157,7 +67357,7 @@ var render = function() {
         _c("cabeza", {
           attrs: {
             usr: _vm.usr,
-            tipo: "Artículo especializado para publicar en revista indizada"
+            tipo: "Reporte de residencia de investigación"
           },
           model: {
             value: _vm.protocolo.tema,
@@ -68173,7 +67373,123 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "form-group" }, [
       _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Título tentativo del artículo especializado")
+        _vm._v("Periodo de participación ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-row" }, [
+        _c("div", { staticClass: "form-group col-md-6" }, [
+          _c("label", { attrs: { for: "inputEmail4" } }, [
+            _vm._v("Fecha de inicio")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.protocolo.inicio,
+                expression: "protocolo.inicio"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "date", id: "inputEmail4" },
+            domProps: { value: _vm.protocolo.inicio },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.protocolo, "inicio", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.errores.inicio
+            ? _c(
+                "small",
+                {
+                  staticClass: "form-text text-muted ",
+                  attrs: { id: "passwordHelpBlock" }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "font-weight-bold text-uppercase",
+                      staticStyle: { color: "red" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(_vm.errores.inicio[0]) +
+                          "\n                    "
+                      )
+                    ]
+                  )
+                ]
+              )
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group col-md-6" }, [
+          _c("label", { attrs: { for: "inputPassword4" } }, [
+            _vm._v("Fecha de fin")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.protocolo.fin,
+                expression: "protocolo.fin"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "date", id: "inputPassword4" },
+            domProps: { value: _vm.protocolo.fin },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.protocolo, "fin", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.errores.fin
+            ? _c(
+                "small",
+                {
+                  staticClass: "form-text text-muted ",
+                  attrs: { id: "passwordHelpBlock" }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "font-weight-bold text-uppercase",
+                      staticStyle: { color: "red" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(_vm.errores.fin[0]) +
+                          "\n                    "
+                      )
+                    ]
+                  )
+                ]
+              )
+            : _vm._e()
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Nombre del profesor investigador responsable del proyecto")
       ]),
       _vm._v(" "),
       _c("input", {
@@ -68181,8 +67497,8 @@ var render = function() {
           {
             name: "model",
             rawName: "v-model",
-            value: _vm.protocolo.titulo,
-            expression: "protocolo.titulo"
+            value: _vm.protocolo.responsable,
+            expression: "protocolo.responsable"
           }
         ],
         staticClass: "form-control",
@@ -68191,20 +67507,20 @@ var render = function() {
           id: "exampleInputEmail1",
           "aria-describedby": "emailHelp",
           placeholder:
-            "Especificar claramente el qué, es decir, el objeto de estudio."
+            "Nombre del Profesor Investigador activo en el Sistema Nacional de Investigadores u organismo similar."
         },
-        domProps: { value: _vm.protocolo.titulo },
+        domProps: { value: _vm.protocolo.responsable },
         on: {
           input: function($event) {
             if ($event.target.composing) {
               return
             }
-            _vm.$set(_vm.protocolo, "titulo", $event.target.value)
+            _vm.$set(_vm.protocolo, "responsable", $event.target.value)
           }
         }
       }),
       _vm._v(" "),
-      _vm.errores.titulo
+      _vm.errores.responsable
         ? _c(
             "small",
             {
@@ -68220,9 +67536,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.errores.titulo[0]) +
-                      "\n                "
+                    "\n                " +
+                      _vm._s(_vm.errores.responsable[0]) +
+                      "\n            "
                   )
                 ]
               )
@@ -68291,9 +67607,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
+                    "\n                " +
                       _vm._s(_vm.errores.area[0]) +
-                      "\n                "
+                      "\n            "
                   )
                 ]
               )
@@ -68372,9 +67688,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
+                    "\n                " +
                       _vm._s(_vm.errores.asesor[0]) +
-                      "\n                "
+                      "\n            "
                   )
                 ]
               )
@@ -68455,9 +67771,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
+                    "\n                " +
                       _vm._s(_vm.errores.coasesor[0]) +
-                      "\n                "
+                      "\n            "
                   )
                 ]
               )
@@ -68466,118 +67782,120 @@ var render = function() {
         : _vm._e()
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "form-row" }, [
-      _c("div", { staticClass: "col" }, [
-        _c("label", { attrs: { for: "inputEmail4" } }, [
-          _vm._v("Nombre de la revista indizada")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.protocolo.revista,
-              expression: "protocolo.revista"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { type: "text" },
-          domProps: { value: _vm.protocolo.revista },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.protocolo, "revista", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm.errores.revista
-          ? _c(
-              "small",
-              {
-                staticClass: "form-text text-muted",
-                attrs: { id: "passwordHelpBlock" }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "font-weight-bold text-uppercase",
-                    staticStyle: { color: "red" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.errores.revista[0]) +
-                        "\n                    "
-                    )
-                  ]
-                )
-              ]
-            )
-          : _vm._e()
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Título del proyecto de investigación")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c("label", { attrs: { for: "inputEmail4" } }, [
-          _vm._v("Nombre del índice")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.protocolo.indice,
-              expression: "protocolo.indice"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            placeholder:
-              "Nombre y URL que avale la pertenencia de la revista  a algún índice"
-          },
-          domProps: { value: _vm.protocolo.indice },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.protocolo, "indice", $event.target.value)
-            }
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.titulo_proyecto,
+            expression: "protocolo.titulo_proyecto"
           }
-        }),
-        _vm._v(" "),
-        _vm.errores.indice
-          ? _c(
-              "small",
-              {
-                staticClass: "form-text text-muted",
-                attrs: { id: "passwordHelpBlock" }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "font-weight-bold text-uppercase",
-                    staticStyle: { color: "red" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.errores.indice[0]) +
-                        "\n                    "
-                    )
-                  ]
-                )
-              ]
-            )
-          : _vm._e()
-      ])
+        ],
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp"
+        },
+        domProps: { value: _vm.protocolo.titulo_proyecto },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "titulo_proyecto", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _vm.errores.titulo_proyecto
+        ? _c(
+            "small",
+            {
+              staticClass: "form-text text-muted ",
+              attrs: { id: "passwordHelpBlock" }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "font-weight-bold text-uppercase",
+                  staticStyle: { color: "red" }
+                },
+                [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errores.titulo_proyecto[0]) +
+                      "\n            "
+                  )
+                ]
+              )
+            ]
+          )
+        : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Clave de registro del proyecto")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.clave,
+            expression: "protocolo.clave"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp"
+        },
+        domProps: { value: _vm.protocolo.clave },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "clave", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _vm.errores.clave
+        ? _c(
+            "small",
+            {
+              staticClass: "form-text text-muted ",
+              attrs: { id: "passwordHelpBlock" }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "font-weight-bold text-uppercase",
+                  staticStyle: { color: "red" }
+                },
+                [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errores.clave[0]) +
+                      "\n            "
+                  )
+                ]
+              )
+            ]
+          )
+        : _vm._e()
     ]),
     _vm._v(" "),
     _c(
@@ -68585,7 +67903,7 @@ var render = function() {
       { staticClass: "form-group" },
       [
         _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-          _vm._v("Descripción general (resumen) del artículo especializado")
+          _vm._v("Descripción general del proyecto de investigación")
         ]),
         _vm._v(" "),
         _c("editor", {
@@ -68593,7 +67911,7 @@ var render = function() {
             "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
             init: { plugins: "table help" },
             "initial-value":
-              "Mencionar el contexto o antecedentes, planteamiento del problema, objetivos y metodología."
+              "\n        Exponer de manera general los antecedentes y el objetivo del proyecto de investigación al que se incorporó.  \n        "
           },
           model: {
             value: _vm.protocolo.desc,
@@ -68620,9 +67938,9 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                    " +
+                      "\n                " +
                         _vm._s(_vm.errores.desc[0]) +
-                        "\n                "
+                        "\n            "
                     )
                   ]
                 )
@@ -68633,29 +67951,89 @@ var render = function() {
       1
     ),
     _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Título del reporte de residencia de investigación")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.titulo_reporte,
+            expression: "protocolo.titulo_reporte"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp"
+        },
+        domProps: { value: _vm.protocolo.titulo_reporte },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "titulo_reporte", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _vm.errores.titulo_reporte
+        ? _c(
+            "small",
+            {
+              staticClass: "form-text text-muted ",
+              attrs: { id: "passwordHelpBlock" }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "font-weight-bold text-uppercase",
+                  staticStyle: { color: "red" }
+                },
+                [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errores.titulo_reporte[0]) +
+                      "\n            "
+                  )
+                ]
+              )
+            ]
+          )
+        : _vm._e()
+    ]),
+    _vm._v(" "),
     _c(
       "div",
       { staticClass: "form-group" },
       [
         _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-          _vm._v("Referencias y/o fuentes de información")
+          _vm._v("Objetivo general de la residencia")
         ]),
         _vm._v(" "),
         _c("editor", {
           attrs: {
             "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
-            init: { plugins: "table help" }
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n        Incluir verbo en infinitivo que sea medible u observable.\n        "
           },
           model: {
-            value: _vm.protocolo.refs,
+            value: _vm.protocolo.obj,
             callback: function($$v) {
-              _vm.$set(_vm.protocolo, "refs", $$v)
+              _vm.$set(_vm.protocolo, "obj", $$v)
             },
-            expression: "protocolo.refs"
+            expression: "protocolo.obj"
           }
         }),
         _vm._v(" "),
-        _vm.errores.refs
+        _vm.errores.obj
           ? _c(
               "small",
               {
@@ -68671,9 +68049,60 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.errores.refs[0]) +
-                        "\n                "
+                      "\n                " +
+                        _vm._s(_vm.errores.obj[0]) +
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Planificación de actividades")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.crono,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "crono", $$v)
+            },
+            expression: "protocolo.crono"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.crono
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.crono[0]) +
+                        "\n            "
                     )
                   ]
                 )
@@ -68789,29 +68218,7 @@ var render = function() {
           ]
         )
       ]
-    ),
-    _vm._v(" "),
-    _vm._m(4),
-    _vm._v(" "),
-    _vm._m(5),
-    _vm._v(" "),
-    _vm._m(6),
-    _vm._v(" "),
-    _vm._m(7),
-    _vm._v(" "),
-    _vm._m(8),
-    _vm._v(" "),
-    _vm._m(9),
-    _vm._v(" "),
-    _vm._m(10),
-    _vm._v(" "),
-    _vm._m(11),
-    _vm._v(" "),
-    _vm._m(12),
-    _vm._v(" "),
-    _vm._m(13),
-    _vm._v(" "),
-    _vm._m(14)
+    )
   ])
 }
 var staticRenderFns = [
@@ -68825,7 +68232,7 @@ var staticRenderFns = [
       [
         _c("p", [
           _vm._v(
-            "\n            El tema tendrá una vigencia de dos años, a partir de la fecha de aceptación (Ver Art. 86, Fracc. VII, del Reglamento de Evaluación Profesional).\n            "
+            "\n        El tema tendrá una vigencia de dos años, a partir de la fecha de aceptación (Ver Art. 86, Fracc. VII, del Reglamento de Evaluación Profesional).\n        "
           )
         ])
       ]
@@ -68897,237 +68304,6 @@ var staticRenderFns = [
         [_vm._v("Terminar")]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Nombre del profesor investigador responsable del proyecto")
-      ]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "              Nombre del Profesor Investigador activo en el Sistema Nacional de Investigadores u organismo similar.\n            "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Asesor")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Nombre del asesor adscrito a la UAEM (propuesto por el sustentante)."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Coasesor")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Nombre del coasesor adscrito a la UAEM (propuesto por el sustentante)."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Área académica")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder: "La que corresponda según la Coordinación de Docencia."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Título del proyecto de investigación")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Clave de registro del proyecto")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Descripción general del proyecto de investigación")
-      ]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "              Exponer de manera general los antecedentes y el objetivo del proyecto de investigación al que se incorporó.  \n            "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Título del reporte de residencia de investigación")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Especificar claramente el qué, es decir, el objeto de estudio."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("TObjetivo general de la residencia")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Incluir verbo en infinitivo que sea medible u observable."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Planificación de actividades")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Incluir la secuencia en que realizará las actividades relativas al trabajo. "
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "alert alert-warning", attrs: { role: "alert" } },
-      [
-        _c("p", [
-          _vm._v(
-            "\n            El tema tendrá una vigencia de dos años, a partir de la fecha de aceptación (Ver Art. 86, Fracc. VII, del Reglamento de Evaluación Profesional).\n            "
-          )
-        ])
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -69827,10 +69003,7 @@ var render = function() {
       { staticClass: "container" },
       [
         _c("cabeza", {
-          attrs: {
-            usr: _vm.usr,
-            tipo: "Artículo especializado para publicar en revista indizada"
-          },
+          attrs: { usr: _vm.usr, tipo: "Tesina" },
           model: {
             value: _vm.protocolo.tema,
             callback: function($$v) {
@@ -69844,9 +69017,7 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Título tentativo del artículo especializado")
-      ]),
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Título")]),
       _vm._v(" "),
       _c("input", {
         directives: [
@@ -69863,7 +69034,7 @@ var render = function() {
           id: "exampleInputEmail1",
           "aria-describedby": "emailHelp",
           placeholder:
-            "Especificar claramente el qué, es decir, el objeto de estudio."
+            "Debe especificar claramente el qué, es decir, el objeto de estudio."
         },
         domProps: { value: _vm.protocolo.titulo },
         on: {
@@ -69892,9 +69063,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
+                    "\n                " +
                       _vm._s(_vm.errores.titulo[0]) +
-                      "\n                "
+                      "\n            "
                   )
                 ]
               )
@@ -69963,9 +69134,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
+                    "\n                " +
                       _vm._s(_vm.errores.area[0]) +
-                      "\n                "
+                      "\n            "
                   )
                 ]
               )
@@ -70044,212 +69215,15 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
+                    "\n                " +
                       _vm._s(_vm.errores.asesor[0]) +
-                      "\n                "
+                      "\n            "
                   )
                 ]
               )
             ]
           )
         : _vm._e()
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Coasesor")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "input-group mb-3" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.protocolo.coasesor.nombre,
-              expression: "protocolo.coasesor.nombre"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            disabled: "",
-            placeholder:
-              "Nombre del coasesor adscrito a la UAEM (propuesto por el sustentante).",
-            "aria-label": "Recipient's username",
-            "aria-describedby": "basic-addon2"
-          },
-          domProps: { value: _vm.protocolo.coasesor.nombre },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.protocolo.coasesor, "nombre", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group-append" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-outline-secondary",
-              attrs: {
-                type: "button",
-                "data-toggle": "modal",
-                "data-target": "#buscador"
-              },
-              on: {
-                click: function($event) {
-                  _vm.asignacion = 1
-                }
-              }
-            },
-            [_vm._v("Buscar "), _c("i", { staticClass: "fas fa-search" })]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _vm.errores.coasesor
-        ? _c(
-            "small",
-            {
-              staticClass: "form-text text-muted",
-              attrs: { id: "passwordHelpBlock" }
-            },
-            [
-              _c(
-                "div",
-                {
-                  staticClass: "font-weight-bold text-uppercase",
-                  staticStyle: { color: "red" }
-                },
-                [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.errores.coasesor[0]) +
-                      "\n                "
-                  )
-                ]
-              )
-            ]
-          )
-        : _vm._e()
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "form-row" }, [
-      _c("div", { staticClass: "col" }, [
-        _c("label", { attrs: { for: "inputEmail4" } }, [
-          _vm._v("Nombre de la revista indizada")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.protocolo.revista,
-              expression: "protocolo.revista"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { type: "text" },
-          domProps: { value: _vm.protocolo.revista },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.protocolo, "revista", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm.errores.revista
-          ? _c(
-              "small",
-              {
-                staticClass: "form-text text-muted",
-                attrs: { id: "passwordHelpBlock" }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "font-weight-bold text-uppercase",
-                    staticStyle: { color: "red" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.errores.revista[0]) +
-                        "\n                    "
-                    )
-                  ]
-                )
-              ]
-            )
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c("label", { attrs: { for: "inputEmail4" } }, [
-          _vm._v("Nombre del índice")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.protocolo.indice,
-              expression: "protocolo.indice"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            placeholder:
-              "Nombre y URL que avale la pertenencia de la revista  a algún índice"
-          },
-          domProps: { value: _vm.protocolo.indice },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.protocolo, "indice", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm.errores.indice
-          ? _c(
-              "small",
-              {
-                staticClass: "form-text text-muted",
-                attrs: { id: "passwordHelpBlock" }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "font-weight-bold text-uppercase",
-                    staticStyle: { color: "red" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.errores.indice[0]) +
-                        "\n                    "
-                    )
-                  ]
-                )
-              ]
-            )
-          : _vm._e()
-      ])
     ]),
     _vm._v(" "),
     _c(
@@ -70257,7 +69231,9 @@ var render = function() {
       { staticClass: "form-group" },
       [
         _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-          _vm._v("Descripción general (resumen) del artículo especializado")
+          _vm._v(
+            "Planteamiento de la investigación documental o traducción crítica"
+          )
         ]),
         _vm._v(" "),
         _c("editor", {
@@ -70265,18 +69241,18 @@ var render = function() {
             "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
             init: { plugins: "table help" },
             "initial-value":
-              "Mencionar el contexto o antecedentes, planteamiento del problema, objetivos y metodología."
+              "\n        Presentar una descripción general del tema que se pretende abordar o traducir, con las características de una monografía.\n        Mostrar la actualidad y la relevancia del tema.\n        Establecer la vinculación con el área de estudio. \n        "
           },
           model: {
-            value: _vm.protocolo.desc,
+            value: _vm.protocolo.plant,
             callback: function($$v) {
-              _vm.$set(_vm.protocolo, "desc", $$v)
+              _vm.$set(_vm.protocolo, "plant", $$v)
             },
-            expression: "protocolo.desc"
+            expression: "protocolo.plant"
           }
         }),
         _vm._v(" "),
-        _vm.errores.desc
+        _vm.errores.plant
           ? _c(
               "small",
               {
@@ -70292,9 +69268,9 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.errores.desc[0]) +
-                        "\n                "
+                      "\n                " +
+                        _vm._s(_vm.errores.plant[0]) +
+                        "\n            "
                     )
                   ]
                 )
@@ -70309,13 +69285,172 @@ var render = function() {
       "div",
       { staticClass: "form-group" },
       [
-        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Justificación")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n        Describir la necesidad de desarrollar el tema que se propone, a través de  una exposición clara y concisa sobre la importancia, el impacto y los beneficios de la investigación documental que se pretende realizar. Así mismo, mencionar los alcances y limitaciones de la investigación.\n        "
+          },
+          model: {
+            value: _vm.protocolo.just,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "just", $$v)
+            },
+            expression: "protocolo.just"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.just
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.just[0]) +
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Objetivo general")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n        Indicar qué se pretende investigar. Incluir verbo en infinitivo que esté relacionado con el sentido de ‘describir, documentar’, entre otros.\n        "
+          },
+          model: {
+            value: _vm.protocolo.obj,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "obj", $$v)
+            },
+            expression: "protocolo.obj"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.obj
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.obj[0]) +
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [_vm._v("Metodología")]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n        Describir las técnicas y los métodos para alcanzar el objetivo planteado. \n        "
+          },
+          model: {
+            value: _vm.protocolo.metodologia,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "metodologia", $$v)
+            },
+            expression: "protocolo.metodologia"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.metodologia
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.metodologia[0]) +
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
           _vm._v("Referencias y/o fuentes de información")
         ]),
         _vm._v(" "),
         _c("editor", {
           attrs: {
             "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "Citar las fuentes académicas oficiales consultadas (revistas, artículos, libros y páginas  de empresas e instituciones reconocidas) y definir el sistema de referencias seleccionado (Harvard, Chicago, Vancouver, APA, Sistema Numerado).",
             init: { plugins: "table help" }
           },
           model: {
@@ -70343,9 +69478,60 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                    " +
+                      "\n                " +
                         _vm._s(_vm.errores.refs[0]) +
-                        "\n                "
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Planificación de actividades")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.crono,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "crono", $$v)
+            },
+            expression: "protocolo.crono"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.crono
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.crono[0]) +
+                        "\n            "
                     )
                   ]
                 )
@@ -70461,27 +69647,7 @@ var render = function() {
           ]
         )
       ]
-    ),
-    _vm._v(" "),
-    _vm._m(4),
-    _vm._v(" "),
-    _vm._m(5),
-    _vm._v(" "),
-    _vm._m(6),
-    _vm._v(" "),
-    _vm._m(7),
-    _vm._v(" "),
-    _vm._m(8),
-    _vm._v(" "),
-    _vm._m(9),
-    _vm._v(" "),
-    _vm._m(10),
-    _vm._v(" "),
-    _vm._m(11),
-    _vm._v(" "),
-    _vm._m(12),
-    _vm._v(" "),
-    _vm._m(13)
+    )
   ])
 }
 var staticRenderFns = [
@@ -70495,7 +69661,7 @@ var staticRenderFns = [
       [
         _c("p", [
           _vm._v(
-            "\n            El tema tendrá una vigencia de dos años, a partir de la fecha de aceptación (Ver Art. 86, Fracc. VII, del Reglamento de Evaluación Profesional).\n            "
+            "\n        El tema tendrá una vigencia de dos años, a partir de la fecha de aceptación (Ver Art. 86, Fracc. VII, del Reglamento de Evaluación Profesional).\n        "
           )
         ])
       ]
@@ -70567,218 +69733,6 @@ var staticRenderFns = [
         [_vm._v("Terminar")]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Título")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Debe especificar claramente el qué, es decir, el objeto de estudio."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Asesor")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Nombre del asesor adscrito a la UAEM (propuesto por el sustentante)."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Área académica")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder: "La que corresponda según la Coordinación de Docencia."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v(
-          "Planteamiento de la investigación documental o traducción crítica"
-        )
-      ]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "              Presentar una descripción general del tema que se pretende abordar o traducir, con las características de una monografía.\n              Mostrar la actualidad y la relevancia del tema.\n              Establecer la vinculación con el área de estudio. \n            "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [_vm._v("Justificación")]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "            Describir la necesidad de desarrollar el tema que se propone, a través de  una exposición clara y concisa sobre la importancia, el impacto y los beneficios de la investigación documental que se pretende realizar. Así mismo, mencionar los alcances y limitaciones de la investigación.\n          "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [
-        _vm._v("Objetivo general")
-      ]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "            Indicar qué se pretende investigar. Incluir verbo en infinitivo que esté relacionado con el sentido de ‘describir, documentar’, entre otros.\n          "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [_vm._v("Metodología")]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "            Describir las técnicas y los métodos para alcanzar el objetivo planteado. \n          "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [
-        _vm._v("Referencias y/o fuentes de información")
-      ]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "            Citar las fuentes académicas oficiales consultadas (revistas, artículos, libros y páginas  de empresas e instituciones reconocidas) y definir el sistema de referencias seleccionado (Harvard, Chicago, Vancouver, APA, Sistema Numerado).\n          "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Planificación de actividades")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Incluir la secuencia en que realizará las actividades relativas al trabajo. "
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "alert alert-warning", attrs: { role: "alert" } },
-      [
-        _c("p", [
-          _vm._v(
-            "\n            El tema tendrá una vigencia de dos años, a partir de la fecha de aceptación (Ver Art. 86, Fracc. VII, del Reglamento de Evaluación Profesional).\n            "
-          )
-        ])
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -70808,10 +69762,7 @@ var render = function() {
       { staticClass: "container" },
       [
         _c("cabeza", {
-          attrs: {
-            usr: _vm.usr,
-            tipo: "Artículo especializado para publicar en revista indizada"
-          },
+          attrs: { usr: _vm.usr, tipo: "Tesis" },
           model: {
             value: _vm.protocolo.tema,
             callback: function($$v) {
@@ -70825,9 +69776,7 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Título tentativo del artículo especializado")
-      ]),
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Título")]),
       _vm._v(" "),
       _c("input", {
         directives: [
@@ -70873,9 +69822,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
+                    "\n                " +
                       _vm._s(_vm.errores.titulo[0]) +
-                      "\n                "
+                      "\n            "
                   )
                 ]
               )
@@ -70944,9 +69893,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
+                    "\n                " +
                       _vm._s(_vm.errores.area[0]) +
-                      "\n                "
+                      "\n            "
                   )
                 ]
               )
@@ -71025,9 +69974,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
+                    "\n                " +
                       _vm._s(_vm.errores.asesor[0]) +
-                      "\n                "
+                      "\n            "
                   )
                 ]
               )
@@ -71108,9 +70057,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                    " +
+                    "\n                " +
                       _vm._s(_vm.errores.coasesor[0]) +
-                      "\n                "
+                      "\n            "
                   )
                 ]
               )
@@ -71119,145 +70068,31 @@ var render = function() {
         : _vm._e()
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "form-row" }, [
-      _c("div", { staticClass: "col" }, [
-        _c("label", { attrs: { for: "inputEmail4" } }, [
-          _vm._v("Nombre de la revista indizada")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.protocolo.revista,
-              expression: "protocolo.revista"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { type: "text" },
-          domProps: { value: _vm.protocolo.revista },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.protocolo, "revista", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm.errores.revista
-          ? _c(
-              "small",
-              {
-                staticClass: "form-text text-muted",
-                attrs: { id: "passwordHelpBlock" }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "font-weight-bold text-uppercase",
-                    staticStyle: { color: "red" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.errores.revista[0]) +
-                        "\n                    "
-                    )
-                  ]
-                )
-              ]
-            )
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c("label", { attrs: { for: "inputEmail4" } }, [
-          _vm._v("Nombre del índice")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.protocolo.indice,
-              expression: "protocolo.indice"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            placeholder:
-              "Nombre y URL que avale la pertenencia de la revista  a algún índice"
-          },
-          domProps: { value: _vm.protocolo.indice },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.protocolo, "indice", $event.target.value)
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm.errores.indice
-          ? _c(
-              "small",
-              {
-                staticClass: "form-text text-muted",
-                attrs: { id: "passwordHelpBlock" }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "font-weight-bold text-uppercase",
-                    staticStyle: { color: "red" }
-                  },
-                  [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.errores.indice[0]) +
-                        "\n                    "
-                    )
-                  ]
-                )
-              ]
-            )
-          : _vm._e()
-      ])
-    ]),
-    _vm._v(" "),
     _c(
       "div",
       { staticClass: "form-group" },
       [
         _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-          _vm._v("Descripción general (resumen) del artículo especializado")
+          _vm._v("Planteamiento del problema")
         ]),
         _vm._v(" "),
         _c("editor", {
           attrs: {
             "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
-            init: { plugins: "table help" },
             "initial-value":
-              "Mencionar el contexto o antecedentes, planteamiento del problema, objetivos y metodología."
+              "\n        Presentar el contexto o antecedente del problema.\n        Mostrar la actualidad y la relevancia de la generación del conocimiento o de la aplicación innovadora (desarrollo tecnológico).\n        Establecer la vinculación con el área de estudio.\n        ",
+            init: { plugins: "table help" }
           },
           model: {
-            value: _vm.protocolo.desc,
+            value: _vm.protocolo.plant,
             callback: function($$v) {
-              _vm.$set(_vm.protocolo, "desc", $$v)
+              _vm.$set(_vm.protocolo, "plant", $$v)
             },
-            expression: "protocolo.desc"
+            expression: "protocolo.plant"
           }
         }),
         _vm._v(" "),
-        _vm.errores.desc
+        _vm.errores.planteamiento
           ? _c(
               "small",
               {
@@ -71273,9 +70108,9 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.errores.desc[0]) +
-                        "\n                "
+                      "\n                " +
+                        _vm._s(_vm.errores.planteamiento[0]) +
+                        "\n            "
                     )
                   ]
                 )
@@ -71290,13 +70125,223 @@ var render = function() {
       "div",
       { staticClass: "form-group" },
       [
-        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Justificación")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "\n        Describir la necesidad de desarrollar el tema que se propone, a través de  una exposición clara y concisa sobre la importancia, el impacto y los beneficios de la investigación que se pretende realizar. Así mismo, mencionar los alcances y limitaciones de la misma.\n        ",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.just,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "just", $$v)
+            },
+            expression: "protocolo.just"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.just
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.just[0]) +
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [_vm._v("Hipótesis")]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "\n        Indicar lo que se está buscando o tratando de probar y puede definirse como explicaciones tentativas del fenómeno investigado.\n        ",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.hipotesis,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "hipotesis", $$v)
+            },
+            expression: "protocolo.hipotesis"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.hipotesis
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.hipotesis[0]) +
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Objetivo general")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "\n        Indicar qué se pretende investigar. Incluir verbo en infinitivo que esté relacionado con el sentido de analizar, construir, aplicar.\n        ",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.obj,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "obj", $$v)
+            },
+            expression: "protocolo.obj"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.obj
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.obj[0]) +
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [_vm._v("Metodología")]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "\n        Describir las técnicas y los métodos para el desarrollo de la investigación.\n        ",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.metodologia,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "metodologia", $$v)
+            },
+            expression: "protocolo.metodologia"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.metodologia
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.metodologia[0]) +
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
           _vm._v("Referencias y/o fuentes de información")
         ]),
         _vm._v(" "),
         _c("editor", {
           attrs: {
             "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "Citar las fuentes académicas oficiales consultadas (revistas, artículos, libros y páginas  de empresas e instituciones reconocidas) y definir el sistema de referencias seleccionado (Harvard, Chicago, Vancouver, APA, Sistema Numerado).",
             init: { plugins: "table help" }
           },
           model: {
@@ -71324,9 +70369,60 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                    " +
+                      "\n                " +
                         _vm._s(_vm.errores.refs[0]) +
-                        "\n                "
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Planificación de actividades")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.crono,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "crono", $$v)
+            },
+            expression: "protocolo.crono"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.crono
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.crono[0]) +
+                        "\n            "
                     )
                   ]
                 )
@@ -71442,31 +70538,7 @@ var render = function() {
           ]
         )
       ]
-    ),
-    _vm._v(" "),
-    _vm._m(4),
-    _vm._v(" "),
-    _vm._m(5),
-    _vm._v(" "),
-    _vm._m(6),
-    _vm._v(" "),
-    _vm._m(7),
-    _vm._v(" "),
-    _vm._m(8),
-    _vm._v(" "),
-    _vm._m(9),
-    _vm._v(" "),
-    _vm._m(10),
-    _vm._v(" "),
-    _vm._m(11),
-    _vm._v(" "),
-    _vm._m(12),
-    _vm._v(" "),
-    _vm._m(13),
-    _vm._v(" "),
-    _vm._m(14),
-    _vm._v(" "),
-    _vm._m(15)
+    )
   ])
 }
 var staticRenderFns = [
@@ -71480,7 +70552,7 @@ var staticRenderFns = [
       [
         _c("p", [
           _vm._v(
-            "\n            El tema tendrá una vigencia de dos años, a partir de la fecha de aceptación (Ver Art. 86, Fracc. VII, del Reglamento de Evaluación Profesional).\n            "
+            "\n        El tema tendrá una vigencia de dos años, a partir de la fecha de aceptación (Ver Art. 86, Fracc. VII, del Reglamento de Evaluación Profesional).\n        "
           )
         ])
       ]
@@ -71552,259 +70624,6 @@ var staticRenderFns = [
         [_vm._v("Terminar")]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Título")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Especificar claramente el qué, es decir, el objeto de estudio."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Asesor")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Nombre del asesor adscrito a la UAEM (propuesto por el sustentante)."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Coasesor")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Nombre del coasesor adscrito a la UAEM (propuesto por el sustentante)."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Área académica")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder: "La que corresponda según la Coordinación de Docencia."
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Planteamiento del problema")
-      ]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "              Presentar el contexto o antecedente del problema.\n              Mostrar la actualidad y la relevancia de la generación del conocimiento o de la aplicación innovadora (desarrollo tecnológico).\n              Establecer la vinculación con el área de estudio.\n            "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [_vm._v("Justificación")]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "            Describir la necesidad de desarrollar el tema que se propone, a través de  una exposición clara y concisa sobre la importancia, el impacto y los beneficios de la investigación que se pretende realizar. Así mismo, mencionar los alcances y limitaciones de la misma.\n          "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [_vm._v("Hipótesis")]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "            Indicar lo que se está buscando o tratando de probar y puede definirse como explicaciones tentativas del fenómeno investigado.\n          "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [
-        _vm._v("Objetivo general")
-      ]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "            Indicar qué se pretende investigar. Incluir verbo en infinitivo que esté relacionado con el sentido de analizar, construir, aplicar.\n          "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [_vm._v("Metodología")]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "            Describir las técnicas y los métodos para el desarrollo de la investigación.\n          "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "inputEmail4" } }, [
-        _vm._v("Referencias y/o fuentes de información")
-      ]),
-      _vm._v(" "),
-      _c(
-        "textarea",
-        {
-          staticClass: "form-control",
-          attrs: { disabled: "", id: "exampleFormControlTextarea1", rows: "3" }
-        },
-        [
-          _vm._v(
-            "            Citar las fuentes académicas oficiales consultadas (revistas, artículos, libros y páginas  de empresas e instituciones reconocidas) y definir el sistema de referencias seleccionado (Harvard, Chicago, Vancouver, APA, Sistema Numerado).\n          "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-        _vm._v("Planificación de actividades")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          disabled: "",
-          id: "exampleInputEmail1",
-          "aria-describedby": "emailHelp",
-          placeholder:
-            "Incluir la secuencia en que realizará las actividades relativas al trabajo. "
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "alert alert-warning", attrs: { role: "alert" } },
-      [
-        _c("p", [
-          _vm._v(
-            "\n            El tema tendrá una vigencia de dos años, a partir de la fecha de aceptación (Ver Art. 86, Fracc. VII, del Reglamento de Evaluación Profesional).\n            "
-          )
-        ])
-      ]
-    )
   }
 ]
 render._withStripped = true

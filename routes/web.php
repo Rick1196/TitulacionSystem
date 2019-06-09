@@ -55,8 +55,16 @@ Route::middleware(['auth'])->group(function () {
         'protocolos' => 'ProtocolosController'
     ]);
     Route::delete('sinodales/{sinodal}', 'SinodalesController@destroy')->name('sinodales.dest');
+    //registro de protocolos
     Route::post('postArticulo', 'ProtocolosController@postArticulo');
-
+    Route::post('postAppCon', 'ProtocolosController@postAppCon');
+    Route::post('postEnsayo', 'ProtocolosController@postEnsayo');
+    Route::post('postExpLab', 'ProtocolosController@postExpLab');
+    Route::post('postRepAut', 'ProtocolosController@postRepAut');
+    Route::post('postResInv', 'ProtocolosController@postResInv');
+    Route::post('postTesina', 'ProtocolosController@postTesina');
+    Route::post('postTesis', 'ProtocolosController@postTesis');
+    
 
     Route::get('tesista/protocolos_listar/{usr}','ProtocolosController@protocolos_listar')->name('protocolos.listar');
     Route::get('tesista_info/{id}','AdminsController@getTesista');

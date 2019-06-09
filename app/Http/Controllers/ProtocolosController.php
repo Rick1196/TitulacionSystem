@@ -184,7 +184,7 @@ class ProtocolosController extends Controller
         //registrar tipo protocolo
         DB::table('ensayo')->insert(
             [
-                'tema' => $request['titulo'], 
+                'tema' => $request['tema'], 
                 'asesor' => $request['asesor'],
                 'area' => $request['area'],
                 'descripcion' => $request['desc'],
@@ -212,8 +212,8 @@ class ProtocolosController extends Controller
             $request, 
             [
                 'tema' => 'required',
-                'inicio' => 'required',
-                'fin' => 'required',
+                'inicio' => 'required|date',
+                'fin' => 'required|date|after:inicio',
                 'area' => 'required',
                 'asesor' => 'required',
                 'desc_exp' => 'required', 
@@ -226,6 +226,7 @@ class ProtocolosController extends Controller
                 'tema.required' => 'Indicar el tema es necesario',
                 'inicio.required' => 'Indicar el inicio de la experiencia',
                 'fin.required' => 'indicar el final de la experiencia',
+                'fin.after' => 'La fecha de termino debe ser posterior a la fecha de inicio',
                 'area.required' => 'Seleccionar un AREA academica es necesario',
                 'asesor.required' => 'Seleccionar un asesor es necesario',
                 'desc_exp.required' => 'Describir la experiencia laboral',
@@ -335,8 +336,8 @@ class ProtocolosController extends Controller
             [
                 'tema' => 'required',
                 'titulo' => 'required',
-                'inicio' => 'required',
-                'fin' => 'required',
+                'inicio' => 'required|date',
+                'fin' => 'required|date|after:inicio',
                 'asesor' => 'required',
                 'area' => 'required', 
                 'plant' => 'required',
@@ -350,6 +351,7 @@ class ProtocolosController extends Controller
                 'titulo.required' => 'Indicar el titulo del reporte',
                 'inicio.required' => 'indicar un la fecha de inicio',
                 'fin.required' => 'indicar la fecha de termino',
+                'fin.after' =>'La fecha de termino debe ser posteriror a la fecha de inicio',
                 'asesor.required' => 'Indicar un asesor',
                 'area.required' => 'Indicar un area administrativa',
                 'plant.required' => 'Describir un planteamiento',
@@ -407,7 +409,9 @@ class ProtocolosController extends Controller
                 'titulo_reporte' => 'required',
                 'obj' => 'required',
                 'crono' => 'required',
-                'refs' => 'required',
+                'inicio' =>'required|date',
+                'fin' => 'required|date|after:inicio',
+                'clave'=>'required'
             ],
             [
                 'tema.required' => 'Indicar el tema es necesario',
@@ -419,8 +423,11 @@ class ProtocolosController extends Controller
                 'desc.required' => 'Describir el proyecto',
                 'titulo_reporte.required' => 'indicar el titulo del reporte',
                 'obj.required' => 'Describir un objetivo',
-                'refs.required' => 'Indicar las referencias utilizadas',
-                'crono.required' => 'Indicar tu cronograma de actividades'
+                'crono.required' => 'Indicar tu cronograma de actividades',
+                'inicio.required'=>'Indique la fecha de inicio de su participacion',
+                'fin.required'=>'Indique la fecha de termino de su participacion',
+                'fin.after'=>'La fecha de termino debe ser posterior a la fecha de inicio',
+                'clave.required'=>'Indicar la clave de registro del proyecto'
             ]
         );
         //registrar en sustentando
@@ -431,6 +438,8 @@ class ProtocolosController extends Controller
         //registrar tipo protocolo
         DB::table('investigacion')->insert(
             [
+                'inicio' =>$request['inicio'],
+                'fin'=>$request['fin'],
                 'responsable' => $request['responsable'], 
                 'asesor' => $request['asesor'],
                 'coasesor' => $request['coasesor'],
@@ -439,8 +448,8 @@ class ProtocolosController extends Controller
                 'descripcion' => $request['desc'],
                 'titulo_reporte' => $request['titulo_reporte'],
                 'objetivo' => $request['obj'],
-                'referencias' =>$request['refs'],
                 'cronograma' =>$request['crono'],
+                'clave'=>$request['clave'],
                 'sustentando' => $sustentando
             ]   
         );

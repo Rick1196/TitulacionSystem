@@ -1,6 +1,11 @@
 @extends('layouts.tesista')
 @section('content')
     <div class="container">
+        @if(Auth::user()->hasRegisters(Auth::user()->id))
+        <div class="alert alert-danger" role="alert">
+            Tiene un protocolo en proceso de ser evaluado, por lo tanto, no es posible registrar mas
+        </div>
+        @endif
         <div class="container">
             <div class="card-deck">
                 <div class="card">
@@ -15,7 +20,9 @@
                                 <button class="btn btn-md btn-primary" data-toggle="modal" data-target="#articulo">Requisitos</button>
                             </div>
                             <div class="col sm-6">
-                                <button class="btn btn-md btn-primary">Iniciar</button>
+                                @if(!Auth::user()->hasRegisters(Auth::user()->id))
+                                    <a class="btn btn-md btn-primary"  href="/tesista/articulo">Iniciar</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -32,7 +39,9 @@
                                 <button class="btn btn-md btn-primary"  data-toggle="modal" data-target="#ensayo">Requisitos</button>
                             </div>
                             <div class="col sm-6">
-                                <button class="btn btn-md btn-primary">Iniciar</button>
+                                @if(!Auth::user()->hasRegisters(Auth::user()->id))
+                                    <a class="btn btn-md btn-primary"href="/tesista/ensayo">Iniciar</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -49,7 +58,9 @@
                                 <button class="btn btn-md btn-primary" data-toggle="modal" data-target="#exp-lab">Requisitos</button>
                             </div>
                             <div class="col sm-6">
-                                <button class="btn btn-md btn-primary">Iniciar</button>
+                                @if(!Auth::user()->hasRegisters(Auth::user()->id))
+                                    <a class="btn btn-md btn-primary" href="/tesista/exp_lab">Iniciar</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -70,7 +81,9 @@
                                 <button class="btn btn-md btn-primary" data-toggle="modal" data-target="#app-con">Requisitos</button>
                             </div>
                             <div class="col sm-6">
-                                <button class="btn btn-md btn-primary">Iniciar</button>
+                                @if(!Auth::user()->hasRegisters(Auth::user()->id))
+                                    <a class="btn btn-md btn-primary" href="/tesista/app_con">Iniciar</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -87,7 +100,9 @@
                                 <button class="btn btn-md btn-primary" data-toggle="modal" data-target="#rep-aut">Requisitos</button>
                             </div>
                             <div class="col sm-6">
-                                <button class="btn btn-md btn-primary">Iniciar</button>
+                                @if(!Auth::user()->hasRegisters(Auth::user()->id))
+                                    <a class="btn btn-md btn-primary" href="/tesista/rep_aut">Iniciar</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -104,7 +119,9 @@
                                 <button class="btn btn-md btn-primary"  data-toggle="modal" data-target="#rep-res">Requisitos</button>
                             </div>
                             <div class="col sm-6">
-                                <button class="btn btn-md btn-primary">Iniciar</button>
+                                @if(!Auth::user()->hasRegisters(Auth::user()->id))
+                                    <a class="btn btn-md btn-primary" href="/tesista/rep_res">Iniciar</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -125,7 +142,9 @@
                                 <button class="btn btn-md btn-primary" data-toggle="modal" data-target="#tesina">Requisitos</button>
                             </div>
                             <div class="col sm-6">
-                                <button class="btn btn-md btn-primary">Iniciar</button>
+                                @if(!Auth::user()->hasRegisters(Auth::user()->id))
+                                    <a class="btn btn-md btn-primary" href="/tesista/tesina">Iniciar</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -142,7 +161,9 @@
                                 <button class="btn btn-md btn-primary" data-toggle="modal" data-target="#tesis">Requisitos</button>
                             </div>
                             <div class="col sm-6">
-                                <button class="btn btn-md btn-primary">Iniciar</button>
+                                @if(!Auth::user()->hasRegisters(Auth::user()->id))
+                                    <a class="btn btn-md btn-primary" href="/tesista/tesis">Iniciar</a>
+                                @endif
                             </div>
                         </div>
                     </div>

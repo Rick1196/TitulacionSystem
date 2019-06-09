@@ -1,184 +1,160 @@
 <template>
-    <div class="container">
+    <div class="container">  
+
         <div class="container">
-                <cabeza :usr="usr" v-model="protocolo.tema" tipo="Artículo especializado para publicar en revista indizada"></cabeza>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Título tentativo del artículo especializado</label>
-                <input type="text"  class="form-control" v-model="protocolo.titulo" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Especificar claramente el qué, es decir, el objeto de estudio.">
-                <small id="passwordHelpBlock" class="form-text text-muted " v-if="errores.titulo">
-                    <div class="font-weight-bold text-uppercase"  style="color:red">
-                        {{errores.titulo[0]}}
-                    </div>
-                </small>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Área académica</label>
-                <select class="form-control custom-select my-1 mr-sm-2" v-model="protocolo.area"  id="exampleFormControlSelect1">
-                    <option v-for="area in areas" :key="area.id" :value="area.id">{{area.nombre}}</option>
-                </select>
-                <small id="passwordHelpBlock" class="form-text text-muted" v-if="errores.area">
-                    <div class="font-weight-bold text-uppercase"  style="color:red">
-                        {{errores.area[0]}}
-                    </div>
-                </small>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Asesor</label>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" v-model="protocolo.asesor.nombre"  disabled placeholder="Nombre del asesor adscrito a la UAEM (propuesto por el sustentante)." aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary"  type="button btn-primary btn-md" v-on:click="asignacion = 0" data-toggle="modal" data-target="#buscador">Buscar <i class="fas fa-search"></i></button>
-                    </div>
+            <cabeza :usr="usr" v-model="protocolo.tema" tipo="Memoria de experiencia laboral"></cabeza>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Título</label>
+            <input type="text"  class="form-control" v-model="protocolo.titulo" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Especificar claramente el qué, es decir, el objeto de estudio.">
+            <small id="passwordHelpBlock" class="form-text text-muted " v-if="errores.titulo">
+                <div class="font-weight-bold text-uppercase"  style="color:red">
+                    {{errores.titulo[0]}}
                 </div>
-                <small id="passwordHelpBlock" class="form-text text-muted" v-if="errores.asesor">
-                    <div class="font-weight-bold text-uppercase"  style="color:red">
-                        {{errores.asesor[0]}}
-                    </div>
-                </small>
-            </div>
-
-            <div class="form-group">
-                <label for="exampleInputEmail1">Coasesor</label>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" v-model="protocolo.coasesor.nombre"   disabled placeholder="Nombre del coasesor adscrito a la UAEM (propuesto por el sustentante)." aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary"  type="button" v-on:click="asignacion = 1" data-toggle="modal" data-target="#buscador">Buscar <i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-                <small id="passwordHelpBlock" class="form-text text-muted" v-if="errores.coasesor">
-                    <div class="font-weight-bold text-uppercase"  style="color:red">
-                        {{errores.coasesor[0]}}
-                    </div>
-                </small>
-            </div>
-
-
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Periodo de participación </label>
             <div class="form-row">
-                <div class="col">
-                    <label for="inputEmail4">Nombre de la revista indizada</label>
-                    <input type="text" v-model="protocolo.revista"  class="form-control" >
-                    <small id="passwordHelpBlock" class="form-text text-muted" v-if="errores.revista">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Fecha de inicio</label>
+                    <input type="date" v-model="protocolo.inicio" class="form-control" id="inputEmail4" >
+                    <small id="passwordHelpBlock" class="form-text text-muted " v-if="errores.inicio">
                         <div class="font-weight-bold text-uppercase"  style="color:red">
-                            {{errores.revista[0]}}
+                            {{errores.inicio[0]}}
                         </div>
                     </small>
                 </div>
-                <div class="col">
-                    <label for="inputEmail4">Nombre del índice</label>
-                    <input type="text"  class="form-control" v-model="protocolo.indice" placeholder="Nombre y URL que avale la pertenencia de la revista  a algún índice">
-                    <small id="passwordHelpBlock" class="form-text text-muted" v-if="errores.indice">
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Fecha de fin</label>
+                    <input type="date" v-model="protocolo.fin" class="form-control" id="inputPassword4">
+                    <small id="passwordHelpBlock" class="form-text text-muted " v-if="errores.fin">
                         <div class="font-weight-bold text-uppercase"  style="color:red">
-                            {{errores.indice[0]}}
+                            {{errores.fin[0]}}
                         </div>
                     </small>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Descripción general (resumen) del artículo especializado</label>
-                <editor api-key="nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk" v-model="protocolo.desc" :init="{plugins: 'table help'}" initial-value="Mencionar el contexto o antecedentes, planteamiento del problema, objetivos y metodología."></editor>
-                <small id="passwordHelpBlock" class="form-text text-muted" v-if="errores.desc">
-                    <div class="font-weight-bold text-uppercase"  style="color:red">
-                        {{errores.desc[0]}}
-                    </div>
-                </small>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Referencias y/o fuentes de información</label>
-                <editor api-key="nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk" v-model="protocolo.refs" :init="{plugins: 'table help'}"></editor>
-                <small id="passwordHelpBlock" class="form-text text-muted" v-if="errores.refs">
-                    <div class="font-weight-bold text-uppercase"  style="color:red">
-                        {{errores.refs[0]}}
-                    </div>
-                </small>
-            </div>
-            <div class="alert alert-warning" role="alert">
-                <p>
-                El tema tendrá una vigencia de dos años, a partir de la fecha de aceptación (Ver Art. 86, Fracc. VII, del Reglamento de Evaluación Profesional).
-                </p>
-            </div>
-            <button type="button" class="btn btn-primary btn-lg btn-block" v-on:click="guardar()">Guardar y Terminar</button>
-
-    <!--Modal para seleccion de profesores -->
-        <div class="modal fade  bd-example-modal-lg" id="buscador" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Buscando profesor <i class="fas fa-search"></i></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="input-group">
-                        <input type="text" class="form-control" v-model="filter.nombre" data-toggle="tooltip" data-placement="bottom" title="Opcional" placeholder="Nombre">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" disabled type="button btn-primary">Buscar <i class="fas fa-search"></i></button>
-                        </div>
-                    </div>
-                    <div class="list-group">
-                        <button v-on:click="asigna(teacher)" v-for=" teacher in filteredTeachers" :key="teacher.id" class="list-group-item list-group-item-action">
-                            {{teacher.nombre}}
-                        </button>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Terminar</button>
-                </div>
                 </div>
             </div>
         </div>
-
-
+         <div class="form-group">
+            <label for="exampleInputEmail1">Asesor</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" v-model="protocolo.asesor.nombre"  disabled placeholder="Nombre del asesor adscrito a la UAEM (propuesto por el sustentante)." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary"  type="button btn-primary btn-md" v-on:click="asignacion = 0" data-toggle="modal" data-target="#buscador">Buscar <i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <small id="passwordHelpBlock" class="form-text text-muted" v-if="errores.asesor">
+                <div class="font-weight-bold text-uppercase"  style="color:red">
+                    {{errores.asesor[0]}}
+                </div>
+            </small>
+        </div>
         <div class="form-group">
-                <label for="exampleInputEmail1">Título</label>
-                <input type="text" disabled class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Especificar claramente el qué, es decir, el objeto de estudio.">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Periodo de participación </label>
-                <input type="date" disabled class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Asesor</label>
-                <input type="text" disabled class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre del asesor adscrito a la UAEM (propuesto por el sustentante).">
-            </div>
-            <div class="form-group">
-                <label for="inputEmail4">Descripción de la experiencia laboral</label>
-                <textarea class="form-control" disabled id="exampleFormControlTextarea1" rows="3">
-                  Descripción de las actividades laborales
-                  Plantear el problema que se abordará en la memoria.
-                  Describir cómo se involucró el pasante.
-                  Establecer la vinculación con el área de estudio.
-                </textarea>
-            </div>
-            <div class="form-group">
-                <label for="inputEmail4">Justificación</label>
-                <textarea class="form-control" disabled id="exampleFormControlTextarea1" rows="3">
+            <label for="exampleInputEmail1">Área académica</label>
+            <select class="form-control custom-select my-1 mr-sm-2" v-model="protocolo.area"  id="exampleFormControlSelect1">
+                <option v-for="area in areas" :key="area.id" :value="area.id">{{area.nombre}}</option>
+            </select>
+            <small id="passwordHelpBlock" class="form-text text-muted" v-if="errores.area">
+                <div class="font-weight-bold text-uppercase"  style="color:red">
+                    {{errores.area[0]}}
+                </div>
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail4">Descripción de la experiencia laboral</label>
+            <editor api-key="nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk" v-model="protocolo.desc" :init="{plugins: 'table help'}" initial-value="
+            Descripción de las actividades laborales
+            Plantear el problema que se abordará en la memoria.
+            Describir cómo se involucró el pasante.
+            Establecer la vinculación con el área de estudio.
+            "
+            ></editor>
+            <small id="passwordHelpBlock" class="form-text text-muted" v-if="errores.desc_exp">
+                <div class="font-weight-bold text-uppercase"  style="color:red">
+                    {{errores.desc_exp[0]}}
+                </div>
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail4">Justificación</label>
+            <editor api-key="nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk" v-model="protocolo.just" :init="{plugins: 'table help'}" initial-value="
                 Exponer de forma clara y concisa la importancia, el impacto, los beneficios y la aportación en la solución del problema, como resultado de la experiencia laboral. Así mismo, mencionar los alcances y limitaciones del problema descrito.
-                </textarea>
-            </div>
-            <div class="form-group">
-                <label for="inputEmail4">Objetivo general</label>
-                <textarea class="form-control" disabled id="exampleFormControlTextarea1" rows="3">
+            "
+            ></editor>
+            <small id="passwordHelpBlock" class="form-text text-muted" v-if="errores.just">
+                <div class="font-weight-bold text-uppercase"  style="color:red">
+                    {{errores.just[0]}}
+                </div>
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail4">Objetivo general</label>
+            <editor api-key="nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk" v-model="protocolo.obj" :init="{plugins: 'table help'}" initial-value="
                 Indicar qué experiencia se pretende documentar, resaltando el procedimiento de solución del problema. Incluir verbo en infinitivo que esté relacionado con el sentido de ‘describir o documentar’ entre otros.
-                </textarea>
-            </div>
-            <div class="form-group">
-                <label for="inputEmail4">Referencias y/o fuentes de información</label>
-                <textarea class="form-control" disabled id="exampleFormControlTextarea1" rows="3">
-                  Citar las fuentes académicas oficiales consultadas (revistas, artículos, libros y páginas  de empresas e instituciones reconocidas) y definir el sistema de referencias seleccionado (Harvard, Chicago, Vancouver, APA, Sistema Numerado).
-                </textarea>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Planificación de actividades</label>
-                <input type="text" disabled class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Incluir la secuencia en que realizará las actividades relativas al trabajo. ">
-            </div>
-            <div class="alert alert-warning" role="alert">
+            "
+            ></editor>
+            <small id="passwordHelpBlock" class="form-text text-muted" v-if="errores.obj">
+                <div class="font-weight-bold text-uppercase"  style="color:red">
+                    {{errores.obj[0]}}
+                </div>
+            </small>
+        </div>
+         <div class="form-group">
+            <label for="inputEmail4">Referencias y/o fuentes de información</label>
+            <editor api-key="nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk" initial-value="Citar las fuentes académicas oficiales consultadas (revistas, artículos, libros y páginas  de empresas e instituciones reconocidas) y definir el sistema de referencias seleccionado (Harvard, Chicago, Vancouver, APA, Sistema Numerado)." v-model="protocolo.refs" :init="{plugins: 'table help'}"></editor>
+            <small id="passwordHelpBlock" class="form-text text-muted" v-if="errores.refs">
+                <div class="font-weight-bold text-uppercase"  style="color:red">
+                    {{errores.refs[0]}}
+                </div>
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Planificación de actividades</label>
+            <editor api-key="nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk"  v-model="protocolo.crono" :init="{plugins: 'table help'}"></editor>
+            <small id="passwordHelpBlock" class="form-text text-muted" v-if="errores.crono">
+                <div class="font-weight-bold text-uppercase"  style="color:red">
+                    {{errores.crono[0]}}
+                </div>
+            </small>
+        </div>
+        <div class="alert alert-warning" role="alert">
                 <p>
                 El tema tendrá una vigencia de dos años, a partir de la fecha de aceptación (Ver Art. 86, Fracc. VII, del Reglamento de Evaluación Profesional).
                 </p>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg btn-block" v-on:click="guardar()">Guardar y Terminar</button>
+
+    <!--Modal para seleccion de profesores -->
+    <div class="modal fade  bd-example-modal-lg" id="buscador" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Buscando profesor <i class="fas fa-search"></i></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <input type="text" class="form-control" v-model="filter.nombre" data-toggle="tooltip" data-placement="bottom" title="Opcional" placeholder="Nombre">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" disabled type="button btn-primary">Buscar <i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <button v-on:click="asigna(teacher)" v-for=" teacher in filteredTeachers" :key="teacher.id" class="list-group-item list-group-item-action">
+                        {{teacher.nombre}}
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Terminar</button>
+            </div>
+            </div>
+        </div>
+    </div>
     </div>
 </template>
 <script>
@@ -206,13 +182,12 @@ export default {
                     id:'',
                     nombre:'',
                 },
-                coasesor:{
-                    id:'',
-                    nombre:'',
-                },
-                revista:'',
-                indice:'',
+                inicio:'',
+                fin:'',
                 desc:'',
+                just:'',
+                obj:'',
+                crono:'',
                 refs:'',
                 tema:'',
                 sus:[]
@@ -248,16 +223,18 @@ export default {
             }
         },
         guardar(){
-            let url = `/postArticulo`;
+            let url = `/postExpLab`;
             axios.post(url,
                 {
                     titulo:this.protocolo.titulo,
                     area:this.protocolo.area,
                     asesor:this.protocolo.asesor.id,
-                    coasesor:this.protocolo.coasesor.id,
-                    revista:this.protocolo.revista,
-                    indice:this.protocolo.indice,
-                    desc:this.protocolo.desc,
+                    inicio:this.protocolo.inicio,
+                    fin:this.protocolo.fin,
+                    desc_exp:this.protocolo.desc,
+                    just:this.protocolo.just,
+                    obj:this.protocolo.obj,
+                    crono:this.protocolo.crono,
                     refs:this.protocolo.refs,
                     usr:this.usr,
                     tema:this.protocolo.tema,

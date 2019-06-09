@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use DB;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -84,6 +84,15 @@ class User extends Authenticatable
     public function sinodal()
     {
         return $this->belongsTo('App\Sinodal');
+    }
+
+    public function hasRegisters($user){
+        $registers = DB::select('SELECT sustentantes_sustentando.id from sustentantes_sustentando inner JOIN sustentantes s on sustentantes_sustentando.sustentante = s.id inner join users u on s.usuario = u.id where u.id= ?',[$user]);
+        if($registers){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }

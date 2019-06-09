@@ -3,7 +3,7 @@
 
     <div class="container">
         <div class="container">
-            <cabeza :usr="usr" v-model="protocolo.tema" tipo="Ensayo"></cabeza>
+            <cabeza :usr="usr" v-model="protocolo.tema" tipo="Reporte de aplicacion de conocimientos"></cabeza>
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Título</label>
@@ -43,7 +43,7 @@
             <label for="inputEmail4">Planteamiento del problema</label>
             <editor api-key="nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk" initial-value="Exponer de manera general la problemática que se abordó y los conocimientos que se aplicaron para la resolución del problema. 
                 Mostrar la actualidad y la relevancia del tema.
-                Establecer la vinculación con el área de estudio." v-model="protocolo.refs" :init="{plugins: 'table help'}"></editor>
+                Establecer la vinculación con el área de estudio." v-model="protocolo.plant" :init="{plugins: 'table help'}"></editor>
             <small id="passwordHelpBlock" class="form-text text-muted" v-if="errores.plant">
                 <div class="font-weight-bold text-uppercase"  style="color:red">
                     {{errores.plant[0]}}
@@ -203,16 +203,16 @@ export default {
             }
         },
         guardar(){
-            let url = `/postArticulo`;
+            let url = `/postAppCon`;
             axios.post(url,
                 {
                     titulo:this.protocolo.titulo,
                     area:this.protocolo.area,
                     asesor:this.protocolo.asesor.id,
-                    plant:this.protocolo.coasesor.id,
-                    just:this.protocolo.revista,
-                    obj:this.protocolo.indice,
-                    metodologia:this.protocolo.desc,
+                    plant:this.protocolo.plant,
+                    just:this.protocolo.just,
+                    obj:this.protocolo.obj,
+                    metodologia:this.protocolo.metodologia,
                     crono:this.protocolo.crono,
                     refs:this.protocolo.refs,
                     usr:this.usr,
