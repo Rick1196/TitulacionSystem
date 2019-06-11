@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>Titulación</title>
-    <link rel="shortcut icon" href="{{asset('images/logo.png')}}" />
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
+@include('layouts.header')
 <body>
     <div id="app">
     <nav class="navbar navbar-expand-lg navbar-light bg-success">
@@ -31,6 +11,18 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/admin">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Protcolo
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/admin/tesistas">Protocolos pendientes</a>
+                    <div class="dropdown-divider"></div>
+                    </div>
+                </li>
             </ul>
             <ul class="navbar-nav">
             @guest
@@ -39,7 +31,7 @@
                 </li>
                 @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('registro') }}">{{ __('Registrarse') }}</a>
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                     </li>
                 @endif
             @else
@@ -69,5 +61,6 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>

@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('registro','Auth\RegisterController@registerLink')->name('registro');
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', function () {
         return view('admin/home');
@@ -46,13 +47,18 @@ Route::middleware(['auth'])->group(function () {
         return view('tesista/articulo');
     });
 
+    Route::get('titulacion/inicio','ProtocolosController@protocolos_pendientes')->name('titulacion.inicio');
+    Route::get('sinodales/inicio','ReportesController@misRevisiones')->name('sinodales.inicio');
+
+
     Route::get('/admin/tesistas','TesistasController@tesistasCrud')->name('admin.tesistas');
     Route::get('/admin/sinodales','SinodalesController@SinodalesCrud')->name('admin.sinodales');
     Route::resources([
         'tesistas' => 'TesistasController',
         'sinodales' => 'SinodalesController',
         'areas' => 'AreasController',
-        'protocolos' => 'ProtocolosController'
+        'protocolos' => 'ProtocolosController',
+        'reportes' => 'ReportesController'
     ]);
     Route::delete('sinodales/{sinodal}', 'SinodalesController@destroy')->name('sinodales.dest');
     //registro de protocolos
@@ -65,6 +71,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('postTesina', 'ProtocolosController@postTesina');
     Route::post('postTesis', 'ProtocolosController@postTesis');
     
+    Route::post('postFolio', 'ProtocolosController@asignar');
 
     Route::get('tesista/protocolos_listar/{usr}','ProtocolosController@protocolos_listar')->name('protocolos.listar');
     Route::get('tesista_info/{id}','AdminsController@getTesista');

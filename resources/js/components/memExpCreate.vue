@@ -205,13 +205,13 @@ export default {
                     console.log(error.response)
             });
         },
-        getSinodales(){
-            let url = `/sinodales`;
-            axios.get(url).then(response => {
-            this.sinodales = response.data;
-        }).catch(error => {
-                console.log(error.response)
-        });
+            getSinodales(){
+                let url = `/sinodales`;
+                axios.get(url).then(response => {
+                this.sinodales = response.data;
+            }).catch(error => {
+                    console.log(error.response)
+            });
         },
         asigna(sinodal){
             if(this.asignacion == 0){

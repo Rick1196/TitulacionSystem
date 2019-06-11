@@ -33,10 +33,10 @@ class LoginController extends Controller
         }elseif (Auth::user()->hasRole('tesista')) {
             return '/tesista';
         }elseif (Auth::user()->hasRole('titulacion')) {
-            return '/titulacion';
+            return '/titulacion/inicio';
         }
         elseif (Auth::user()->hasRole('sinodal')) {
-            return '/sinodal';
+            return '/sinodales/inicio';
         }
     
     }

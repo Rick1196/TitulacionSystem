@@ -86,14 +86,24 @@ class ProtocolosController extends Controller
 
     public function protocolos_listar($usr)
     {
-        //en esta funcion debe de ir un union para todas las tablas de los protocolo
         $protocolos = DB::table('sustentando')
-        ->join('articulo','sustentando.id' ,'=','articulo.sustentando')
         ->join('versiones' , 'sustentando.id', '=','versiones.sustentado')
         ->join('sustentantes_sustentando', 'versiones.id', '=', 'sustentantes_sustentando.version')
         ->join('sustentantes' , 'sustentantes_sustentando.sustentante', '=', 'sustentantes.id')
-        ->where('usuario',$usr)->orderBy('versiones.fecha','ASC')->paginate(10);
+        ->where('usuario',$usr)->orderBy('versiones.fecha','ASC')->paginate(10);;
         return  View::make("tesista/protocolos",compact('protocolos'));
+    }
+
+    public function protocolos_pendientes()
+    {
+        $protocolos = DB::table('sustentando as s')
+        ->join('versiones' , 's.id', '=','versiones.sustentado')
+        ->join('sustentantes_sustentando', 'versiones.id', '=', 'sustentantes_sustentando.version')
+        ->join('sustentantes' , 'sustentantes_sustentando.sustentante', '=', 'sustentantes.id')
+        ->where('folio','')->orderBy('versiones.fecha','ASC')
+        ->select('s.id','s.tema','s.fecha_alta','sustentantes.nombre','sustentantes.paterno','sustentantes.materno','sustentantes.cuenta','s.folio')
+        ->paginate(10);;
+       return View::make("titulacion/home",compact('protocolos'));
     }
 
     public function postArticulo(Request $request){
@@ -125,7 +135,8 @@ class ProtocolosController extends Controller
         //registrar en sustentando
         $sustentando = DB::table('sustentando')->insertGetId(
             ['tema' => $request['tema'], 
-            'fecha_alta' => Carbon::now()]
+            'fecha_alta' => Carbon::now(),
+            'modalidad'=>'1']
         );
         //registrar tipo protocolo
         DB::table('articulo')->insert(
@@ -179,7 +190,8 @@ class ProtocolosController extends Controller
         //registrar en sustentando
         $sustentando = DB::table('sustentando')->insertGetId(
             ['tema' => $request['tema'], 
-            'fecha_alta' => Carbon::now()]
+            'fecha_alta' => Carbon::now(),
+            'modalidad'=>'2']
         );
         //registrar tipo protocolo
         DB::table('ensayo')->insert(
@@ -239,7 +251,8 @@ class ProtocolosController extends Controller
         //registrar en sustentando
         $sustentando = DB::table('sustentando')->insertGetId(
             ['tema' => $request['tema'], 
-            'fecha_alta' => Carbon::now()]
+            'fecha_alta' => Carbon::now(),
+            'modalidad'=>'3']
         );
         //registrar tipo protocolo
         DB::table('memoria_laboral')->insert(
@@ -300,7 +313,8 @@ class ProtocolosController extends Controller
         //registrar en sustentando
         $sustentando = DB::table('sustentando')->insertGetId(
             ['tema' => $request['tema'], 
-            'fecha_alta' => Carbon::now()]
+            'fecha_alta' => Carbon::now(),
+            'modalidad'=>'4']
         );
         //registrar tipo protocolo
         DB::table('aplicacion_conocimiento')->insert(
@@ -364,7 +378,8 @@ class ProtocolosController extends Controller
         //registrar en sustentando
         $sustentando = DB::table('sustentando')->insertGetId(
             ['tema' => $request['tema'], 
-            'fecha_alta' => Carbon::now()]
+            'fecha_alta' => Carbon::now(),
+            'modalidad'=>'5']
         );
         //registrar tipo protocolo
         DB::table('autoempleo')->insert(
@@ -433,7 +448,8 @@ class ProtocolosController extends Controller
         //registrar en sustentando
         $sustentando = DB::table('sustentando')->insertGetId(
             ['tema' => $request['tema'], 
-            'fecha_alta' => Carbon::now()]
+            'fecha_alta' => Carbon::now(),
+            'modalidad'=>'5']
         );
         //registrar tipo protocolo
         DB::table('investigacion')->insert(
@@ -497,7 +513,8 @@ class ProtocolosController extends Controller
         //registrar en sustentando
         $sustentando = DB::table('sustentando')->insertGetId(
             ['tema' => $request['tema'], 
-            'fecha_alta' => Carbon::now()]
+            'fecha_alta' => Carbon::now(),
+            'modalidad'=>'6']
         );
         //registrar tipo protocolo
         DB::table('tesina')->insert(
@@ -562,7 +579,8 @@ class ProtocolosController extends Controller
         //registrar en sustentando
         $sustentando = DB::table('sustentando')->insertGetId(
             ['tema' => $request['tema'], 
-            'fecha_alta' => Carbon::now()]
+            'fecha_alta' => Carbon::now(),
+            'modalidad'=>'7']
         );
         //registrar tipo protocolo
         DB::table('tesis')->insert(
@@ -592,5 +610,42 @@ class ProtocolosController extends Controller
             );
         }
 
+    }
+
+    public function asignar(Request $request)
+    {
+        $this->validate(
+            $request,
+            [
+                'folio' =>'required|unique:sustentando'
+            ],
+            [
+                'folio.required'=>'Indique in folio para el protocolo',
+                'folio.unique'=>'Este folio ya fue asignado'
+            ]
+        );
+        DB::table('sustentando')
+        ->where('id', $request['proto'])
+        ->update([
+            'folio' => $request['folio'],
+        ]);
+        DB::table('revisores_sustentando')->insert(
+            [
+                'evaluador'=>$request['eva1'],
+                'evaluando'=>$request['proto']
+            ]
+        );
+        DB::table('revisores_sustentando')->insert(
+            [
+                'evaluador'=>$request['eva2'],
+                'evaluando'=>$request['proto']
+            ]
+        );
+        DB::table('revisores_sustentando')->insert(
+            [
+                'evaluador'=>$request['eva3'],
+                'evaluando'=>$request['proto']
+            ]
+        );
     }
 }

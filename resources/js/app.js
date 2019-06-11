@@ -34,6 +34,7 @@ Vue.component('create-app-con', require('./components/appConCreate.vue').default
 Vue.component('create-rep-out', require('./components/repOutCreate.vue').default);
 Vue.component('create-rep-res', require('./components/repResCreate.vue').default);
 Vue.component('head-prot', require('./components/encabezado.vue').default);
+Vue.component('edit-folio', require('./components/editFolio.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
