@@ -4746,7 +4746,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     cerrar: function cerrar() {
-      location.reload;
+      location.reload();
     }
   },
   computed: {
@@ -5407,6 +5407,1441 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repApCon.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/repApCon.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tinymce/tinymce-vue */ "./node_modules/@tinymce/tinymce-vue/lib/es2015/index.js");
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! crypto */ "./node_modules/crypto-browserify/index.js");
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(crypto__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['modalidad', 'version', 'user'],
+  components: {
+    'editor': _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_0__["default"] // <- Important part
+
+  },
+  data: function data() {
+    return {
+      protocolo: '',
+      errores: [],
+      evaluador: null,
+      tipo_dictamen: [],
+      sugerencias: '',
+      obs: '',
+      dictamen: 0,
+      cosas: {
+        titulo: 'Ninguna',
+        area: 'Ninguna',
+        plant: 'Ninguna',
+        metodologia: 'Ninguna',
+        just: 'Ninguna',
+        obj: 'Ninguna',
+        refs: 'Ninguna',
+        crono: 'Ninguna',
+        otras: 'Ninguna',
+        sugerencias: 'Ninguna'
+      }
+    };
+  },
+  methods: {
+    getTipos: function getTipos() {
+      var _this = this;
+
+      var url = "/getTipos";
+      axios.get(url).then(function (response) {
+        console.log(response.data[0]);
+        _this.tipo_dictamen = response.data;
+        _this.dictamen = _this.tipo_dictamen[0].id;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getEval: function getEval() {
+      var _this2 = this;
+
+      var url = "/getEval/";
+      axios.get(url + "".concat(this.user)).then(function (response) {
+        console.log(response.data[0]);
+        _this2.evaluador = response.data[0];
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getInfo: function getInfo() {
+      var _this3 = this;
+
+      var url = "/get_info/";
+      axios.get(url + "".concat(this.version, "/").concat(this.modalidad)).then(function (response) {
+        console.log(response.data[0]);
+        _this3.protocolo = response.data[0];
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    guardar: function guardar() {
+      var _this4 = this;
+
+      if (this.dictamen === 1) {
+        var url = "/postSi";
+        axios.post(url, {
+          titulo: this.protocolo.titulo,
+          sugerencias: 'Ninguna',
+          evaluador: this.evaluador.id,
+          version: this.version
+        }).then(function (response) {
+          _this4.errores = [];
+          alert("Su reporte ha sido registrado exitosamente");
+          window.location.href = '/sinodales/inicio';
+        })["catch"](function (error) {
+          console.log(error.response);
+          _this4.errores = error.response.data.errors;
+
+          _this4.$root.$emit('error', _this4.errores.tema);
+        });
+      } else {
+        alert("Reporte registrado exitosamente");
+        window.location.href = '/sinodales/inicio';
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.getInfo();
+    this.getTipos();
+    this.getEval();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repArticulo.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/repArticulo.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tinymce/tinymce-vue */ "./node_modules/@tinymce/tinymce-vue/lib/es2015/index.js");
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! crypto */ "./node_modules/crypto-browserify/index.js");
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(crypto__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['modalidad', 'version', 'user'],
+  components: {
+    'editor': _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_0__["default"] // <- Important part
+
+  },
+  data: function data() {
+    return {
+      protocolo: '',
+      errores: [],
+      evaluador: null,
+      tipo_dictamen: [],
+      sugerencias: '',
+      obs: '',
+      dictamen: 0,
+      cosas: {
+        titulo: 'Ninguna',
+        area: 'Ninguna',
+        revista: 'Ninguna',
+        indice: 'Ninguna',
+        desc: 'Ninguna',
+        refs: 'Ninguna',
+        otras: 'Ninguna',
+        sugerencias: 'Ninguna'
+      }
+    };
+  },
+  methods: {
+    getTipos: function getTipos() {
+      var _this = this;
+
+      var url = "/getTipos";
+      axios.get(url).then(function (response) {
+        console.log(response.data[0]);
+        _this.tipo_dictamen = response.data;
+        _this.dictamen = _this.tipo_dictamen[0].id;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getEval: function getEval() {
+      var _this2 = this;
+
+      var url = "/getEval/";
+      axios.get(url + "".concat(this.user)).then(function (response) {
+        console.log(response.data[0]);
+        _this2.evaluador = response.data[0];
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getInfo: function getInfo() {
+      var _this3 = this;
+
+      var url = "/get_info/";
+      axios.get(url + "".concat(this.version, "/").concat(this.modalidad)).then(function (response) {
+        console.log(response.data[0]);
+        _this3.protocolo = response.data[0];
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    guardar: function guardar() {
+      var _this4 = this;
+
+      if (this.dictamen === 1) {
+        var url = "/postSi";
+        axios.post(url, {
+          titulo: this.protocolo.titulo,
+          sugerencias: 'Ninguna',
+          evaluador: this.evaluador.id,
+          version: this.version
+        }).then(function (response) {
+          _this4.errores = [];
+          alert("Su reporte ha sido registrado exitosamente");
+          window.location.href = '/sinodales/inicio';
+        })["catch"](function (error) {
+          console.log(error.response);
+          _this4.errores = error.response.data.errors;
+
+          _this4.$root.$emit('error', _this4.errores.tema);
+        });
+      } else {
+        alert("Reporte registrado exitosamente");
+        window.location.href = '/sinodales/inicio';
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.getInfo();
+    this.getTipos();
+    this.getEval();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repAut.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/repAut.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tinymce/tinymce-vue */ "./node_modules/@tinymce/tinymce-vue/lib/es2015/index.js");
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! crypto */ "./node_modules/crypto-browserify/index.js");
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(crypto__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['modalidad', 'version', 'user'],
+  components: {
+    'editor': _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_0__["default"] // <- Important part
+
+  },
+  data: function data() {
+    return {
+      protocolo: '',
+      errores: [],
+      evaluador: null,
+      tipo_dictamen: [],
+      sugerencias: '',
+      obs: '',
+      dictamen: 0,
+      cosas: {
+        titulo: 'Ninguna',
+        periodo: 'Ninguna',
+        area: 'Ninguna',
+        plant: 'Ninguna',
+        just: 'Ninguna',
+        obj: 'Ninguna',
+        refs: 'Ninguna',
+        crono: 'Ninguna',
+        otras: 'Ninguna',
+        sugerencias: 'Ninguna'
+      }
+    };
+  },
+  methods: {
+    getTipos: function getTipos() {
+      var _this = this;
+
+      var url = "/getTipos";
+      axios.get(url).then(function (response) {
+        console.log(response.data[0]);
+        _this.tipo_dictamen = response.data;
+        _this.dictamen = _this.tipo_dictamen[0].id;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getEval: function getEval() {
+      var _this2 = this;
+
+      var url = "/getEval/";
+      axios.get(url + "".concat(this.user)).then(function (response) {
+        console.log(response.data[0]);
+        _this2.evaluador = response.data[0];
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getInfo: function getInfo() {
+      var _this3 = this;
+
+      var url = "/get_info/";
+      axios.get(url + "".concat(this.version, "/").concat(this.modalidad)).then(function (response) {
+        console.log(response.data[0]);
+        _this3.protocolo = response.data[0];
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    guardar: function guardar() {
+      var _this4 = this;
+
+      if (this.dictamen === 1) {
+        var url = "/postSi";
+        axios.post(url, {
+          titulo: this.protocolo.titulo,
+          sugerencias: 'Ninguna',
+          evaluador: this.evaluador.id,
+          version: this.version
+        }).then(function (response) {
+          _this4.errores = [];
+          alert("Su reporte ha sido registrado exitosamente");
+          window.location.href = '/sinodales/inicio';
+        })["catch"](function (error) {
+          console.log(error.response);
+          _this4.errores = error.response.data.errors;
+
+          _this4.$root.$emit('error', _this4.errores.tema);
+        });
+      } else {
+        alert("Reporte registrado exitosamente");
+        window.location.href = '/sinodales/inicio';
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.getInfo();
+    this.getTipos();
+    this.getEval();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repEnsayo.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/repEnsayo.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tinymce/tinymce-vue */ "./node_modules/@tinymce/tinymce-vue/lib/es2015/index.js");
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! crypto */ "./node_modules/crypto-browserify/index.js");
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(crypto__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['modalidad', 'version', 'user'],
+  components: {
+    'editor': _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_0__["default"] // <- Important part
+
+  },
+  data: function data() {
+    return {
+      protocolo: '',
+      errores: [],
+      evaluador: null,
+      tipo_dictamen: [],
+      sugerencias: '',
+      obs: '',
+      dictamen: 0,
+      cosas: {
+        tema: 'Ninguna',
+        area: 'Ninguna',
+        desc: 'Ninguna',
+        just: 'Ninguna',
+        refs: 'Ninguna',
+        crono: 'Ninguna',
+        otras: 'Ninguna',
+        sugerencias: 'Ninguna'
+      }
+    };
+  },
+  methods: {
+    getTipos: function getTipos() {
+      var _this = this;
+
+      var url = "/getTipos";
+      axios.get(url).then(function (response) {
+        console.log(response.data[0]);
+        _this.tipo_dictamen = response.data;
+        _this.dictamen = _this.tipo_dictamen[0].id;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getEval: function getEval() {
+      var _this2 = this;
+
+      var url = "/getEval/";
+      axios.get(url + "".concat(this.user)).then(function (response) {
+        console.log(response.data[0]);
+        _this2.evaluador = response.data[0];
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getInfo: function getInfo() {
+      var _this3 = this;
+
+      var url = "/get_info/";
+      axios.get(url + "".concat(this.version, "/").concat(this.modalidad)).then(function (response) {
+        console.log(response.data[0]);
+        _this3.protocolo = response.data[0];
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    guardar: function guardar() {
+      var _this4 = this;
+
+      if (this.dictamen === 1) {
+        var url = "/postSi";
+        axios.post(url, {
+          titulo: this.protocolo.tema,
+          sugerencias: 'Ninguna',
+          evaluador: this.evaluador.id,
+          version: this.version
+        }).then(function (response) {
+          _this4.errores = [];
+          alert("Su reporte ha sido registrado exitosamente");
+          window.location.href = '/sinodales/inicio';
+        })["catch"](function (error) {
+          console.log(error.response);
+          _this4.errores = error.response.data.errors;
+
+          _this4.$root.$emit('error', _this4.errores.tema);
+        });
+      } else {
+        alert("Reporte registrado exitosamente");
+        window.location.href = '/sinodales/inicio';
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.getInfo();
+    this.getTipos();
+    this.getEval();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repMemExp.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/repMemExp.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tinymce/tinymce-vue */ "./node_modules/@tinymce/tinymce-vue/lib/es2015/index.js");
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! crypto */ "./node_modules/crypto-browserify/index.js");
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(crypto__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['modalidad', 'version', 'user'],
+  components: {
+    'editor': _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_0__["default"] // <- Important part
+
+  },
+  data: function data() {
+    return {
+      protocolo: '',
+      errores: [],
+      evaluador: null,
+      tipo_dictamen: [],
+      sugerencias: '',
+      obs: '',
+      dictamen: 0,
+      cosas: {
+        titulo: 'Ninguna',
+        periodo: 'Ninguna',
+        area: 'Ninguna',
+        desc: 'Ninguna',
+        just: 'Ninguna',
+        obj: 'Ninguna',
+        refs: 'Ninguna',
+        crono: 'Ninguna',
+        otras: 'Ninguna',
+        sugerencias: 'Ninguna'
+      }
+    };
+  },
+  methods: {
+    getTipos: function getTipos() {
+      var _this = this;
+
+      var url = "/getTipos";
+      axios.get(url).then(function (response) {
+        console.log(response.data[0]);
+        _this.tipo_dictamen = response.data;
+        _this.dictamen = _this.tipo_dictamen[0].id;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getEval: function getEval() {
+      var _this2 = this;
+
+      var url = "/getEval/";
+      axios.get(url + "".concat(this.user)).then(function (response) {
+        console.log(response.data[0]);
+        _this2.evaluador = response.data[0];
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getInfo: function getInfo() {
+      var _this3 = this;
+
+      var url = "/get_info/";
+      axios.get(url + "".concat(this.version, "/").concat(this.modalidad)).then(function (response) {
+        console.log(response.data[0]);
+        _this3.protocolo = response.data[0];
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    guardar: function guardar() {
+      var _this4 = this;
+
+      if (this.dictamen === 1) {
+        var url = "/postSi";
+        axios.post(url, {
+          titulo: this.protocolo.tema,
+          sugerencias: 'Ninguna',
+          evaluador: this.evaluador.id,
+          version: this.version
+        }).then(function (response) {
+          _this4.errores = [];
+          alert("Su reporte ha sido registrado exitosamente");
+          window.location.href = '/sinodales/inicio';
+        })["catch"](function (error) {
+          console.log(error.response);
+          _this4.errores = error.response.data.errors;
+
+          _this4.$root.$emit('error', _this4.errores.tema);
+        });
+      } else {
+        alert("Reporte registrado exitosamente");
+        window.location.href = '/sinodales/inicio';
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.getInfo();
+    this.getTipos();
+    this.getEval();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repOutCreate.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/repOutCreate.vue?vue&type=script&lang=js& ***!
@@ -6055,6 +7490,892 @@ __webpack_require__.r(__webpack_exports__);
     this.$root.$on('alumno', function (id) {
       _this5.protocolo.sus.push(id);
     });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repResIn.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/repResIn.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tinymce/tinymce-vue */ "./node_modules/@tinymce/tinymce-vue/lib/es2015/index.js");
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! crypto */ "./node_modules/crypto-browserify/index.js");
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(crypto__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['modalidad', 'version', 'user'],
+  components: {
+    'editor': _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_0__["default"] // <- Important part
+
+  },
+  data: function data() {
+    return {
+      protocolo: '',
+      errores: [],
+      evaluador: null,
+      tipo_dictamen: [],
+      sugerencias: '',
+      obs: '',
+      dictamen: 0,
+      cosas: {
+        titulo_proyecto: 'Ninguna',
+        titulo_reporte: 'Ninguna',
+        area: 'Ninguna',
+        desc: 'Ninguna',
+        obj: 'Ninguna',
+        crono: 'Ninguna',
+        otras: 'Ninguna',
+        sugerencias: 'Ninguna'
+      }
+    };
+  },
+  methods: {
+    getTipos: function getTipos() {
+      var _this = this;
+
+      var url = "/getTipos";
+      axios.get(url).then(function (response) {
+        console.log(response.data[0]);
+        _this.tipo_dictamen = response.data;
+        _this.dictamen = _this.tipo_dictamen[0].id;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getEval: function getEval() {
+      var _this2 = this;
+
+      var url = "/getEval/";
+      axios.get(url + "".concat(this.user)).then(function (response) {
+        console.log(response.data[0]);
+        _this2.evaluador = response.data[0];
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getInfo: function getInfo() {
+      var _this3 = this;
+
+      var url = "/get_info/";
+      axios.get(url + "".concat(this.version, "/").concat(this.modalidad)).then(function (response) {
+        console.log(response.data[0]);
+        _this3.protocolo = response.data[0];
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    guardar: function guardar() {
+      var _this4 = this;
+
+      if (this.dictamen === 1) {
+        var url = "/postSi";
+        axios.post(url, {
+          titulo: this.protocolo.tema,
+          sugerencias: 'Ninguna',
+          evaluador: this.evaluador.id,
+          version: this.version
+        }).then(function (response) {
+          _this4.errores = [];
+          alert("Su reporte ha sido registrado exitosamente");
+          window.location.href = '/sinodales/inicio';
+        })["catch"](function (error) {
+          console.log(error.response);
+          _this4.errores = error.response.data.errors;
+
+          _this4.$root.$emit('error', _this4.errores.tema);
+        });
+      } else {
+        alert("Reporte registrado exitosamente");
+        window.location.href = '/sinodales/inicio';
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.getInfo();
+    this.getTipos();
+    this.getEval();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repTesina.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/repTesina.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tinymce/tinymce-vue */ "./node_modules/@tinymce/tinymce-vue/lib/es2015/index.js");
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! crypto */ "./node_modules/crypto-browserify/index.js");
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(crypto__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['modalidad', 'version', 'user'],
+  components: {
+    'editor': _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_0__["default"] // <- Important part
+
+  },
+  data: function data() {
+    return {
+      protocolo: '',
+      errores: [],
+      evaluador: null,
+      tipo_dictamen: [],
+      sugerencias: '',
+      obs: '',
+      dictamen: 0,
+      cosas: {
+        titulo: 'Ninguna',
+        area: 'Ninguna',
+        plant: 'Ninguna',
+        just: 'Ninguna',
+        obj: 'Ninguna',
+        metodologia: 'Ninguna',
+        refs: 'Ninguna',
+        crono: 'Ninguna',
+        otras: 'Ninguna'
+      }
+    };
+  },
+  methods: {
+    getTipos: function getTipos() {
+      var _this = this;
+
+      var url = "/getTipos";
+      axios.get(url).then(function (response) {
+        console.log(response.data[0]);
+        _this.tipo_dictamen = response.data;
+        _this.dictamen = _this.tipo_dictamen[0].id;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getEval: function getEval() {
+      var _this2 = this;
+
+      var url = "/getEval/";
+      axios.get(url + "".concat(this.user)).then(function (response) {
+        console.log(response.data[0]);
+        _this2.evaluador = response.data[0];
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getInfo: function getInfo() {
+      var _this3 = this;
+
+      var url = "/get_info/";
+      axios.get(url + "".concat(this.version, "/").concat(this.modalidad)).then(function (response) {
+        console.log(response.data[0]);
+        _this3.protocolo = response.data[0];
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    guardar: function guardar() {
+      var _this4 = this;
+
+      if (this.dictamen === 1) {
+        var url = "/postSi";
+        axios.post(url, {
+          titulo: this.protocolo.titulo,
+          sugerencias: 'Ninguna',
+          evaluador: this.evaluador.id,
+          version: this.version
+        }).then(function (response) {
+          _this4.errores = [];
+          alert("Su reporte ha sido registrado exitosamente");
+          window.location.href = '/sinodales/inicio';
+        })["catch"](function (error) {
+          console.log(error.response);
+          _this4.errores = error.response.data.errors;
+
+          _this4.$root.$emit('error', _this4.errores.tema);
+        });
+      } else {
+        alert("Reporte registrado exitosamente");
+        window.location.href = '/sinodales/inicio';
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.getInfo();
+    this.getTipos();
+    this.getEval();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repTesis.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/repTesis.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tinymce/tinymce-vue */ "./node_modules/@tinymce/tinymce-vue/lib/es2015/index.js");
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! crypto */ "./node_modules/crypto-browserify/index.js");
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(crypto__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['modalidad', 'version', 'user'],
+  components: {
+    'editor': _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_0__["default"] // <- Important part
+
+  },
+  data: function data() {
+    return {
+      protocolo: '',
+      errores: [],
+      evaluador: null,
+      tipo_dictamen: [],
+      sugerencias: '',
+      obs: 'Ninguna',
+      dictamen: 0,
+      cosas: {
+        titulo: 'Ninguna',
+        area: 'Ninguna',
+        plant: 'Ninguna',
+        just: 'Ninguna',
+        hipotesis: 'Ninguna',
+        obj: 'Ninguna',
+        metodologia: 'Ninguna',
+        refs: 'Ninguna',
+        crono: 'Ninguna',
+        otras: 'Ninguna',
+        sugs: 'Ninguna'
+      }
+    };
+  },
+  methods: {
+    getTipos: function getTipos() {
+      var _this = this;
+
+      var url = "/getTipos";
+      axios.get(url).then(function (response) {
+        console.log(response.data[0]);
+        _this.tipo_dictamen = response.data;
+        _this.dictamen = _this.tipo_dictamen[0].id;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getEval: function getEval() {
+      var _this2 = this;
+
+      var url = "/getEval/";
+      axios.get(url + "".concat(this.user)).then(function (response) {
+        console.log(response.data[0]);
+        _this2.evaluador = response.data[0];
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getInfo: function getInfo() {
+      var _this3 = this;
+
+      var url = "/get_info/";
+      axios.get(url + "".concat(this.version, "/").concat(this.modalidad)).then(function (response) {
+        console.log(response.data[0]);
+        _this3.protocolo = response.data[0];
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    guardar: function guardar() {
+      var _this4 = this;
+
+      if (this.dictamen === 1) {
+        var url = "/postSi";
+        axios.post(url, {
+          titulo: this.protocolo.titulo,
+          sugerencias: 'Ninguna',
+          evaluador: this.evaluador.id,
+          version: this.version
+        }).then(function (response) {
+          _this4.errores = [];
+          alert("Su reporte ha sido registrado exitosamente");
+          window.location.href = '/sinodales/inicio';
+        })["catch"](function (error) {
+          console.log(error.response);
+          _this4.errores = error.response.data.errors;
+
+          _this4.$root.$emit('error', _this4.errores.tema);
+        });
+      } else {
+        alert("Reporte registrado exitosamente");
+        window.location.href = '/sinodales/inicio';
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.getInfo();
+    this.getTipos();
+    this.getEval();
   }
 });
 
@@ -66926,6 +69247,4701 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repApCon.vue?vue&type=template&id=60be7afe&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/repApCon.vue?vue&type=template&id=60be7afe& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Nombre del evaluador")
+        ]),
+        _vm._v(" "),
+        _c("h3", [
+          _vm._v(
+            _vm._s(
+              _vm.evaluador.nombre +
+                " " +
+                _vm.evaluador.paterno +
+                " " +
+                _vm.evaluador.materno
+            )
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Folio del protocolo")
+        ]),
+        _vm._v(" "),
+        _c("h3", [_vm._v(_vm._s(_vm.protocolo.folio))])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Dictamen")
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.dictamen,
+                expression: "dictamen"
+              }
+            ],
+            staticClass: "form-control custom-select my-1 mr-sm-2",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.dictamen = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          _vm._l(_vm.tipo_dictamen, function(dict) {
+            return _c(
+              "option",
+              { key: dict.id, domProps: { value: dict.id } },
+              [_vm._v(_vm._s(dict.descripcion))]
+            )
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _vm.dictamen === 4 || _vm.dictamen === 5
+        ? _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Observaciones")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.obs,
+                  callback: function($$v) {
+                    _vm.obs = $$v
+                  },
+                  expression: "obs"
+                }
+              })
+            ],
+            1
+          )
+        : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Título")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.titulo,
+            expression: "protocolo.titulo"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          disabled: "",
+          type: "text",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp",
+          placeholder:
+            "Especificar claramente el qué, es decir, el objeto de estudio."
+        },
+        domProps: { value: _vm.protocolo.titulo },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "titulo", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Asesor")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-group mb-3" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.protocolo.asesor,
+              expression: "protocolo.asesor"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            disabled: "",
+            type: "text",
+            disabled: "",
+            placeholder:
+              "Nombre del asesor adscrito a la UAEM (propuesto por el sustentante).",
+            "aria-label": "Recipient's username",
+            "aria-describedby": "basic-addon2"
+          },
+          domProps: { value: _vm.protocolo.asesor },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.protocolo, "asesor", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group-append" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-secondary",
+              attrs: {
+                type: "button btn-primary btn-md",
+                "data-toggle": "modal",
+                "data-target": "#buscador"
+              },
+              on: {
+                click: function($event) {
+                  _vm.asignacion = 0
+                }
+              }
+            },
+            [_vm._v("Buscar "), _c("i", { staticClass: "fas fa-search" })]
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Área académica")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.area,
+            expression: "protocolo.area"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          disabled: "",
+          type: "text",
+          disabled: "",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp"
+        },
+        domProps: { value: _vm.protocolo.area },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "area", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Planteamiento del problema")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "Exponer de manera general la problemática que se abordó y los conocimientos que se aplicaron para la resolución del problema. \n            Mostrar la actualidad y la relevancia del tema.\n            Establecer la vinculación con el área de estudio.",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.plant,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "plant", $$v)
+            },
+            expression: "protocolo.plant"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Justificación")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "Exponer de forma clara y concisa la importancia, el impacto, los beneficios y la aportación en la solución del problema, como resultado de la experiencia laboral. Así mismo, mencionar los alcances y limitaciones del problema descrito.",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.just,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "just", $$v)
+            },
+            expression: "protocolo.just"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Objetivo general")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "Indicar qué se logró con la aplicación del conocimiento. Incluir verbo en infinitivo que esté relacionado con el sentido de ‘documentar o describir’, entre otros.",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.obj,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "obj", $$v)
+            },
+            expression: "protocolo.obj"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [_vm._v("Metodología")]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "Describir las técnicas y los métodos para alcanzar el objetivo planteado.",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.metodologia,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "metodologia", $$v)
+            },
+            expression: "protocolo.metodologia"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Referencias y/o fuentes de información")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "Citar las fuentes académicas oficiales consultadas (revistas, artículos, libros y páginas  de empresas e instituciones reconocidas) y definir el sistema de referencias seleccionado (Harvard, Chicago, Vancouver, APA, Sistema Numerado).",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.refs,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "refs", $$v)
+            },
+            expression: "protocolo.refs"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Planificación de actividades")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "Citar las fuentes académicas oficiales consultadas (revistas, artículos, libros y páginas  de empresas e instituciones reconocidas) y definir el sistema de referencias seleccionado (Harvard, Chicago, Vancouver, APA, Sistema Numerado).",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.crono,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "crono", $$v)
+            },
+            expression: "protocolo.crono"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _vm.dictamen != 1
+      ? _c(
+          "div",
+          { staticClass: "alert alert-warning", attrs: { role: "alert" } },
+          [
+            _c("p", [
+              _vm._v(
+                "\n                Indique lo más claro y preciso posible las correcciones que se deben realizar en cada apartado.\n                    Si considera que no deben hacer correcciones, coloque la palabra Ninguna en el apartado correspondiente.\n            "
+              )
+            ])
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.dictamen != 1
+      ? _c("div", [
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Titulo")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.titulo,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "titulo", $$v)
+                  },
+                  expression: "cosas.titulo"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.titulo
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.titulo[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Área Académica")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.area,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "area", $$v)
+                  },
+                  expression: "cosas.area"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.area
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.area[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Planteamiento del problema")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.plant,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "plant", $$v)
+                  },
+                  expression: "cosas.plant"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.plant
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.plant[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Justificación")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.just,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "just", $$v)
+                  },
+                  expression: "cosas.just"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.just
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.just[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Objetivo general")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.just,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "just", $$v)
+                  },
+                  expression: "cosas.just"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.just
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.just[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Metodología")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.metodologia,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "metodologia", $$v)
+                  },
+                  expression: "cosas.metodologia"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.metodologia
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.metodologia[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Referencias y/o fuentes de información")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.refs,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "refs", $$v)
+                  },
+                  expression: "cosas.refs"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.refs
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.refs[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Planificación de actividades")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.crono,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "crono", $$v)
+                  },
+                  expression: "cosas.crono"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.crono
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.crono[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Otras")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.otras,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "otras", $$v)
+                  },
+                  expression: "cosas.otras"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.otras
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.otras[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm.dictamen === 2
+            ? _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                    _vm._v("Sugerencias")
+                  ]),
+                  _vm._v(" "),
+                  _c("editor", {
+                    attrs: {
+                      "api-key":
+                        "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                      init: { plugins: "table help" }
+                    },
+                    model: {
+                      value: _vm.coas.sugs,
+                      callback: function($$v) {
+                        _vm.$set(_vm.coas, "sugs", $$v)
+                      },
+                      expression: "coas.sugs"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errores.sugs
+                    ? _c(
+                        "small",
+                        {
+                          staticClass: "form-text text-muted",
+                          attrs: { id: "passwordHelpBlock" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "font-weight-bold text-uppercase",
+                              staticStyle: { color: "red" }
+                            },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(_vm.errores.sugs[0]) +
+                                  "\n                    "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            : _vm._e()
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-primary btn-lg btn-block",
+        attrs: { type: "button" },
+        on: {
+          click: function($event) {
+            return _vm.guardar()
+          }
+        }
+      },
+      [_vm._v("Guardar reporte")]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repArticulo.vue?vue&type=template&id=7ab95b9d&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/repArticulo.vue?vue&type=template&id=7ab95b9d& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Nombre del evaluador")
+        ]),
+        _vm._v(" "),
+        _c("h3", [
+          _vm._v(
+            _vm._s(
+              _vm.evaluador.nombre +
+                " " +
+                _vm.evaluador.paterno +
+                " " +
+                _vm.evaluador.materno
+            )
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Folio del protocolo")
+        ]),
+        _vm._v(" "),
+        _c("h3", [_vm._v(_vm._s(_vm.protocolo.folio))])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Dictamen")
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.dictamen,
+                expression: "dictamen"
+              }
+            ],
+            staticClass: "form-control custom-select my-1 mr-sm-2",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.dictamen = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          _vm._l(_vm.tipo_dictamen, function(dict) {
+            return _c(
+              "option",
+              { key: dict.id, domProps: { value: dict.id } },
+              [_vm._v(_vm._s(dict.descripcion))]
+            )
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _vm.dictamen === 4 || _vm.dictamen === 5
+        ? _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Observaciones")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.obs,
+                  callback: function($$v) {
+                    _vm.obs = $$v
+                  },
+                  expression: "obs"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.obs
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.obs[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          )
+        : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Tema")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.tema,
+            expression: "protocolo.tema"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          disabled: "",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp",
+          placeholder:
+            "Especificar claramente el qué, es decir, el objeto de estudio."
+        },
+        domProps: { value: _vm.protocolo.tema },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "tema", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Título tentativo del artículo especializado")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.titulo,
+            expression: "protocolo.titulo"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          disabled: "",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp",
+          placeholder:
+            "Especificar claramente el qué, es decir, el objeto de estudio."
+        },
+        domProps: { value: _vm.protocolo.titulo },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "titulo", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Área académica")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.area,
+            expression: "protocolo.area"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          disabled: "",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp"
+        },
+        domProps: { value: _vm.protocolo.area },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "area", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Asesor")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-group mb-3" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.protocolo.asesor,
+              expression: "protocolo.asesor"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            disabled: "",
+            placeholder:
+              "Nombre del asesor adscrito a la UAEM (propuesto por el sustentante).",
+            "aria-label": "Recipient's username",
+            "aria-describedby": "basic-addon2"
+          },
+          domProps: { value: _vm.protocolo.asesor },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.protocolo, "asesor", $event.target.value)
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Coasesor")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-group mb-3" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.protocolo.coasesor,
+              expression: "protocolo.coasesor"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            disabled: "",
+            placeholder:
+              "Nombre del coasesor adscrito a la UAEM (propuesto por el sustentante).",
+            "aria-label": "Recipient's username",
+            "aria-describedby": "basic-addon2"
+          },
+          domProps: { value: _vm.protocolo.coasesor },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.protocolo, "coasesor", $event.target.value)
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-row" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Nombre de la revista indizada")
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.protocolo.revista,
+              expression: "protocolo.revista"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text", disabled: "" },
+          domProps: { value: _vm.protocolo.revista },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.protocolo, "revista", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Nombre del índice")
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.protocolo.indice,
+              expression: "protocolo.indice"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            disabled: "",
+            placeholder:
+              "Nombre y URL que avale la pertenencia de la revista  a algún índice"
+          },
+          domProps: { value: _vm.protocolo.indice },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.protocolo, "indice", $event.target.value)
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Descripción general (resumen) del artículo especializado")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "Mencionar el contexto o antecedentes, planteamiento del problema, objetivos y metodología."
+          },
+          model: {
+            value: _vm.protocolo.descripcion,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "descripcion", $$v)
+            },
+            expression: "protocolo.descripcion"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Referencias y/o fuentes de información")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.refs,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "refs", $$v)
+            },
+            expression: "protocolo.refs"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _vm.dictamen != 1
+      ? _c(
+          "div",
+          { staticClass: "alert alert-warning", attrs: { role: "alert" } },
+          [
+            _c("p", [
+              _vm._v(
+                "\n                Indique lo más claro y preciso posible las correcciones que se deben realizar en cada apartado.\n                    Si considera que no deben hacer correcciones, coloque la palabra Ninguna en el apartado correspondiente.\n            "
+              )
+            ])
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.dictamen != 1
+      ? _c("div", [
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Titlo")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.titulo,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "titulo", $$v)
+                  },
+                  expression: "cosas.titulo"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.titulo
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.titulo[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Área Académica")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.area,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "area", $$v)
+                  },
+                  expression: "cosas.area"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.area
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.area[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Nombre de la revista indizada")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.revista,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "revista", $$v)
+                  },
+                  expression: "cosas.revista"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.revista
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.revista[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Nombre del índice al que pertenece")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.indice,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "indice", $$v)
+                  },
+                  expression: "cosas.indice"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.indice
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.indice[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Descripción general (resumen) del artículo")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.desc,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "desc", $$v)
+                  },
+                  expression: "cosas.desc"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.desc
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.desc[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Referencias y/o fuentes de información")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.refs,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "refs", $$v)
+                  },
+                  expression: "cosas.refs"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.refs
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.refs[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Otras")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.otras,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "otras", $$v)
+                  },
+                  expression: "cosas.otras"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.otras
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.otras[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm.dictamen === 2
+            ? _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                    _vm._v("Sugerencias")
+                  ]),
+                  _vm._v(" "),
+                  _c("editor", {
+                    attrs: {
+                      "api-key":
+                        "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                      init: { plugins: "table help" }
+                    },
+                    model: {
+                      value: _vm.coas.sugs,
+                      callback: function($$v) {
+                        _vm.$set(_vm.coas, "sugs", $$v)
+                      },
+                      expression: "coas.sugs"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errores.sugs
+                    ? _c(
+                        "small",
+                        {
+                          staticClass: "form-text text-muted",
+                          attrs: { id: "passwordHelpBlock" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "font-weight-bold text-uppercase",
+                              staticStyle: { color: "red" }
+                            },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(_vm.errores.sugs[0]) +
+                                  "\n                    "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            : _vm._e()
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-primary btn-lg btn-block",
+        attrs: { type: "button" },
+        on: {
+          click: function($event) {
+            return _vm.guardar()
+          }
+        }
+      },
+      [_vm._v("Guardar reporte")]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repAut.vue?vue&type=template&id=0ae75d24&":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/repAut.vue?vue&type=template&id=0ae75d24& ***!
+  \*********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Nombre del evaluador")
+        ]),
+        _vm._v(" "),
+        _c("h3", [
+          _vm._v(
+            _vm._s(
+              _vm.evaluador.nombre +
+                " " +
+                _vm.evaluador.paterno +
+                " " +
+                _vm.evaluador.materno
+            )
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Folio del protocolo")
+        ]),
+        _vm._v(" "),
+        _c("h3", [_vm._v(_vm._s(_vm.protocolo.folio))])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Dictamen")
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.dictamen,
+                expression: "dictamen"
+              }
+            ],
+            staticClass: "form-control custom-select my-1 mr-sm-2",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.dictamen = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          _vm._l(_vm.tipo_dictamen, function(dict) {
+            return _c(
+              "option",
+              { key: dict.id, domProps: { value: dict.id } },
+              [_vm._v(_vm._s(dict.descripcion))]
+            )
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _vm.dictamen === 4 || _vm.dictamen === 5
+        ? _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Observaciones")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.obs,
+                  callback: function($$v) {
+                    _vm.obs = $$v
+                  },
+                  expression: "obs"
+                }
+              })
+            ],
+            1
+          )
+        : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Título")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.titulo,
+            expression: "protocolo.titulo"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          disabled: "",
+          type: "text",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp",
+          placeholder:
+            "Especificar claramente el qué, es decir, el objeto de estudio."
+        },
+        domProps: { value: _vm.protocolo.titulo },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "titulo", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _vm.errores.titulo
+        ? _c(
+            "small",
+            {
+              staticClass: "form-text text-muted ",
+              attrs: { id: "passwordHelpBlock" }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "font-weight-bold text-uppercase",
+                  staticStyle: { color: "red" }
+                },
+                [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.errores.titulo[0]) +
+                      "\n            "
+                  )
+                ]
+              )
+            ]
+          )
+        : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Periodo de participación ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-row" }, [
+        _c("div", { staticClass: "form-group col-md-6" }, [
+          _c("label", { attrs: { for: "inputEmail4" } }, [
+            _vm._v("Fecha de inicio")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.protocolo.inicio,
+                expression: "protocolo.inicio"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { disabled: "", type: "date", id: "inputEmail4" },
+            domProps: { value: _vm.protocolo.inicio },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.protocolo, "inicio", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group col-md-6" }, [
+          _c("label", { attrs: { for: "inputPassword4" } }, [
+            _vm._v("Fecha de fin")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.protocolo.fin,
+                expression: "protocolo.fin"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { disabled: "", type: "date", id: "inputPassword4" },
+            domProps: { value: _vm.protocolo.fin },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.protocolo, "fin", $event.target.value)
+              }
+            }
+          })
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Área académica")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.area,
+            expression: "protocolo.area"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          disabled: "",
+          type: "text",
+          disabled: "",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp"
+        },
+        domProps: { value: _vm.protocolo.area },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "area", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Asesor")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-group mb-3" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.protocolo.asesor,
+              expression: "protocolo.asesor"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            disabled: "",
+            placeholder:
+              "Nombre del asesor adscrito a la UAEM (propuesto por el sustentante).",
+            "aria-label": "Recipient's username",
+            "aria-describedby": "basic-addon2"
+          },
+          domProps: { value: _vm.protocolo.asesor },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.protocolo, "asesor", $event.target.value)
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Planteamiento ")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "\n             Objeto de la Unidad Económica. \n            Nombre o razón social.\n            Domicilio fiscal.\n            Giro de la Unidad Económica (empresa) o de las actividades de la persona física.\n            Número de accionistas.\n            Número de empleados.\n            Tipo de participación dentro de la unidad económica: propietario, emprendedor, empresario, empleador y empleado (con atribuciones en las decisiones para el desarrollo de la empresa).\n            Funciones que realizó y su relación con los conocimientos y habilidades adquiridos, resaltando la aplicación original y creativa de los mismos.\n         ",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.plant,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "plant", $$v)
+            },
+            expression: "protocolo.plant"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Justificación")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "\n            Exponer de forma clara y concisa la importancia, el impacto y los beneficios de la unidad económica. \n         ",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.just,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "just", $$v)
+            },
+            expression: "protocolo.just"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Objetivo general")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "\n            Describir las actividades realizadas dentro de la unidad económica. Incluir verbo en infinitivo que esté relacionado con el sentido de ‘describir o documentar’, entre otros.\n         ",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.obj,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "obj", $$v)
+            },
+            expression: "protocolo.obj"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Referencias y/o fuentes de información")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "Citar las fuentes académicas oficiales consultadas (revistas, artículos, libros y páginas  de empresas e instituciones reconocidas) y definir el sistema de referencias seleccionado (Harvard, Chicago, Vancouver, APA, Sistema Numerado).",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.refs,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "refs", $$v)
+            },
+            expression: "protocolo.refs"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Planificación de actividades")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.crono,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "crono", $$v)
+            },
+            expression: "protocolo.crono"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _vm.dictamen != 1
+      ? _c(
+          "div",
+          { staticClass: "alert alert-warning", attrs: { role: "alert" } },
+          [
+            _c("p", [
+              _vm._v(
+                "\n                Indique lo más claro y preciso posible las correcciones que se deben realizar en cada apartado.\n                    Si considera que no deben hacer correcciones, coloque la palabra Ninguna en el apartado correspondiente.\n            "
+              )
+            ])
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.dictamen != 1
+      ? _c("div", [
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Titulo")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.titulo,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "titulo", $$v)
+                  },
+                  expression: "cosas.titulo"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.titulo
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.titulo[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Área Académica")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.area,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "area", $$v)
+                  },
+                  expression: "cosas.area"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.area
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.area[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Planteamiento del problema")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.plant,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "plant", $$v)
+                  },
+                  expression: "cosas.plant"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.plant
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.plant[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Justificación")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.just,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "just", $$v)
+                  },
+                  expression: "cosas.just"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.just
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.just[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Objetivo general")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.just,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "just", $$v)
+                  },
+                  expression: "cosas.just"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.just
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.just[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Planteamiento")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.plant,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "plant", $$v)
+                  },
+                  expression: "cosas.plant"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.plant
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.plant[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Referencias y/o fuentes de información")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.refs,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "refs", $$v)
+                  },
+                  expression: "cosas.refs"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.refs
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.refs[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Planificación de actividades")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.crono,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "crono", $$v)
+                  },
+                  expression: "cosas.crono"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.crono
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.crono[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Otras")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.otras,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "otras", $$v)
+                  },
+                  expression: "cosas.otras"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.otras
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.otras[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm.dictamen === 2
+            ? _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                    _vm._v("Sugerencias")
+                  ]),
+                  _vm._v(" "),
+                  _c("editor", {
+                    attrs: {
+                      "api-key":
+                        "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                      init: { plugins: "table help" }
+                    },
+                    model: {
+                      value: _vm.coas.sugs,
+                      callback: function($$v) {
+                        _vm.$set(_vm.coas, "sugs", $$v)
+                      },
+                      expression: "coas.sugs"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errores.sugs
+                    ? _c(
+                        "small",
+                        {
+                          staticClass: "form-text text-muted",
+                          attrs: { id: "passwordHelpBlock" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "font-weight-bold text-uppercase",
+                              staticStyle: { color: "red" }
+                            },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(_vm.errores.sugs[0]) +
+                                  "\n                    "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            : _vm._e()
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-primary btn-lg btn-block",
+        attrs: { type: "button" },
+        on: {
+          click: function($event) {
+            return _vm.guardar()
+          }
+        }
+      },
+      [_vm._v("Guardar reporte")]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repEnsayo.vue?vue&type=template&id=78ee324f&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/repEnsayo.vue?vue&type=template&id=78ee324f& ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Nombre del evaluador")
+        ]),
+        _vm._v(" "),
+        _c("h3", [
+          _vm._v(
+            _vm._s(
+              _vm.evaluador.nombre +
+                " " +
+                _vm.evaluador.paterno +
+                " " +
+                _vm.evaluador.materno
+            )
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Folio del protocolo")
+        ]),
+        _vm._v(" "),
+        _c("h3", [_vm._v(_vm._s(_vm.protocolo.folio))])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Dictamen")
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.dictamen,
+                expression: "dictamen"
+              }
+            ],
+            staticClass: "form-control custom-select my-1 mr-sm-2",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.dictamen = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          _vm._l(_vm.tipo_dictamen, function(dict) {
+            return _c(
+              "option",
+              { key: dict.id, domProps: { value: dict.id } },
+              [_vm._v(_vm._s(dict.descripcion))]
+            )
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _vm.dictamen === 4 || _vm.dictamen === 5
+        ? _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Observaciones")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.obs,
+                  callback: function($$v) {
+                    _vm.obs = $$v
+                  },
+                  expression: "obs"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.obs
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(_vm.errores.obs[0]) +
+                              "\n                "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          )
+        : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Tema")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.tema,
+            expression: "protocolo.tema"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          disabled: "",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp",
+          placeholder:
+            "Especificar claramente el qué, es decir, el objeto de estudio."
+        },
+        domProps: { value: _vm.protocolo.tema },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "tema", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Área académica")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.area,
+            expression: "protocolo.area"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          disabled: "",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp"
+        },
+        domProps: { value: _vm.protocolo.area },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "area", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Asesor")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-group mb-3" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.protocolo.asesor,
+              expression: "protocolo.asesor"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            disabled: "",
+            placeholder:
+              "Nombre del asesor adscrito a la UAEM (propuesto por el sustentante).",
+            "aria-label": "Recipient's username",
+            "aria-describedby": "basic-addon2"
+          },
+          domProps: { value: _vm.protocolo.asesor },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.protocolo, "asesor", $event.target.value)
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Coasesor")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-group mb-3" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.protocolo.coasesor,
+              expression: "protocolo.coasesor"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            disabled: "",
+            placeholder:
+              "Nombre del coasesor adscrito a la UAEM (propuesto por el sustentante).",
+            "aria-label": "Recipient's username",
+            "aria-describedby": "basic-addon2"
+          },
+          domProps: { value: _vm.protocolo.coasesor },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.protocolo, "coasesor", $event.target.value)
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Descripción del tema")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "Mencionar el contexto o antecedentes, planteamiento del problema, objetivos y metodología."
+          },
+          model: {
+            value: _vm.protocolo.descripcion,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "descripcion", $$v)
+            },
+            expression: "protocolo.descripcion"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Justificación")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.just,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "just", $$v)
+            },
+            expression: "protocolo.just"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Referencias y/o fuentes de información")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.refs,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "refs", $$v)
+            },
+            expression: "protocolo.refs"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Cronograma de actividades")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.crono,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "crono", $$v)
+            },
+            expression: "protocolo.crono"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _vm.dictamen != 1
+      ? _c(
+          "div",
+          { staticClass: "alert alert-warning", attrs: { role: "alert" } },
+          [
+            _c("p", [
+              _vm._v(
+                "\n                Indique lo más claro y preciso posible las correcciones que se deben realizar en cada apartado.\n                    Si considera que no deben hacer correcciones, coloque la palabra Ninguna en el apartado correspondiente.\n            "
+              )
+            ])
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.dictamen != 1
+      ? _c("div", [
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Tema")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.tema,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "tema", $$v)
+                  },
+                  expression: "cosas.tema"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.tema
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.tema[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Área Académica")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.area,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "area", $$v)
+                  },
+                  expression: "cosas.area"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.area
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.area[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Descripción del tema")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.desc,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "desc", $$v)
+                  },
+                  expression: "cosas.desc"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.desc
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.desc[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Justificación")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.just,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "just", $$v)
+                  },
+                  expression: "cosas.just"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.just
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.just[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Referencias y/o fuentes de información")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.refs,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "refs", $$v)
+                  },
+                  expression: "cosas.refs"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.refs
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.refs[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Planificación de actividades")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.crono,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "crono", $$v)
+                  },
+                  expression: "cosas.crono"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.crono
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.crono[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Otras")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.otras,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "otras", $$v)
+                  },
+                  expression: "cosas.otras"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.otras
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.otras[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm.dictamen === 2
+            ? _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                    _vm._v("Sugerencias")
+                  ]),
+                  _vm._v(" "),
+                  _c("editor", {
+                    attrs: {
+                      "api-key":
+                        "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                      init: { plugins: "table help" }
+                    },
+                    model: {
+                      value: _vm.coas.sugs,
+                      callback: function($$v) {
+                        _vm.$set(_vm.coas, "sugs", $$v)
+                      },
+                      expression: "coas.sugs"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errores.sugs
+                    ? _c(
+                        "small",
+                        {
+                          staticClass: "form-text text-muted",
+                          attrs: { id: "passwordHelpBlock" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "font-weight-bold text-uppercase",
+                              staticStyle: { color: "red" }
+                            },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(_vm.errores.sugs[0]) +
+                                  "\n                    "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            : _vm._e()
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-primary btn-lg btn-block",
+        attrs: { type: "button" },
+        on: {
+          click: function($event) {
+            return _vm.guardar()
+          }
+        }
+      },
+      [_vm._v("Guardar reporte")]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repMemExp.vue?vue&type=template&id=aa94ea6c&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/repMemExp.vue?vue&type=template&id=aa94ea6c& ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Nombre del evaluador")
+        ]),
+        _vm._v(" "),
+        _c("h3", [
+          _vm._v(
+            _vm._s(
+              _vm.evaluador.nombre +
+                " " +
+                _vm.evaluador.paterno +
+                " " +
+                _vm.evaluador.materno
+            )
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Folio del protocolo")
+        ]),
+        _vm._v(" "),
+        _c("h3", [_vm._v(_vm._s(_vm.protocolo.folio))])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Dictamen")
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.dictamen,
+                expression: "dictamen"
+              }
+            ],
+            staticClass: "form-control custom-select my-1 mr-sm-2",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.dictamen = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          _vm._l(_vm.tipo_dictamen, function(dict) {
+            return _c(
+              "option",
+              { key: dict.id, domProps: { value: dict.id } },
+              [_vm._v(_vm._s(dict.descripcion))]
+            )
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _vm.dictamen === 4 || _vm.dictamen === 5
+        ? _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Observaciones")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.obs,
+                  callback: function($$v) {
+                    _vm.obs = $$v
+                  },
+                  expression: "obs"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.obs
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(_vm.errores.obs[0]) +
+                              "\n                "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          )
+        : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Título")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.titulo,
+            expression: "protocolo.titulo"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          disabled: "",
+          type: "text",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp",
+          placeholder:
+            "Especificar claramente el qué, es decir, el objeto de estudio."
+        },
+        domProps: { value: _vm.protocolo.titulo },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "titulo", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Periodo de participación ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-row" }, [
+        _c("div", { staticClass: "form-group col-md-6" }, [
+          _c("label", { attrs: { for: "inputEmail4" } }, [
+            _vm._v("Fecha de inicio")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.protocolo.inicio,
+                expression: "protocolo.inicio"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { disabled: "", type: "date", id: "inputEmail4" },
+            domProps: { value: _vm.protocolo.inicio },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.protocolo, "inicio", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group col-md-6" }, [
+          _c("label", { attrs: { for: "inputPassword4" } }, [
+            _vm._v("Fecha de fin")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.protocolo.fin,
+                expression: "protocolo.fin"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { disabled: "", type: "date", id: "inputPassword4" },
+            domProps: { value: _vm.protocolo.fin },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.protocolo, "fin", $event.target.value)
+              }
+            }
+          })
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Asesor")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-group mb-3" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.protocolo,
+              expression: "protocolo"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            disabled: "",
+            type: "text",
+            placeholder:
+              "Nombre del asesor adscrito a la UAEM (propuesto por el sustentante).",
+            "aria-label": "Recipient's username",
+            "aria-describedby": "basic-addon2"
+          },
+          domProps: { value: _vm.protocolo },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.protocolo = $event.target.value
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Área académica")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.area,
+            expression: "protocolo.area"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          disabled: "",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp"
+        },
+        domProps: { value: _vm.protocolo.area },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "area", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Descripción de la experiencia laboral")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n        Descripción de las actividades laborales\n        Plantear el problema que se abordará en la memoria.\n        Describir cómo se involucró el pasante.\n        Establecer la vinculación con el área de estudio.\n        "
+          },
+          model: {
+            value: _vm.protocolo.descripcion,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "descripcion", $$v)
+            },
+            expression: "protocolo.descripcion"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Justificación")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n            Exponer de forma clara y concisa la importancia, el impacto, los beneficios y la aportación en la solución del problema, como resultado de la experiencia laboral. Así mismo, mencionar los alcances y limitaciones del problema descrito.\n        "
+          },
+          model: {
+            value: _vm.protocolo.just,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "just", $$v)
+            },
+            expression: "protocolo.just"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Objetivo general")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n            Indicar qué experiencia se pretende documentar, resaltando el procedimiento de solución del problema. Incluir verbo en infinitivo que esté relacionado con el sentido de ‘describir o documentar’ entre otros.\n        "
+          },
+          model: {
+            value: _vm.protocolo.obj,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "obj", $$v)
+            },
+            expression: "protocolo.obj"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Referencias y/o fuentes de información")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "Citar las fuentes académicas oficiales consultadas (revistas, artículos, libros y páginas  de empresas e instituciones reconocidas) y definir el sistema de referencias seleccionado (Harvard, Chicago, Vancouver, APA, Sistema Numerado).",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.refs,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "refs", $$v)
+            },
+            expression: "protocolo.refs"
+          }
+        }),
+        _vm._v(" "),
+        _vm.errores.refs
+          ? _c(
+              "small",
+              {
+                staticClass: "form-text text-muted",
+                attrs: { id: "passwordHelpBlock" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "font-weight-bold text-uppercase",
+                    staticStyle: { color: "red" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.errores.refs[0]) +
+                        "\n            "
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Planificación de actividades")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.crono,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "crono", $$v)
+            },
+            expression: "protocolo.crono"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _vm.dictamen != 1
+      ? _c(
+          "div",
+          { staticClass: "alert alert-warning", attrs: { role: "alert" } },
+          [
+            _c("p", [
+              _vm._v(
+                "\n                Indique lo más claro y preciso posible las correcciones que se deben realizar en cada apartado.\n                    Si considera que no deben hacer correcciones, coloque la palabra Ninguna en el apartado correspondiente.\n            "
+              )
+            ])
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.dictamen != 1
+      ? _c("div", [
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Titulo")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.titulo,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "titulo", $$v)
+                  },
+                  expression: "cosas.titulo"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.titulo
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.titulo[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Periodo de participación")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.periodo,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "periodo", $$v)
+                  },
+                  expression: "cosas.periodo"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.periodo
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.periodo[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Área Académica")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.area,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "area", $$v)
+                  },
+                  expression: "cosas.area"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.area
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.area[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Descripción de la experiencia laboral")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.desc,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "desc", $$v)
+                  },
+                  expression: "cosas.desc"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.desc
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.desc[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Justificación")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.just,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "just", $$v)
+                  },
+                  expression: "cosas.just"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.just
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.just[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Objetivo general")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.just,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "just", $$v)
+                  },
+                  expression: "cosas.just"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.just
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.just[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Referencias y/o fuentes de información")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.refs,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "refs", $$v)
+                  },
+                  expression: "cosas.refs"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.refs
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.refs[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Planificación de actividades")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.crono,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "crono", $$v)
+                  },
+                  expression: "cosas.crono"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.crono
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.crono[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Otras")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.otras,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "otras", $$v)
+                  },
+                  expression: "cosas.otras"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.otras
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.otras[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm.dictamen === 2
+            ? _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                    _vm._v("Sugerencias")
+                  ]),
+                  _vm._v(" "),
+                  _c("editor", {
+                    attrs: {
+                      "api-key":
+                        "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                      init: { plugins: "table help" }
+                    },
+                    model: {
+                      value: _vm.coas.sugs,
+                      callback: function($$v) {
+                        _vm.$set(_vm.coas, "sugs", $$v)
+                      },
+                      expression: "coas.sugs"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errores.sugs
+                    ? _c(
+                        "small",
+                        {
+                          staticClass: "form-text text-muted",
+                          attrs: { id: "passwordHelpBlock" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "font-weight-bold text-uppercase",
+                              staticStyle: { color: "red" }
+                            },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(_vm.errores.sugs[0]) +
+                                  "\n                    "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            : _vm._e()
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-primary btn-lg btn-block",
+        attrs: { type: "button" },
+        on: {
+          click: function($event) {
+            return _vm.guardar()
+          }
+        }
+      },
+      [_vm._v("Guardar reporte")]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repOutCreate.vue?vue&type=template&id=997759d0&":
 /*!***************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/repOutCreate.vue?vue&type=template&id=997759d0& ***!
@@ -68720,6 +75736,2878 @@ var staticRenderFns = [
     ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repResIn.vue?vue&type=template&id=485baeda&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/repResIn.vue?vue&type=template&id=485baeda& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Nombre del evaluador")
+        ]),
+        _vm._v(" "),
+        _c("h3", [
+          _vm._v(
+            _vm._s(
+              _vm.evaluador.nombre +
+                " " +
+                _vm.evaluador.paterno +
+                " " +
+                _vm.evaluador.materno
+            )
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Folio del protocolo")
+        ]),
+        _vm._v(" "),
+        _c("h3", [_vm._v(_vm._s(_vm.protocolo.folio))])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Dictamen")
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.dictamen,
+                expression: "dictamen"
+              }
+            ],
+            staticClass: "form-control custom-select my-1 mr-sm-2",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.dictamen = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          _vm._l(_vm.tipo_dictamen, function(dict) {
+            return _c(
+              "option",
+              { key: dict.id, domProps: { value: dict.id } },
+              [_vm._v(_vm._s(dict.descripcion))]
+            )
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _vm.dictamen === 4 || _vm.dictamen === 5
+        ? _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Observaciones")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.obs,
+                  callback: function($$v) {
+                    _vm.obs = $$v
+                  },
+                  expression: "obs"
+                }
+              })
+            ],
+            1
+          )
+        : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Periodo de participación ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-row" }, [
+        _c("div", { staticClass: "form-group col-md-6" }, [
+          _c("label", { attrs: { for: "inputEmail4" } }, [
+            _vm._v("Fecha de inicio")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.protocolo.inicio,
+                expression: "protocolo.inicio"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { disabled: "", type: "date", id: "inputEmail4" },
+            domProps: { value: _vm.protocolo.inicio },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.protocolo, "inicio", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group col-md-6" }, [
+          _c("label", { attrs: { for: "inputPassword4" } }, [
+            _vm._v("Fecha de fin")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.protocolo.fin,
+                expression: "protocolo.fin"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { disabled: "", type: "date", id: "inputPassword4" },
+            domProps: { value: _vm.protocolo.fin },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.protocolo, "fin", $event.target.value)
+              }
+            }
+          })
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Nombre del profesor investigador responsable del proyecto")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.responsable,
+            expression: "protocolo.responsable"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          disabled: "",
+          type: "text",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp",
+          placeholder:
+            "Nombre del Profesor Investigador activo en el Sistema Nacional de Investigadores u organismo similar."
+        },
+        domProps: { value: _vm.protocolo.responsable },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "responsable", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Área académica")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.area,
+            expression: "protocolo.area"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          disabled: "",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp"
+        },
+        domProps: { value: _vm.protocolo.area },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "area", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Asesor")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-group mb-3" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.protocolo.asesor,
+              expression: "protocolo.asesor"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            disabled: "",
+            placeholder:
+              "Nombre del asesor adscrito a la UAEM (propuesto por el sustentante).",
+            "aria-label": "Recipient's username",
+            "aria-describedby": "basic-addon2"
+          },
+          domProps: { value: _vm.protocolo.asesor },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.protocolo, "asesor", $event.target.value)
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Coasesor")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-group mb-3" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.protocolo.coasesor,
+              expression: "protocolo.coasesor"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            disabled: "",
+            placeholder:
+              "Nombre del coasesor adscrito a la UAEM (propuesto por el sustentante).",
+            "aria-label": "Recipient's username",
+            "aria-describedby": "basic-addon2"
+          },
+          domProps: { value: _vm.protocolo.coasesor },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.protocolo, "coasesor", $event.target.value)
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Título del proyecto de investigación")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.titulo_proyecto,
+            expression: "protocolo.titulo_proyecto"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          disabled: "",
+          type: "text",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp"
+        },
+        domProps: { value: _vm.protocolo.titulo_proyecto },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "titulo_proyecto", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Clave de registro del proyecto")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.clave,
+            expression: "protocolo.clave"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          disabled: "",
+          type: "text",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp"
+        },
+        domProps: { value: _vm.protocolo.clave },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "clave", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Descripción general del proyecto de investigación")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n        Exponer de manera general los antecedentes y el objetivo del proyecto de investigación al que se incorporó.  \n        "
+          },
+          model: {
+            value: _vm.protocolo.desc,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "desc", $$v)
+            },
+            expression: "protocolo.desc"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Título del reporte de residencia de investigación")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.titulo_reporte,
+            expression: "protocolo.titulo_reporte"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          disabled: "",
+          type: "text",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp"
+        },
+        domProps: { value: _vm.protocolo.titulo_reporte },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "titulo_reporte", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Objetivo general de la residencia")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n        Incluir verbo en infinitivo que sea medible u observable.\n        "
+          },
+          model: {
+            value: _vm.protocolo.obj,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "obj", $$v)
+            },
+            expression: "protocolo.obj"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Planificación de actividades")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.crono,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "crono", $$v)
+            },
+            expression: "protocolo.crono"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _vm.dictamen != 1
+      ? _c(
+          "div",
+          { staticClass: "alert alert-warning", attrs: { role: "alert" } },
+          [
+            _c("p", [
+              _vm._v(
+                "\n                Indique lo más claro y preciso posible las correcciones que se deben realizar en cada apartado.\n                    Si considera que no deben hacer correcciones, coloque la palabra Ninguna en el apartado correspondiente.\n            "
+              )
+            ])
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.dictamen != 1
+      ? _c("div", [
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Titulo del proyecto de investigación")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.titulo_proyecto,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "titulo_proyecto", $$v)
+                  },
+                  expression: "cosas.titulo_proyecto"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.titulo_proyecto
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.titulo_proyecto[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Área Académica")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.area,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "area", $$v)
+                  },
+                  expression: "cosas.area"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.area
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.area[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Titulo del reporte de residencia de investigación")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.titulo_reporte,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "titulo_reporte", $$v)
+                  },
+                  expression: "cosas.titulo_reporte"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.titulo_reporte
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.titulo_reporte[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Descripcion general")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.desc,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "desc", $$v)
+                  },
+                  expression: "cosas.desc"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.desc
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.desc[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Objetivo general")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.obj,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "obj", $$v)
+                  },
+                  expression: "cosas.obj"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.obj
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.obj[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Planificación de actividades")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.crono,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "crono", $$v)
+                  },
+                  expression: "cosas.crono"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.crono
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.crono[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Otras")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.otras,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "otras", $$v)
+                  },
+                  expression: "cosas.otras"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.otras
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.otras[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm.dictamen === 2
+            ? _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                    _vm._v("Sugerencias")
+                  ]),
+                  _vm._v(" "),
+                  _c("editor", {
+                    attrs: {
+                      "api-key":
+                        "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                      init: { plugins: "table help" }
+                    },
+                    model: {
+                      value: _vm.coas.sugs,
+                      callback: function($$v) {
+                        _vm.$set(_vm.coas, "sugs", $$v)
+                      },
+                      expression: "coas.sugs"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errores.sugs
+                    ? _c(
+                        "small",
+                        {
+                          staticClass: "form-text text-muted",
+                          attrs: { id: "passwordHelpBlock" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "font-weight-bold text-uppercase",
+                              staticStyle: { color: "red" }
+                            },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(_vm.errores.sugs[0]) +
+                                  "\n                    "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            : _vm._e()
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-primary btn-lg btn-block",
+        attrs: { type: "button" },
+        on: {
+          click: function($event) {
+            return _vm.guardar()
+          }
+        }
+      },
+      [_vm._v("Guardar reporte")]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repTesina.vue?vue&type=template&id=267b2e3c&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/repTesina.vue?vue&type=template&id=267b2e3c& ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Nombre del evaluador")
+        ]),
+        _vm._v(" "),
+        _c("h3", [
+          _vm._v(
+            _vm._s(
+              _vm.evaluador.nombre +
+                " " +
+                _vm.evaluador.paterno +
+                " " +
+                _vm.evaluador.materno
+            )
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Folio del protocolo")
+        ]),
+        _vm._v(" "),
+        _c("h3", [_vm._v(_vm._s(_vm.protocolo.folio))])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Dictamen")
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.dictamen,
+                expression: "dictamen"
+              }
+            ],
+            staticClass: "form-control custom-select my-1 mr-sm-2",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.dictamen = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          _vm._l(_vm.tipo_dictamen, function(dict) {
+            return _c(
+              "option",
+              { key: dict.id, domProps: { value: dict.id } },
+              [_vm._v(_vm._s(dict.descripcion))]
+            )
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _vm.dictamen === 4 || _vm.dictamen === 5
+        ? _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Observaciones")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.obs,
+                  callback: function($$v) {
+                    _vm.obs = $$v
+                  },
+                  expression: "obs"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.obs
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(_vm.errores.obs[0]) +
+                              "\n                "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          )
+        : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Título")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.titulo,
+            expression: "protocolo.titulo"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          disabled: "",
+          type: "text",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp",
+          placeholder:
+            "Debe especificar claramente el qué, es decir, el objeto de estudio."
+        },
+        domProps: { value: _vm.protocolo.titulo },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "titulo", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Área académica")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.area,
+            expression: "protocolo.area"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          disabled: "",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp"
+        },
+        domProps: { value: _vm.protocolo.area },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "area", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Asesor")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-group mb-3" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.protocolo.asesor,
+              expression: "protocolo.asesor"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            disabled: "",
+            type: "text",
+            placeholder:
+              "Nombre del asesor adscrito a la UAEM (propuesto por el sustentante).",
+            "aria-label": "Recipient's username",
+            "aria-describedby": "basic-addon2"
+          },
+          domProps: { value: _vm.protocolo.asesor },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.protocolo, "asesor", $event.target.value)
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v(
+            "Planteamiento de la investigación documental o traducción crítica"
+          )
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "aria-disabled": "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n        Presentar una descripción general del tema que se pretende abordar o traducir, con las características de una monografía.\n        Mostrar la actualidad y la relevancia del tema.\n        Establecer la vinculación con el área de estudio. \n        "
+          },
+          model: {
+            value: _vm.protocolo.plant,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "plant", $$v)
+            },
+            expression: "protocolo.plant"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Justificación")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n        Describir la necesidad de desarrollar el tema que se propone, a través de  una exposición clara y concisa sobre la importancia, el impacto y los beneficios de la investigación documental que se pretende realizar. Así mismo, mencionar los alcances y limitaciones de la investigación.\n        "
+          },
+          model: {
+            value: _vm.protocolo.just,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "just", $$v)
+            },
+            expression: "protocolo.just"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Objetivo general")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n        Indicar qué se pretende investigar. Incluir verbo en infinitivo que esté relacionado con el sentido de ‘describir, documentar’, entre otros.\n        "
+          },
+          model: {
+            value: _vm.protocolo.obj,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "obj", $$v)
+            },
+            expression: "protocolo.obj"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [_vm._v("Metodología")]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n        Describir las técnicas y los métodos para alcanzar el objetivo planteado. \n        "
+          },
+          model: {
+            value: _vm.protocolo.metodologia,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "metodologia", $$v)
+            },
+            expression: "protocolo.metodologia"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Referencias y/o fuentes de información")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "Citar las fuentes académicas oficiales consultadas (revistas, artículos, libros y páginas  de empresas e instituciones reconocidas) y definir el sistema de referencias seleccionado (Harvard, Chicago, Vancouver, APA, Sistema Numerado).",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.refs,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "refs", $$v)
+            },
+            expression: "protocolo.refs"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Planificación de actividades")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.crono,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "crono", $$v)
+            },
+            expression: "protocolo.crono"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _vm.dictamen != 1
+      ? _c(
+          "div",
+          { staticClass: "alert alert-warning", attrs: { role: "alert" } },
+          [
+            _c("p", [
+              _vm._v(
+                "\n                Indique lo más claro y preciso posible las correcciones que se deben realizar en cada apartado.\n                    Si considera que no deben hacer correcciones, coloque la palabra Ninguna en el apartado correspondiente.\n            "
+              )
+            ])
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.dictamen != 1
+      ? _c("div", [
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Titulo")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.titulo,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "titulo", $$v)
+                  },
+                  expression: "cosas.titulo"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.titulo
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.titulo[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Área Académica")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.area,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "area", $$v)
+                  },
+                  expression: "cosas.area"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.area
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.area[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v(
+                  "Planteamiento de la investigación documental o traducción crítica"
+                )
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.plant,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "plant", $$v)
+                  },
+                  expression: "cosas.plant"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.plant
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.plant[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Justificación")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.just,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "just", $$v)
+                  },
+                  expression: "cosas.just"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.just
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.just[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Objetivo general")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.just,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "just", $$v)
+                  },
+                  expression: "cosas.just"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.just
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.just[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Metodología")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.metodologia,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "metodologia", $$v)
+                  },
+                  expression: "cosas.metodologia"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.metodologia
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.metodologia[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Referencias y/o fuentes de información")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.refs,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "refs", $$v)
+                  },
+                  expression: "cosas.refs"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.refs
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.refs[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Planificación de actividades")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.crono,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "crono", $$v)
+                  },
+                  expression: "cosas.crono"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.crono
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.crono[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Otras")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.otras,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "otras", $$v)
+                  },
+                  expression: "cosas.otras"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.otras
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.otras[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-primary btn-lg btn-block",
+        attrs: { type: "button" },
+        on: {
+          click: function($event) {
+            return _vm.guardar()
+          }
+        }
+      },
+      [_vm._v("Guardar reporte")]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repTesis.vue?vue&type=template&id=3b3c8ffa&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/repTesis.vue?vue&type=template&id=3b3c8ffa& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Nombre del evaluador")
+        ]),
+        _vm._v(" "),
+        _c("h3", [
+          _vm._v(
+            _vm._s(
+              _vm.evaluador.nombre +
+                " " +
+                _vm.evaluador.paterno +
+                " " +
+                _vm.evaluador.materno
+            )
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Folio del protocolo")
+        ]),
+        _vm._v(" "),
+        _c("h3", [_vm._v(_vm._s(_vm.protocolo.folio))])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Dictamen")
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.dictamen,
+                expression: "dictamen"
+              }
+            ],
+            staticClass: "form-control custom-select my-1 mr-sm-2",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.dictamen = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          _vm._l(_vm.tipo_dictamen, function(dict) {
+            return _c(
+              "option",
+              { key: dict.id, domProps: { value: dict.id } },
+              [_vm._v(_vm._s(dict.descripcion))]
+            )
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _vm.dictamen === 4 || _vm.dictamen === 5
+        ? _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Observaciones")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.obs,
+                  callback: function($$v) {
+                    _vm.obs = $$v
+                  },
+                  expression: "obs"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.obs
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(_vm.errores.obs[0]) +
+                              "\n                "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          )
+        : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Título")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.titulo,
+            expression: "protocolo.titulo"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          disabled: "",
+          type: "text",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp",
+          placeholder:
+            "Debe especificar claramente el qué, es decir, el objeto de estudio."
+        },
+        domProps: { value: _vm.protocolo.titulo },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "titulo", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("Área académica")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.protocolo.area,
+            expression: "protocolo.area"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          disabled: "",
+          id: "exampleInputEmail1",
+          "aria-describedby": "emailHelp"
+        },
+        domProps: { value: _vm.protocolo.area },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.protocolo, "area", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [_vm._v("Asesor")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-group mb-3" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.protocolo.asesor,
+              expression: "protocolo.asesor"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            disabled: "",
+            type: "text",
+            placeholder:
+              "Nombre del asesor adscrito a la UAEM (propuesto por el sustentante).",
+            "aria-label": "Recipient's username",
+            "aria-describedby": "basic-addon2"
+          },
+          domProps: { value: _vm.protocolo.asesor },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.protocolo, "asesor", $event.target.value)
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v(
+            "Planteamiento de la investigación documental o traducción crítica"
+          )
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            "aria-disabled": "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n        Presentar una descripción general del tema que se pretende abordar o traducir, con las características de una monografía.\n        Mostrar la actualidad y la relevancia del tema.\n        Establecer la vinculación con el área de estudio. \n        "
+          },
+          model: {
+            value: _vm.protocolo.plant,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "plant", $$v)
+            },
+            expression: "protocolo.plant"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Justificación")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n        Describir la necesidad de desarrollar el tema que se propone, a través de  una exposición clara y concisa sobre la importancia, el impacto y los beneficios de la investigación documental que se pretende realizar. Así mismo, mencionar los alcances y limitaciones de la investigación.\n        "
+          },
+          model: {
+            value: _vm.protocolo.just,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "just", $$v)
+            },
+            expression: "protocolo.just"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Objetivo general")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n        Indicar qué se pretende investigar. Incluir verbo en infinitivo que esté relacionado con el sentido de ‘describir, documentar’, entre otros.\n        "
+          },
+          model: {
+            value: _vm.protocolo.obj,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "obj", $$v)
+            },
+            expression: "protocolo.obj"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [_vm._v("Metodología")]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" },
+            "initial-value":
+              "\n        Describir las técnicas y los métodos para alcanzar el objetivo planteado. \n        "
+          },
+          model: {
+            value: _vm.protocolo.metodologia,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "metodologia", $$v)
+            },
+            expression: "protocolo.metodologia"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "inputEmail4" } }, [
+          _vm._v("Referencias y/o fuentes de información")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            "initial-value":
+              "Citar las fuentes académicas oficiales consultadas (revistas, artículos, libros y páginas  de empresas e instituciones reconocidas) y definir el sistema de referencias seleccionado (Harvard, Chicago, Vancouver, APA, Sistema Numerado).",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.refs,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "refs", $$v)
+            },
+            expression: "protocolo.refs"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+          _vm._v("Planificación de actividades")
+        ]),
+        _vm._v(" "),
+        _c("editor", {
+          attrs: {
+            disabled: "",
+            "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+            init: { plugins: "table help" }
+          },
+          model: {
+            value: _vm.protocolo.crono,
+            callback: function($$v) {
+              _vm.$set(_vm.protocolo, "crono", $$v)
+            },
+            expression: "protocolo.crono"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _vm.dictamen != 1
+      ? _c(
+          "div",
+          { staticClass: "alert alert-warning", attrs: { role: "alert" } },
+          [
+            _c("p", [
+              _vm._v(
+                "\n                Indique lo más claro y preciso posible las correcciones que se deben realizar en cada apartado.\n                    Si considera que no deben hacer correcciones, coloque la palabra Ninguna en el apartado correspondiente.\n            "
+              )
+            ])
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.dictamen != 1
+      ? _c("div", [
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Titulo")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.titulo,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "titulo", $$v)
+                  },
+                  expression: "cosas.titulo"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.titulo
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.titulo[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Área Académica")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.area,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "area", $$v)
+                  },
+                  expression: "cosas.area"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.area
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.area[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Planteamiento del problema")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.plant,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "plant", $$v)
+                  },
+                  expression: "cosas.plant"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.plant
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.plant[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Justificación")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.just,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "just", $$v)
+                  },
+                  expression: "cosas.just"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.just
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.just[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Hipotesis")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.hipotesis,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "hipotesis", $$v)
+                  },
+                  expression: "cosas.hipotesis"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.hipotesis
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.hipotesis[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Objetivo general")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.obj,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "obj", $$v)
+                  },
+                  expression: "cosas.obj"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.obj
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.obj[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Metodología")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.metodologia,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "metodologia", $$v)
+                  },
+                  expression: "cosas.metodologia"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.metodologia
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.metodologia[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Referencias y/o fuentes de información")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.refs,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "refs", $$v)
+                  },
+                  expression: "cosas.refs"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.refs
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.refs[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Planificación de actividades")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.crono,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "crono", $$v)
+                  },
+                  expression: "cosas.crono"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.crono
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.crono[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("Otras")
+              ]),
+              _vm._v(" "),
+              _c("editor", {
+                attrs: {
+                  "api-key": "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                  init: { plugins: "table help" }
+                },
+                model: {
+                  value: _vm.cosas.otras,
+                  callback: function($$v) {
+                    _vm.$set(_vm.cosas, "otras", $$v)
+                  },
+                  expression: "cosas.otras"
+                }
+              }),
+              _vm._v(" "),
+              _vm.errores.otras
+                ? _c(
+                    "small",
+                    {
+                      staticClass: "form-text text-muted",
+                      attrs: { id: "passwordHelpBlock" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "font-weight-bold text-uppercase",
+                          staticStyle: { color: "red" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.errores.otras[0]) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm.dictamen === 2
+            ? _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                    _vm._v("Sugerencias")
+                  ]),
+                  _vm._v(" "),
+                  _c("editor", {
+                    attrs: {
+                      "api-key":
+                        "nbugyxrcgxzt221o0ipcx4yj8r0zsnth1nyfrn4bv9zpodwk",
+                      init: { plugins: "table help" }
+                    },
+                    model: {
+                      value: _vm.coas.sugs,
+                      callback: function($$v) {
+                        _vm.$set(_vm.coas, "sugs", $$v)
+                      },
+                      expression: "coas.sugs"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errores.sugs
+                    ? _c(
+                        "small",
+                        {
+                          staticClass: "form-text text-muted",
+                          attrs: { id: "passwordHelpBlock" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "font-weight-bold text-uppercase",
+                              staticStyle: { color: "red" }
+                            },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(_vm.errores.sugs[0]) +
+                                  "\n                    "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            : _vm._e()
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-primary btn-lg btn-block",
+        attrs: { type: "button" },
+        on: {
+          click: function($event) {
+            return _vm.guardar()
+          }
+        }
+      },
+      [_vm._v("Guardar reporte")]
+    )
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -83999,6 +93887,14 @@ Vue.component('create-rep-out', __webpack_require__(/*! ./components/repOutCreat
 Vue.component('create-rep-res', __webpack_require__(/*! ./components/repResCreate.vue */ "./resources/js/components/repResCreate.vue")["default"]);
 Vue.component('head-prot', __webpack_require__(/*! ./components/encabezado.vue */ "./resources/js/components/encabezado.vue")["default"]);
 Vue.component('edit-folio', __webpack_require__(/*! ./components/editFolio.vue */ "./resources/js/components/editFolio.vue")["default"]);
+Vue.component('rep-art', __webpack_require__(/*! ./components/repArticulo.vue */ "./resources/js/components/repArticulo.vue")["default"]);
+Vue.component('rep-ensayo', __webpack_require__(/*! ./components/repEnsayo.vue */ "./resources/js/components/repEnsayo.vue")["default"]);
+Vue.component('rep-exp', __webpack_require__(/*! ./components/repMemExp.vue */ "./resources/js/components/repMemExp.vue")["default"]);
+Vue.component('rep-con', __webpack_require__(/*! ./components/repApCon.vue */ "./resources/js/components/repApCon.vue")["default"]);
+Vue.component('rep-aut', __webpack_require__(/*! ./components/repAut.vue */ "./resources/js/components/repAut.vue")["default"]);
+Vue.component('rep-inv', __webpack_require__(/*! ./components/repResIn.vue */ "./resources/js/components/repResIn.vue")["default"]);
+Vue.component('rep-tesina', __webpack_require__(/*! ./components/repTesina.vue */ "./resources/js/components/repTesina.vue")["default"]);
+Vue.component('rep-tesis', __webpack_require__(/*! ./components/repTesis.vue */ "./resources/js/components/repTesis.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -84552,6 +94448,351 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/repApCon.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/repApCon.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _repApCon_vue_vue_type_template_id_60be7afe___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./repApCon.vue?vue&type=template&id=60be7afe& */ "./resources/js/components/repApCon.vue?vue&type=template&id=60be7afe&");
+/* harmony import */ var _repApCon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./repApCon.vue?vue&type=script&lang=js& */ "./resources/js/components/repApCon.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _repApCon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _repApCon_vue_vue_type_template_id_60be7afe___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _repApCon_vue_vue_type_template_id_60be7afe___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/repApCon.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/repApCon.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/repApCon.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_repApCon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./repApCon.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repApCon.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_repApCon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/repApCon.vue?vue&type=template&id=60be7afe&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/repApCon.vue?vue&type=template&id=60be7afe& ***!
+  \*****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repApCon_vue_vue_type_template_id_60be7afe___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./repApCon.vue?vue&type=template&id=60be7afe& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repApCon.vue?vue&type=template&id=60be7afe&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repApCon_vue_vue_type_template_id_60be7afe___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repApCon_vue_vue_type_template_id_60be7afe___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/repArticulo.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/components/repArticulo.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _repArticulo_vue_vue_type_template_id_7ab95b9d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./repArticulo.vue?vue&type=template&id=7ab95b9d& */ "./resources/js/components/repArticulo.vue?vue&type=template&id=7ab95b9d&");
+/* harmony import */ var _repArticulo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./repArticulo.vue?vue&type=script&lang=js& */ "./resources/js/components/repArticulo.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _repArticulo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _repArticulo_vue_vue_type_template_id_7ab95b9d___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _repArticulo_vue_vue_type_template_id_7ab95b9d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/repArticulo.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/repArticulo.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/repArticulo.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_repArticulo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./repArticulo.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repArticulo.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_repArticulo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/repArticulo.vue?vue&type=template&id=7ab95b9d&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/repArticulo.vue?vue&type=template&id=7ab95b9d& ***!
+  \********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repArticulo_vue_vue_type_template_id_7ab95b9d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./repArticulo.vue?vue&type=template&id=7ab95b9d& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repArticulo.vue?vue&type=template&id=7ab95b9d&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repArticulo_vue_vue_type_template_id_7ab95b9d___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repArticulo_vue_vue_type_template_id_7ab95b9d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/repAut.vue":
+/*!********************************************!*\
+  !*** ./resources/js/components/repAut.vue ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _repAut_vue_vue_type_template_id_0ae75d24___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./repAut.vue?vue&type=template&id=0ae75d24& */ "./resources/js/components/repAut.vue?vue&type=template&id=0ae75d24&");
+/* harmony import */ var _repAut_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./repAut.vue?vue&type=script&lang=js& */ "./resources/js/components/repAut.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _repAut_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _repAut_vue_vue_type_template_id_0ae75d24___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _repAut_vue_vue_type_template_id_0ae75d24___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/repAut.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/repAut.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/repAut.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_repAut_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./repAut.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repAut.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_repAut_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/repAut.vue?vue&type=template&id=0ae75d24&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/repAut.vue?vue&type=template&id=0ae75d24& ***!
+  \***************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repAut_vue_vue_type_template_id_0ae75d24___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./repAut.vue?vue&type=template&id=0ae75d24& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repAut.vue?vue&type=template&id=0ae75d24&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repAut_vue_vue_type_template_id_0ae75d24___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repAut_vue_vue_type_template_id_0ae75d24___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/repEnsayo.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/components/repEnsayo.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _repEnsayo_vue_vue_type_template_id_78ee324f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./repEnsayo.vue?vue&type=template&id=78ee324f& */ "./resources/js/components/repEnsayo.vue?vue&type=template&id=78ee324f&");
+/* harmony import */ var _repEnsayo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./repEnsayo.vue?vue&type=script&lang=js& */ "./resources/js/components/repEnsayo.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _repEnsayo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _repEnsayo_vue_vue_type_template_id_78ee324f___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _repEnsayo_vue_vue_type_template_id_78ee324f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/repEnsayo.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/repEnsayo.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/repEnsayo.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_repEnsayo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./repEnsayo.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repEnsayo.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_repEnsayo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/repEnsayo.vue?vue&type=template&id=78ee324f&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/repEnsayo.vue?vue&type=template&id=78ee324f& ***!
+  \******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repEnsayo_vue_vue_type_template_id_78ee324f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./repEnsayo.vue?vue&type=template&id=78ee324f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repEnsayo.vue?vue&type=template&id=78ee324f&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repEnsayo_vue_vue_type_template_id_78ee324f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repEnsayo_vue_vue_type_template_id_78ee324f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/repMemExp.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/components/repMemExp.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _repMemExp_vue_vue_type_template_id_aa94ea6c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./repMemExp.vue?vue&type=template&id=aa94ea6c& */ "./resources/js/components/repMemExp.vue?vue&type=template&id=aa94ea6c&");
+/* harmony import */ var _repMemExp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./repMemExp.vue?vue&type=script&lang=js& */ "./resources/js/components/repMemExp.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _repMemExp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _repMemExp_vue_vue_type_template_id_aa94ea6c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _repMemExp_vue_vue_type_template_id_aa94ea6c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/repMemExp.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/repMemExp.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/repMemExp.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_repMemExp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./repMemExp.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repMemExp.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_repMemExp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/repMemExp.vue?vue&type=template&id=aa94ea6c&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/repMemExp.vue?vue&type=template&id=aa94ea6c& ***!
+  \******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repMemExp_vue_vue_type_template_id_aa94ea6c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./repMemExp.vue?vue&type=template&id=aa94ea6c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repMemExp.vue?vue&type=template&id=aa94ea6c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repMemExp_vue_vue_type_template_id_aa94ea6c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repMemExp_vue_vue_type_template_id_aa94ea6c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/repOutCreate.vue":
 /*!**************************************************!*\
   !*** ./resources/js/components/repOutCreate.vue ***!
@@ -84685,6 +94926,213 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repResCreate_vue_vue_type_template_id_6ece5dea___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repResCreate_vue_vue_type_template_id_6ece5dea___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/repResIn.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/repResIn.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _repResIn_vue_vue_type_template_id_485baeda___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./repResIn.vue?vue&type=template&id=485baeda& */ "./resources/js/components/repResIn.vue?vue&type=template&id=485baeda&");
+/* harmony import */ var _repResIn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./repResIn.vue?vue&type=script&lang=js& */ "./resources/js/components/repResIn.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _repResIn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _repResIn_vue_vue_type_template_id_485baeda___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _repResIn_vue_vue_type_template_id_485baeda___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/repResIn.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/repResIn.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/repResIn.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_repResIn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./repResIn.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repResIn.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_repResIn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/repResIn.vue?vue&type=template&id=485baeda&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/repResIn.vue?vue&type=template&id=485baeda& ***!
+  \*****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repResIn_vue_vue_type_template_id_485baeda___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./repResIn.vue?vue&type=template&id=485baeda& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repResIn.vue?vue&type=template&id=485baeda&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repResIn_vue_vue_type_template_id_485baeda___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repResIn_vue_vue_type_template_id_485baeda___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/repTesina.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/components/repTesina.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _repTesina_vue_vue_type_template_id_267b2e3c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./repTesina.vue?vue&type=template&id=267b2e3c& */ "./resources/js/components/repTesina.vue?vue&type=template&id=267b2e3c&");
+/* harmony import */ var _repTesina_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./repTesina.vue?vue&type=script&lang=js& */ "./resources/js/components/repTesina.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _repTesina_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _repTesina_vue_vue_type_template_id_267b2e3c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _repTesina_vue_vue_type_template_id_267b2e3c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/repTesina.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/repTesina.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/repTesina.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_repTesina_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./repTesina.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repTesina.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_repTesina_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/repTesina.vue?vue&type=template&id=267b2e3c&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/repTesina.vue?vue&type=template&id=267b2e3c& ***!
+  \******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repTesina_vue_vue_type_template_id_267b2e3c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./repTesina.vue?vue&type=template&id=267b2e3c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repTesina.vue?vue&type=template&id=267b2e3c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repTesina_vue_vue_type_template_id_267b2e3c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repTesina_vue_vue_type_template_id_267b2e3c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/repTesis.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/repTesis.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _repTesis_vue_vue_type_template_id_3b3c8ffa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./repTesis.vue?vue&type=template&id=3b3c8ffa& */ "./resources/js/components/repTesis.vue?vue&type=template&id=3b3c8ffa&");
+/* harmony import */ var _repTesis_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./repTesis.vue?vue&type=script&lang=js& */ "./resources/js/components/repTesis.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _repTesis_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _repTesis_vue_vue_type_template_id_3b3c8ffa___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _repTesis_vue_vue_type_template_id_3b3c8ffa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/repTesis.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/repTesis.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/repTesis.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_repTesis_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./repTesis.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repTesis.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_repTesis_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/repTesis.vue?vue&type=template&id=3b3c8ffa&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/repTesis.vue?vue&type=template&id=3b3c8ffa& ***!
+  \*****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repTesis_vue_vue_type_template_id_3b3c8ffa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./repTesis.vue?vue&type=template&id=3b3c8ffa& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/repTesis.vue?vue&type=template&id=3b3c8ffa&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repTesis_vue_vue_type_template_id_3b3c8ffa___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_repTesis_vue_vue_type_template_id_3b3c8ffa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

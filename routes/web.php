@@ -70,6 +70,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('postResInv', 'ProtocolosController@postResInv');
     Route::post('postTesina', 'ProtocolosController@postTesina');
     Route::post('postTesis', 'ProtocolosController@postTesis');
+    Route::post('postSi', 'ReportesController@postSi');
     
     Route::post('postFolio', 'ProtocolosController@asignar');
 
@@ -80,7 +81,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('get_carreras', 'AdminsController@getCarreras');
     Route::put('tesista_put_cascade','TesistasController@updateCascade');
     Route::put('sinodal_put_cascade','SinodalesController@updateCascade');
-
+    
+    Route::get('post_reporte/{version}/{mod}','ReportesController@getReporte')->name('post.reporte');
+    Route::get('get_info/{version}/{mod}','ReportesController@getData')->name('getInfo');
+    Route::get('getEval/{usr}','ReportesController@getEval')->name('getEval');
+    Route::get('getTipos','ReportesController@getTipos')->name('getTipos');
 });
 
 Route::middleware(['guest'])->group(function () {

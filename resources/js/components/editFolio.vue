@@ -119,7 +119,7 @@ export default {
             }
         },
         cerrar(){
-            location.reload;
+            location.reload();
         }
     },
     computed: {

@@ -35,6 +35,16 @@ Vue.component('create-rep-out', require('./components/repOutCreate.vue').default
 Vue.component('create-rep-res', require('./components/repResCreate.vue').default);
 Vue.component('head-prot', require('./components/encabezado.vue').default);
 Vue.component('edit-folio', require('./components/editFolio.vue').default);
+
+Vue.component('rep-art', require('./components/repArticulo.vue').default);
+Vue.component('rep-ensayo', require('./components/repEnsayo.vue').default);
+Vue.component('rep-exp', require('./components/repMemExp.vue').default);
+Vue.component('rep-con', require('./components/repApCon.vue').default);
+Vue.component('rep-aut', require('./components/repAut.vue').default);
+Vue.component('rep-inv', require('./components/repResIn.vue').default);
+Vue.component('rep-tesina', require('./components/repTesina.vue').default);
+Vue.component('rep-tesis', require('./components/repTesis.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

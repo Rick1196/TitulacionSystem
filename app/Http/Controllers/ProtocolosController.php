@@ -449,7 +449,7 @@ class ProtocolosController extends Controller
         $sustentando = DB::table('sustentando')->insertGetId(
             ['tema' => $request['tema'], 
             'fecha_alta' => Carbon::now(),
-            'modalidad'=>'5']
+            'modalidad'=>'6']
         );
         //registrar tipo protocolo
         DB::table('investigacion')->insert(
@@ -460,7 +460,7 @@ class ProtocolosController extends Controller
                 'asesor' => $request['asesor'],
                 'coasesor' => $request['coasesor'],
                 'area' => $request['area'],
-                'titulo_proyecto' => $request['area'],
+                'titulo_proyecto' => $request['titulo_proyecto'],
                 'descripcion' => $request['desc'],
                 'titulo_reporte' => $request['titulo_reporte'],
                 'objetivo' => $request['obj'],
@@ -514,7 +514,7 @@ class ProtocolosController extends Controller
         $sustentando = DB::table('sustentando')->insertGetId(
             ['tema' => $request['tema'], 
             'fecha_alta' => Carbon::now(),
-            'modalidad'=>'6']
+            'modalidad'=>'7']
         );
         //registrar tipo protocolo
         DB::table('tesina')->insert(
@@ -580,7 +580,7 @@ class ProtocolosController extends Controller
         $sustentando = DB::table('sustentando')->insertGetId(
             ['tema' => $request['tema'], 
             'fecha_alta' => Carbon::now(),
-            'modalidad'=>'7']
+            'modalidad'=>'8']
         );
         //registrar tipo protocolo
         DB::table('tesis')->insert(
